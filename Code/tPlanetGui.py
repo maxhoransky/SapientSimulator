@@ -379,7 +379,7 @@ class TPlanetGui(tk.Tk):
             #------------------------------------------------------------------
             tileObj  = self.lblTiles[self.lblTileSelected]
             
-            if tileObj.biome=="sea": self.setStatus('I can not set tribe into sea')
+            if tileObj.biome=="Sea": self.setStatus('I can not set tribe into sea')
             else:
                 #--------------------------------------------------------------
                 # Skontrolujem ci je vybrany tribe
@@ -637,9 +637,7 @@ class TPlanetGui(tk.Tk):
         finally: self.tileMenu.grab_release()
 
     #--------------------------------------------------------------------------
-    def tileBiome(self, biomeStr):
-        
-        biome = int(biomeStr)
+    def tileBiome(self, biome):
         
         # Ziskam tile, ktora je spojena s touto lblTile
         tile   = self.lblTiles[self.lblTileSelected]
@@ -699,13 +697,13 @@ class TPlanetGui(tk.Tk):
     def tileColor(self, tile):
         
         # Ak je to more, zobrazim more
-        if tile.biome=="sea": return lib.getBiomColor(0)
+        if tile.biome=="Sea": return lib.getBiomeColor(0)
         
         # Ak je to pevnina, zobrazim zelanu agregaciu zo zelanej historie tribes
         show   = self.str_show.get()
         tribes = tile.history[self.period]['tribes']
                 
-        if   show == 'BIOM'       : bcColor = lib.getBiomColor  (tile.biome)
+        if   show == 'BIOM'       : bcColor = lib.getBiomeColor (tile.biome)
         elif show == 'TRIBES'     : bcColor = lib.getTribesColor(tribes, self.denMax )
         elif show == 'POPULATION' : bcColor = lib.getPopulColor (tribes, self.denMax )
         elif show == 'KNOWLEDGE'  : bcColor = lib.getKnowlColor (tribes, self.knowMax)
@@ -718,7 +716,7 @@ class TPlanetGui(tk.Tk):
     def tileLabel(self, tile):
         
         # Ak je to more, zobrazim more
-        if tile.biome=="sea": return 'This is a sea'
+        if tile.biome=="Sea": return 'This is a sea'
         
         # Ak je to pevnina, zobrazim zelanu agregaciu zo zelanej historie tribes
         show = self.str_show.get()
@@ -730,7 +728,7 @@ class TPlanetGui(tk.Tk):
         elif show == 'PREFERENCES': lbl = tile.getPeriodPrfStr(self.period)
         else                      : lbl = 'Unknown show option'
 
-        return f'{tile.tileId} [{tile.biome}m n.m.] : {lbl}'
+        return f'{tile.tileId} [{tile.biome}] : {lbl}'
     
     #--------------------------------------------------------------------------
     def tileText(self, row, col):

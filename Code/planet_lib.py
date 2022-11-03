@@ -1,12 +1,7 @@
 #==============================================================================
 # Planet Max: Utility library file
 #------------------------------------------------------------------------------
-
-#==============================================================================
-# Constans
-#------------------------------------------------------------------------------
-biomes = { 
-    '''
+'''
        0: {'color':'#4faed0', 'agrWork':  0, 'agrSource':    0, 'indWork':  0, 'indSource':    0},
        
      100: {'color':'#66ff33', 'agrWork':170, 'agrSource': 1800, 'indWork':110, 'indSource':  400},
@@ -43,7 +38,10 @@ biomes = {
     
     3000: {'color':'#ffffff', 'agrWork':  0, 'agrSource':    0, 'indWork':  0, 'indSource':    0},
     '''
-
+#==============================================================================
+# Constans
+#------------------------------------------------------------------------------
+biomes = { 
     "Sea":              {'color':'#4faed0', 'agrWork':  0, 'agrSource':    0, 'indWork':  0, 'indSource':    0},
     "Rainforest":       {'color':'#005f11', 'agrWork':  0, 'agrSource':    0, 'indWork':  0, 'indSource':    0},
     "Monsoon":          {'color':'#66ff33', 'agrWork':170, 'agrSource': 1800, 'indWork':110, 'indSource':  400},
@@ -123,11 +121,11 @@ def getMaxWork(biome, resType):
 #==============================================================================
 # Color Functions
 #------------------------------------------------------------------------------
-def getBiomColor(biome):
-    "Returns of the biome" 
+def getBiomeColor(targetBiome):
+    "Returns the colour of the biome" 
     
-    for h, rec in biomes.items():
-        if h == biome: return rec['color']
+    for biome, info in biomes.items():
+        if biome == targetBiome: return info['color']
         
     # Ak nemam definovanu vysku
     return '#000000'

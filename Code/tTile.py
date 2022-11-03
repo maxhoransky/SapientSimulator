@@ -87,7 +87,7 @@ class TTile:
     #==========================================================================
     # Constructor & utilities
     #--------------------------------------------------------------------------
-    def __init__(self, tileId, biome="sea"):
+    def __init__(self, tileId, biome="Sea"):
         "Calls constructor of TTile and initialise it with empty data"
 
         self.journal.I('TTile.constructor')
@@ -396,7 +396,7 @@ class TTile:
                 #--------------------------------------------------------------
                 # Ak susedna Tile nie je more
                 #--------------------------------------------------------------
-                if neighTile.biome != "sea":
+                if neighTile.biome != "Sea":
                 
                     #----------------------------------------------------------
                     #Hustota tohto Tribeu u susedov v last period
