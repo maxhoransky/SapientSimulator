@@ -5,7 +5,8 @@
 #==============================================================================
 # Constans
 #------------------------------------------------------------------------------
-bioms = { 
+biomes = { 
+    '''
        0: {'color':'#4faed0', 'agrWork':  0, 'agrSource':    0, 'indWork':  0, 'indSource':    0},
        
      100: {'color':'#66ff33', 'agrWork':170, 'agrSource': 1800, 'indWork':110, 'indSource':  400},
@@ -40,7 +41,23 @@ bioms = {
     2800: {'color':'#faed8b', 'agrWork':  0, 'agrSource':    0, 'indWork': 90, 'indSource':  150},
     2900: {'color':'#ffff99', 'agrWork':  0, 'agrSource':    0, 'indWork': 90, 'indSource':  100},
     
-    3000: {'color':'#ffffff', 'agrWork':  0, 'agrSource':    0, 'indWork':  0, 'indSource':    0}
+    3000: {'color':'#ffffff', 'agrWork':  0, 'agrSource':    0, 'indWork':  0, 'indSource':    0},
+    '''
+
+    "Sea":              {'color':'#4faed0', 'agrWork':  0, 'agrSource':    0, 'indWork':  0, 'indSource':    0},
+    "Rainforest":       {'color':'#005f11', 'agrWork':  0, 'agrSource':    0, 'indWork':  0, 'indSource':    0},
+    "Monsoon":          {'color':'#66ff33', 'agrWork':170, 'agrSource': 1800, 'indWork':110, 'indSource':  400},
+    "Savannah":         {'color':'#5ceb2e', 'agrWork':180, 'agrSource': 2000, 'indWork':150, 'indSource':  450},
+    "Desert":           {'color':'#52d629', 'agrWork':185, 'agrSource': 1900, 'indWork':180, 'indSource':  500},
+    "Cold desert":      {'color':'#47c224', 'agrWork':175, 'agrSource': 1800, 'indWork':200, 'indSource':  600},
+    "Steppe":           {'color':'#38a31c', 'agrWork':120, 'agrSource': 1300, 'indWork':210, 'indSource':  800},
+    "Subtropical":      {'color':'#298514', 'agrWork':100, 'agrSource': 1000, 'indWork':230, 'indSource': 1200},
+    "Mediterranean":    {'color':'#1a660d', 'agrWork':100, 'agrSource':  900, 'indWork':250, 'indSource': 3000},
+    "Marine":           {'color':'#0a4705', 'agrWork':100, 'agrSource':  800, 'indWork':270, 'indSource': 4000},
+    "Humid":            {'color':'#003300', 'agrWork':100, 'agrSource':  750, 'indWork':300, 'indSource': 4500},
+    "Taiga":            {'color':'#333300', 'agrWork':110, 'agrSource':  700, 'indWork':310, 'indSource': 4700},
+    "Tundra":           {'color':'#423300', 'agrWork':120, 'agrSource':  650, 'indWork':300, 'indSource': 4200},
+    "Ice Caps":         {'color':'#523300', 'agrWork':130, 'agrSource':  600, 'indWork':290, 'indSource': 3700},
 }
 
 #------------------------------------------------------------------------------
@@ -64,8 +81,8 @@ tribes = {
 #==============================================================================
 # Resource harvesting Functions
 #------------------------------------------------------------------------------
-def getResource(height, resType, workForce, knowledge):
-    "Returns produced resource of <resType> for respective <height> and <workforce> density and <knowledge>"
+def getResource(biome, resType, workForce, knowledge):
+    "Returns produced resource of <resType> for respective <biome> and <workforce> density and <knowledge>"
     
     # Ak som neposlal ziadnu workforce, vysledok je 0 resources pri 0 efektivite a 0 unused workforce
     if workForce == 0: return (0, 0, 0)
@@ -73,7 +90,7 @@ def getResource(height, resType, workForce, knowledge):
     #--------------------------------------------------------------------------
     # Urcim skutocne vyuzitu pracovnu silu - je to maximalne vyuzitelna workoforce na biome
     #--------------------------------------------------------------------------
-    maxForce    = getMaxWork(height, resType)
+    maxForce    = getMaxWork(biome, resType)
     usedForce   = min(workForce, maxForce)
     
     # Urcim kolko workforce bolo alokovanych zbytocne a nebolo vyuzitych
@@ -82,7 +99,7 @@ def getResource(height, resType, workForce, knowledge):
     #--------------------------------------------------------------------------
     # Vynos resource je pomerna cast USED workforce voci  max workforce krat miera znalosti
     #--------------------------------------------------------------------------
-    res = getMaxResource(height, resType) * (usedForce/maxForce) * knowledge
+    res = getMaxResource(biome, resType) * (usedForce/maxForce) * knowledge
     
     #--------------------------------------------------------------------------
     # Efektivita je pomer vynosu a celkovej workforce (vratane nevyuzitej casti)
@@ -92,25 +109,25 @@ def getResource(height, resType, workForce, knowledge):
     return (res, eff, unUsedForce)
 
 #------------------------------------------------------------------------------
-def getMaxResource(height, resType):
-    "Returns maximum of resource can be harvested in the biom with respective height"
+def getMaxResource(biome, resType):
+    "Returns maximum of resource can be harvested in the biome with respective biome"
     
-    return bioms[height][f'{resType}Source']
+    return biomes[biome][f'{resType}Source']
     
 #------------------------------------------------------------------------------
-def getMaxWork(height, resType):
-    "Returns maximum of workforce can be used in the biom with respective height"
+def getMaxWork(biome, resType):
+    "Returns maximum of workforce can be used in the biome with respective biome"
     
-    return bioms[height][f'{resType}Work']
+    return biomes[biome][f'{resType}Work']
     
 #==============================================================================
 # Color Functions
 #------------------------------------------------------------------------------
-def getBiomColor(height):
-    "Returns of the biom" 
+def getBiomColor(biome):
+    "Returns of the biome" 
     
-    for h, rec in bioms.items():
-        if h >= height: return rec['color']
+    for h, rec in biomes.items():
+        if h == biome: return rec['color']
         
     # Ak nemam definovanu vysku
     return '#000000'

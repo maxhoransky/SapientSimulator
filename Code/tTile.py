@@ -23,7 +23,7 @@ _KNOW_DECAY      = 0.95  # Koeficient zabudania knowledge ak jej tribe nevenuje 
 _KNOW_MIN        = 0.1   # Minimalna hodnota znalosti uplnych divochov
 
 _PREF_UNUS_LIMIT =   5   # Ak je unused workforce vyssia ako tato hranica, zapricini zmenu preferencii
-_PREF_BY_UNUS    = 0.1   # Zmena preferncie podla unused workforce pre biom
+_PREF_BY_UNUS    = 0.1   # Zmena preferncie podla unused workforce pre biome
 _PREF_BY_EFF     = 0.1   # Zmena preferencie podla efektivity vyuzitia pracovnej sily (preferencie)
 _PREF_MIN        = 0.05  # Minimalna hodnota preferencie pre resType
 
@@ -87,7 +87,7 @@ class TTile:
     #==========================================================================
     # Constructor & utilities
     #--------------------------------------------------------------------------
-    def __init__(self, tileId, height=0):
+    def __init__(self, tileId, biome="sea"):
         "Calls constructor of TTile and initialise it with empty data"
 
         self.journal.I('TTile.constructor')
@@ -97,7 +97,7 @@ class TTile:
         self.col        = 0               # Pozicia tile - stlpec
         self.neighs     = []              # Zoznam geografickych susedov tile [tileObj]
 
-        self.height     = height          # Priemerna vyska tile nad morom
+        self.biome      = biome          # Biome of the tile
         self.history    = [{'period':0, 'densTot':0, 'tribes':{}}] # Historia tile
         
         # Zaradim novu tile do zoznamu tiles
@@ -122,14 +122,14 @@ class TTile:
 
         msg = []
         msg.append(f'Tile ID   :{self.tileId}'   )
-        msg.append(f'height    :{self.height}'   )
+        msg.append(f'biome    :{self.biome}'   )
         msg.append(f'row       :{self.row}'   )
         msg.append(f'col       :{self.col}'   )
         msg.append(_SEP)
         msg.append('Neighbours:')
 
         for neighObj in self.neighs:
-            msg.append(f'{neighObj.tileId}    :{neighObj.height}'   )
+            msg.append(f'{neighObj.tileId}    :{neighObj.biome}'   )
             
         for actPer in self.history:
             
@@ -309,7 +309,7 @@ class TTile:
             #------------------------------------------------------------------
             # Zber AGR resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
             #------------------------------------------------------------------
-            (res, eff, unu) = lib.getResource( self.height, resType='agr', workForce=dens*prefs['agr'], knowledge=knows['agr'] )
+            (res, eff, unu) = lib.getResource( self.biome, resType='agr', workForce=dens*prefs['agr'], knowledge=knows['agr'] )
             
             resrs['agr'] = res
             effs ['agr'] = eff
@@ -318,7 +318,7 @@ class TTile:
             #------------------------------------------------------------------
             # Zber IND resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
             #------------------------------------------------------------------
-            (res, eff, unu) = lib.getResource( self.height, resType='ind', workForce=dens*prefs['ind'], knowledge=knows['ind'] )
+            (res, eff, unu) = lib.getResource( self.biome, resType='ind', workForce=dens*prefs['ind'], knowledge=knows['ind'] )
             resrs['ind'] = res
             effs ['ind'] = eff
             unus ['ind'] = unu
@@ -396,7 +396,7 @@ class TTile:
                 #--------------------------------------------------------------
                 # Ak susedna Tile nie je more
                 #--------------------------------------------------------------
-                if neighTile.height > 0:
+                if neighTile.biome != "sea":
                 
                     #----------------------------------------------------------
                     #Hustota tohto Tribeu u susedov v last period
@@ -625,7 +625,7 @@ class TTile:
         data = {}
         
         data['tileId' ] = self.tileId   # ID tile
-        data['height' ] = self.height   # Priemerna vyska tile nad morom
+        data['biome' ]  = self.biome   # Priemerna vyska tile nad morom
         data['row'    ] = self.row      # Pozicia tile - riadok
         data['col'    ] = self.col      # Pozicia tile - stlpec
         data['history'] = self.history  # Historia tile [{'agrState':agrState, 'tribes':tribes}]
@@ -640,7 +640,7 @@ class TTile:
 
         self.journal.I(f'{self.tileId}.fromJson:')
         
-        self.height  = data['height' ]
+        self.biome  = data['biome' ]
         
         if 'history' in data.keys() and len(data['history'])>0: 
             self.history = data['history']

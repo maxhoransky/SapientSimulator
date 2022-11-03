@@ -379,7 +379,7 @@ class TPlanetGui(tk.Tk):
             #------------------------------------------------------------------
             tileObj  = self.lblTiles[self.lblTileSelected]
             
-            if tileObj.height==0: self.setStatus('I can not set tribe into sea')
+            if tileObj.biome=="sea": self.setStatus('I can not set tribe into sea')
             else:
                 #--------------------------------------------------------------
                 # Skontrolujem ci je vybrany tribe
@@ -545,12 +545,15 @@ class TPlanetGui(tk.Tk):
                 self.lblTiles[lblTile] = tile
 
         #----------------------------------------------------------------------
-        # Vytvorim Menu pre click on Tile / nastavenie height
+        # Vytvorim Menu pre click on Tile / nastavenie biome
         #----------------------------------------------------------------------
         self.tileMenu = tk.Menu(self, tearoff = 0)
         
-        for h in range(0, 3100, 200):
-            self.tileMenu.add_command(label =f"Height :   {str(h).ljust(5)}", command=lambda t=str(h): self.tileHeight(t))
+        for biome in lib.biomes.keys():
+            self.tileMenu.add_command(label =f"biome :   {biome}", command=lambda t=biome: self.tileBiome(t))
+
+        #for h in range(0, 3100, 200):
+            #self.tileMenu.add_command(label =f"biome :   {se}", command=lambda t=str(h): self.tileBiome(t))
 
         #----------------------------------------------------------------------
         # Vycistenie selected premennych
@@ -624,29 +627,29 @@ class TPlanetGui(tk.Tk):
         #----------------------------------------------------------------------
         self.lblTileSelected = event.widget
         tile   = self.lblTiles[self.lblTileSelected]
-        self.setStatus(f'tileRightClick: {self.lblTileSelected} => {tile.tileId} with height {tile.height}')
+        self.setStatus(f'tileRightClick: {self.lblTileSelected} => {tile.tileId} with biome {tile.biome}')
         
         # Zobraz vlastnosti Tile
         self.showTileOptions()
 
-        #nakoniec otvor popup menu pre nastavenie height
+        #nakoniec otvor popup menu pre nastavenie biome
         try    : self.tileMenu.tk_popup(event.x_root, event.y_root)
         finally: self.tileMenu.grab_release()
 
     #--------------------------------------------------------------------------
-    def tileHeight(self, heightStr):
+    def tileBiome(self, biomeStr):
         
-        height = int(heightStr)
+        biome = int(biomeStr)
         
         # Ziskam tile, ktora je spojena s touto lblTile
         tile   = self.lblTiles[self.lblTileSelected]
         row    = tile.row
         col    = tile.col
         
-        self.setStatus(f'tileHeight: {height} for tileId = {tile.tileId}')
+        self.setStatus(f'tileBiome: {biome} for tileId = {tile.tileId}')
         
         # Nastavim vysku tile
-        tile.height = height
+        tile.biome = biome
 
         # Updatnem na obrazovke lblTile
         self.lblTileSelected.configure( background = self.tileColor(tile)    )
@@ -696,13 +699,13 @@ class TPlanetGui(tk.Tk):
     def tileColor(self, tile):
         
         # Ak je to more, zobrazim more
-        if tile.height==0: return lib.getBiomColor(0)
+        if tile.biome=="sea": return lib.getBiomColor(0)
         
         # Ak je to pevnina, zobrazim zelanu agregaciu zo zelanej historie tribes
         show   = self.str_show.get()
         tribes = tile.history[self.period]['tribes']
                 
-        if   show == 'BIOM'       : bcColor = lib.getBiomColor  (tile.height)
+        if   show == 'BIOM'       : bcColor = lib.getBiomColor  (tile.biome)
         elif show == 'TRIBES'     : bcColor = lib.getTribesColor(tribes, self.denMax )
         elif show == 'POPULATION' : bcColor = lib.getPopulColor (tribes, self.denMax )
         elif show == 'KNOWLEDGE'  : bcColor = lib.getKnowlColor (tribes, self.knowMax)
@@ -715,7 +718,7 @@ class TPlanetGui(tk.Tk):
     def tileLabel(self, tile):
         
         # Ak je to more, zobrazim more
-        if tile.height==0: return 'This is a sea'
+        if tile.biome=="sea": return 'This is a sea'
         
         # Ak je to pevnina, zobrazim zelanu agregaciu zo zelanej historie tribes
         show = self.str_show.get()
@@ -727,7 +730,7 @@ class TPlanetGui(tk.Tk):
         elif show == 'PREFERENCES': lbl = tile.getPeriodPrfStr(self.period)
         else                      : lbl = 'Unknown show option'
 
-        return f'{tile.tileId} [{tile.height}m n.m.] : {lbl}'
+        return f'{tile.tileId} [{tile.biome}m n.m.] : {lbl}'
     
     #--------------------------------------------------------------------------
     def tileText(self, row, col):
