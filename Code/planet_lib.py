@@ -42,20 +42,21 @@
 # Constans
 #------------------------------------------------------------------------------
 biomes = { 
-    "Sea":              {'color':'#4faed0', 'agrWork':  0, 'agrSource':    0, 'indWork':  0, 'indSource':    0},
+    "Sea":              {'color':'#2b53ff', 'agrWork':  0, 'agrSource':    0, 'indWork':  0, 'indSource':    0},
     "Rainforest":       {'color':'#005f11', 'agrWork':  0, 'agrSource':    0, 'indWork':  0, 'indSource':    0},
-    "Monsoon":          {'color':'#66ff33', 'agrWork':170, 'agrSource': 1800, 'indWork':110, 'indSource':  400},
-    "Savannah":         {'color':'#5ceb2e', 'agrWork':180, 'agrSource': 2000, 'indWork':150, 'indSource':  450},
-    "Desert":           {'color':'#52d629', 'agrWork':185, 'agrSource': 1900, 'indWork':180, 'indSource':  500},
-    "Cold desert":      {'color':'#47c224', 'agrWork':175, 'agrSource': 1800, 'indWork':200, 'indSource':  600},
-    "Steppe":           {'color':'#38a31c', 'agrWork':120, 'agrSource': 1300, 'indWork':210, 'indSource':  800},
-    "Subtropical":      {'color':'#298514', 'agrWork':100, 'agrSource': 1000, 'indWork':230, 'indSource': 1200},
-    "Mediterranean":    {'color':'#1a660d', 'agrWork':100, 'agrSource':  900, 'indWork':250, 'indSource': 3000},
-    "Marine":           {'color':'#0a4705', 'agrWork':100, 'agrSource':  800, 'indWork':270, 'indSource': 4000},
-    "Humid":            {'color':'#003300', 'agrWork':100, 'agrSource':  750, 'indWork':300, 'indSource': 4500},
-    "Taiga":            {'color':'#333300', 'agrWork':110, 'agrSource':  700, 'indWork':310, 'indSource': 4700},
-    "Tundra":           {'color':'#423300', 'agrWork':120, 'agrSource':  650, 'indWork':300, 'indSource': 4200},
-    "Ice Caps":         {'color':'#523300', 'agrWork':130, 'agrSource':  600, 'indWork':290, 'indSource': 3700},
+    "Monsoon":          {'color':'#008511', 'agrWork':170, 'agrSource': 1800, 'indWork':110, 'indSource':  400},
+    "Savannah":         {'color':'#8e852c', 'agrWork':180, 'agrSource': 2000, 'indWork':150, 'indSource':  450},
+    "Desert":           {'color':'#e4c518', 'agrWork':185, 'agrSource': 1900, 'indWork':180, 'indSource':  500},
+    "Cold desert":      {'color':'#C3D3EC', 'agrWork':175, 'agrSource': 1800, 'indWork':200, 'indSource':  600},
+    "Steppe":           {'color':'#91a35c', 'agrWork':120, 'agrSource': 1300, 'indWork':210, 'indSource':  800},
+    "Subtropical":      {'color':'#BA6120', 'agrWork':100, 'agrSource': 1000, 'indWork':230, 'indSource': 1200},
+    "Mediterranean":    {'color':'#D13A0F', 'agrWork':100, 'agrSource':  900, 'indWork':250, 'indSource': 3000},
+    "Marine":           {'color':'#86f4a2', 'agrWork':100, 'agrSource':  800, 'indWork':270, 'indSource': 4000},
+    "Humid":            {'color':'#25AB92', 'agrWork':100, 'agrSource':  750, 'indWork':300, 'indSource': 4500},
+    "Taiga":            {'color':'#9AB3AD', 'agrWork':110, 'agrSource':  700, 'indWork':310, 'indSource': 4700},
+    "Tundra":           {'color':'#B1C4C0', 'agrWork':120, 'agrSource':  650, 'indWork':300, 'indSource': 4200},
+    "Ice Caps":         {'color':'#bef9ff', 'agrWork':130, 'agrSource':  600, 'indWork':290, 'indSource': 3700},
+    "Mountains":        {'color':'#656565', 'agrWork':  0, 'agrSource':    0, 'indWork': 90, 'indSource':  100},
 }
 
 #------------------------------------------------------------------------------

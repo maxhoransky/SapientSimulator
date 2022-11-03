@@ -55,10 +55,10 @@ class TPlanetGui(tk.Tk):
         self.knowMax      = 3                # Maximalna suma knowledge per srcType na vsetkych tiles pre danu periodu
         
         self.lblTileSelected = None          # lblTile s ktorou pracujem
-        self.str_show   = tk.StringVar()     # Show BIOM/TRIBES/POPULATION/KNOWLEDGE/PREFERENCES
+        self.str_show   = tk.StringVar()     # Show BIOME/TRIBES/POPULATION/KNOWLEDGE/PREFERENCES
         self.str_tribe  = tk.StringVar()     # Tribe s ktorym pracujem na Tile
         self.str_dens   = tk.StringVar()     # Hustota polpulacie ktoru chcem nastavit na Tile
-        self.str_period = tk.StringVar()     # Show BIOM/TRIBES/POPULATION/KNOWLEDGE/PREFERENCES
+        self.str_period = tk.StringVar()     # Show BIOME/TRIBES/POPULATION/KNOWLEDGE/PREFERENCES
         self.str_period.trace('w', self.periodChanged)
 
         #----------------------------------------------------------------------
@@ -131,7 +131,7 @@ class TPlanetGui(tk.Tk):
         #----------------------------------------------------------------------
         # Period, Show, Load & Save Buttons
         #----------------------------------------------------------------------
-        lbl_period = ttk.Label(frm, relief=tk.FLAT, text='I will edit Period:' )
+        lbl_period = ttk.Label(frm, relief=tk.FLAT, text='Edit Period:' )
         lbl_period.grid(row=0, column=0, sticky='ws', padx=_PADX, pady=_PADY)
 
         self.str_period.set(self.period)
@@ -139,12 +139,12 @@ class TPlanetGui(tk.Tk):
         spin_period.grid(row=0, column=1, sticky='w', padx=_PADX, pady=_PADY)
 
         #----------------------------------------------------------------------
-        lbl_show = ttk.Label(frm, relief=tk.FLAT, text='I will show on map:' )
+        lbl_show = ttk.Label(frm, relief=tk.FLAT, text='Show on map:' )
         lbl_show.grid(row=1, column=0, sticky='ws', padx=_PADX, pady=_PADY)
 
-        self.str_show.set('BIOM')
+        self.str_show.set('BIOME')
         cb_show = ttk.Combobox(frm, textvariable=self.str_show)
-        cb_show['values'] = ['BIOM','TRIBES', 'POPULATION', 'KNOWLEDGE','PREFERENCES']
+        cb_show['values'] = ['BIOME','TRIBES', 'POPULATION', 'KNOWLEDGE','PREFERENCES']
         cb_show['state'] = 'readonly'
         cb_show.bind('<<ComboboxSelected>>', self.showChanged)
         cb_show.grid(row=1, column=1, sticky='nw', padx=_PADX, pady=_PADY)
@@ -341,7 +341,7 @@ class TPlanetGui(tk.Tk):
         # Edit Tribes on the Tile
         #----------------------------------------------------------------------
 
-        lbl_dens = ttk.Label(frm, relief=tk.FLAT, text="I will set Tribe's density" )
+        lbl_dens = ttk.Label(frm, relief=tk.FLAT, text="Set Tribe's density" )
         lbl_dens.grid(row=2, column=0, sticky='nw', padx=_PADX, pady=_PADY)
 
         spin_dens = ttk.Spinbox(frm, from_=0, to=5000, textvariable=self.str_dens, width=3)
@@ -697,13 +697,13 @@ class TPlanetGui(tk.Tk):
     def tileColor(self, tile):
         
         # Ak je to more, zobrazim more
-        if tile.biome=="Sea": return lib.getBiomeColor(0)
+        if tile.biome=="Sea": return lib.getBiomeColor("Sea")
         
         # Ak je to pevnina, zobrazim zelanu agregaciu zo zelanej historie tribes
         show   = self.str_show.get()
         tribes = tile.history[self.period]['tribes']
                 
-        if   show == 'BIOM'       : bcColor = lib.getBiomeColor (tile.biome)
+        if   show == 'BIOME'       : bcColor = lib.getBiomeColor (tile.biome)
         elif show == 'TRIBES'     : bcColor = lib.getTribesColor(tribes, self.denMax )
         elif show == 'POPULATION' : bcColor = lib.getPopulColor (tribes, self.denMax )
         elif show == 'KNOWLEDGE'  : bcColor = lib.getKnowlColor (tribes, self.knowMax)
@@ -721,7 +721,7 @@ class TPlanetGui(tk.Tk):
         # Ak je to pevnina, zobrazim zelanu agregaciu zo zelanej historie tribes
         show = self.str_show.get()
                 
-        if   show == 'BIOM'       : lbl = tile.getPeriodTrbStr(self.period)
+        if   show == 'BIOME'       : lbl = tile.getPeriodTrbStr(self.period)
         elif show == 'TRIBES'     : lbl = tile.getPeriodTrbStr(self.period)
         elif show == 'POPULATION' : lbl = tile.getPeriodPopStr(self.period)
         elif show == 'KNOWLEDGE'  : lbl = tile.getPeriodKnwStr(self.period)
