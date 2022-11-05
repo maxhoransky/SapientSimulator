@@ -1,0 +1,12 @@
+To do:
+    plantelib
+        add: forgaing+hunting, pastures,permissivity,
+        using: 'frgWork''frgSource''pstWork''pstSource''prms'
+    Tribes:
+        implement preferences for new planetlib stuff\
+        implement preferences for trade, research, maybe religion too?
+        Make tribes interact with each other
+        Make a technology tree
+        Implement the function of technologies
+    GUI:
+        Make all this new stuff show up
