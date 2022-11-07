@@ -6,21 +6,21 @@
 # Constans
 #------------------------------------------------------------------------------
 biomes = { 
-    "Sea":              {'color':'#2b53ff', 'prmst': 0, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Rainforest":       {'color':'#005f11', 'prmst': 0, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Monsoon":          {'color':'#008511', 'prmst': 0, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Savannah":         {'color':'#8e852c', 'prmst': 0, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Desert":           {'color':'#fefc01', 'prmst': 0, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Cold desert":      {'color':'#C3D3EC', 'prmst': 0, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Steppe":           {'color':'#c4a53b', 'prmst': 0, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Subtropical":      {'color':'#BA6120', 'prmst': 0, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Mediterranean":    {'color':'#D13A0F', 'prmst': 0, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Marine":           {'color':'#86f4a2', 'prmst': 0, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Humid":            {'color':'#25AB92', 'prmst': 0, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Taiga":            {'color':'#9AB3AD', 'prmst': 0, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Tundra":           {'color':'#B1C4C0', 'prmst': 0, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Ice Caps":         {'color':'#bef9ff', 'prmst': 0, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Mountains":        {'color':'#656565', 'prmst': 0, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
+    "Sea":              {'color':'#2b53ff', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
+    "Rainforest":       {'color':'#005f11', 'prmst': 1, 'agrWork':  50, 'agrSource':    150, 'frgWork':  300, 'frgSource':    2000, 'pstrWork':  0, 'pstrSource':    0,'indWork':  30, 'indSource':    100},
+    "Monsoon":          {'color':'#008511', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
+    "Savannah":         {'color':'#8e852c', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
+    "Desert":           {'color':'#fefc01', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
+    "Cold desert":      {'color':'#C3D3EC', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
+    "Steppe":           {'color':'#c4a53b', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
+    "Subtropical":      {'color':'#BA6120', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
+    "Mediterranean":    {'color':'#D13A0F', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
+    "Marine":           {'color':'#86f4a2', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
+    "Humid":            {'color':'#25AB92', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
+    "Taiga":            {'color':'#9AB3AD', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
+    "Tundra":           {'color':'#B1C4C0', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
+    "Ice Caps":         {'color':'#bef9ff', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
+    "Mountains":        {'color':'#656565', 'prmst': 0.2, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
 }
 
 #------------------------------------------------------------------------------
