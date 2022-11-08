@@ -6198,7 +6198,60 @@
                   {
                         "period": 0,
                         "densTot": 0,
-                        "tribes": {}
+                        "tribes": {
+                              "Nomads": {
+                                    "density": 10.0,
+                                    "color": {
+                                          "red": 1,
+                                          "green": 0,
+                                          "blue": 0
+                                    },
+                                    "preference": {
+                                          "frg": 0.7,
+                                          "agr": 0.02,
+                                          "pstr": 0.05,
+                                          "ind": 0.03,
+                                          "war": 0.05,
+                                          "trd": 0.15
+                                    },
+                                    "knowledge": {
+                                          "frg": 0.7,
+                                          "agr": 0.1,
+                                          "pstr": 0.1,
+                                          "ind": 0.1,
+                                          "war": 0.1,
+                                          "trd": 0.2
+                                    },
+                                    "resrs": {},
+                                    "denses": {}
+                              },
+                              "Fishermen": {
+                                    "density": 0,
+                                    "color": {
+                                          "red": 0,
+                                          "green": 1,
+                                          "blue": 0
+                                    },
+                                    "preference": {
+                                          "frg": 0.5,
+                                          "agr": 0.02,
+                                          "pstr": 0.02,
+                                          "ind": 0.06,
+                                          "war": 0.3,
+                                          "trd": 0.1
+                                    },
+                                    "knowledge": {
+                                          "frg": 0.45,
+                                          "agr": 0.1,
+                                          "pstr": 0.1,
+                                          "ind": 0.1,
+                                          "war": 0.1,
+                                          "trd": 0.1
+                                    },
+                                    "resrs": {},
+                                    "denses": {}
+                              }
+                        }
                   }
             ]
       },
@@ -6991,7 +7044,60 @@
                   {
                         "period": 0,
                         "densTot": 0,
-                        "tribes": {}
+                        "tribes": {
+                              "Fishermen": {
+                                    "density": 0,
+                                    "color": {
+                                          "red": 0,
+                                          "green": 1,
+                                          "blue": 0
+                                    },
+                                    "preference": {
+                                          "frg": 0.5,
+                                          "agr": 0.02,
+                                          "pstr": 0.02,
+                                          "ind": 0.06,
+                                          "war": 0.3,
+                                          "trd": 0.1
+                                    },
+                                    "knowledge": {
+                                          "frg": 0.45,
+                                          "agr": 0.1,
+                                          "pstr": 0.1,
+                                          "ind": 0.1,
+                                          "war": 0.1,
+                                          "trd": 0.1
+                                    },
+                                    "resrs": {},
+                                    "denses": {}
+                              },
+                              "Hunters": {
+                                    "density": 10.0,
+                                    "color": {
+                                          "red": 0,
+                                          "green": 0,
+                                          "blue": 1
+                                    },
+                                    "preference": {
+                                          "frg": 0.45,
+                                          "agr": 0.3,
+                                          "pstr": 0.05,
+                                          "ind": 0.02,
+                                          "war": 0.15,
+                                          "trd": 0.03
+                                    },
+                                    "knowledge": {
+                                          "frg": 0.3,
+                                          "agr": 0.25,
+                                          "pstr": 0.15,
+                                          "ind": 0.1,
+                                          "war": 0.2,
+                                          "trd": 0.1
+                                    },
+                                    "resrs": {},
+                                    "denses": {}
+                              }
+                        }
                   }
             ]
       },
@@ -7771,7 +7877,34 @@
                   {
                         "period": 0,
                         "densTot": 0,
-                        "tribes": {}
+                        "tribes": {
+                              "Fishermen": {
+                                    "density": 10.0,
+                                    "color": {
+                                          "red": 0,
+                                          "green": 1,
+                                          "blue": 0
+                                    },
+                                    "preference": {
+                                          "frg": 0.5,
+                                          "agr": 0.02,
+                                          "pstr": 0.02,
+                                          "ind": 0.06,
+                                          "war": 0.3,
+                                          "trd": 0.1
+                                    },
+                                    "knowledge": {
+                                          "frg": 0.45,
+                                          "agr": 0.1,
+                                          "pstr": 0.1,
+                                          "ind": 0.1,
+                                          "war": 0.1,
+                                          "trd": 0.1
+                                    },
+                                    "resrs": {},
+                                    "denses": {}
+                              }
+                        }
                   }
             ]
       },

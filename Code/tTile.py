@@ -302,10 +302,19 @@ class TTile:
             knows = tribeObj['knowledge' ]
             
             # Pripravim si nove prazdne resources, efektivitu a unused workforce
-            resrs = {'agr':0, 'ind':0, 'war':0}
-            effs  = {'agr':0, 'ind':0, 'war':0}
-            unus  = {'agr':0, 'ind':0, 'war':0}
+            resrs = {'frg':0, 'agr':0, 'pstr':0, 'ind':0, 'war':0}
+            effs  = {'frg':0, 'agr':0, 'pstr':0, 'ind':0, 'war':0}
+            unus  = {'frg':0, 'agr':0, 'pstr':0, 'ind':0, 'war':0}
 
+            #------------------------------------------------------------------
+            # Zber FRG resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
+            #------------------------------------------------------------------
+            (res, eff, unu) = lib.getResource( self.biome, resType='frg', workForce=dens*prefs['frg'], knowledge=knows['frg'] )
+            
+            resrs['frg'] = res
+            effs ['frg'] = eff
+            unus ['frg'] = unu
+            
             #------------------------------------------------------------------
             # Zber AGR resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
             #------------------------------------------------------------------
@@ -315,6 +324,15 @@ class TTile:
             effs ['agr'] = eff
             unus ['agr'] = unu
 
+            #------------------------------------------------------------------
+            # Zber PSTR resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
+            #------------------------------------------------------------------
+            (res, eff, unu) = lib.getResource( self.biome, resType='pstr', workForce=dens*prefs['pstr'], knowledge=knows['pstr'] )
+            
+            resrs['pstr'] = res
+            effs ['pstr'] = eff
+            unus ['pstr'] = unu
+            
             #------------------------------------------------------------------
             # Zber IND resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
             #------------------------------------------------------------------
@@ -353,7 +371,7 @@ class TTile:
         for tribeId, tribeObj in lastPeriod['tribes'].items():
 
             # Vstupne hodnoty
-            resrTot = tribeObj['resrs']['agr'] + tribeObj['resrs']['ind'] + tribeObj['resrs']['war']
+            resrTot = tribeObj['resrs']['frg'] + tribeObj['resrs']['agr'] + tribeObj['resrs']['pstr'] + tribeObj['resrs']['ind'] + tribeObj['resrs']['war']
             
             # Zacinam simulaciu s povodnym obyvatelstvom z predchadzajucej periody
             densSim = tribeObj['density']
@@ -469,9 +487,15 @@ class TTile:
                 #--------------------------------------------------------------
                 # Zmena knowledge podla miery preferencii = pozornosti, ktory tribe venoval oblasti
                 #--------------------------------------------------------------
+                know = self.knowledgeChange(tribeObj, 'frg')
+                simPeriodTribe['knowledge']['frg'] = know
+                
                 know = self.knowledgeChange(tribeObj, 'agr')
                 simPeriodTribe['knowledge']['agr'] = know
-            
+
+                know = self.knowledgeChange(tribeObj, 'pstr')
+                simPeriodTribe['knowledge']['pstr'] = know
+
                 know = self.knowledgeChange(tribeObj, 'ind')
                 simPeriodTribe['knowledge']['ind'] = know
             
