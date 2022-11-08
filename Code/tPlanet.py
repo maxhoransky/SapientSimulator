@@ -216,15 +216,41 @@ class TPlanet:
         col = tile.col
         
         #----------------------------------------------------------------------
-        # Urcim susedov
+        # Urcim susedovor
         #----------------------------------------------------------------------
-        for dr in range(-1,2):
-            for dc in range(-1,2):
-                
-                neighId = self.getTileId( (row+dr)%self.rows, (col+dc)%self.cols )  
-                
-                # Ak to nie je ID mna, potom je to sused a vlozim ho do zoznamu susedov
-                if neighId != tileId: toRet.append(self.tiles[neighId])
+        if row == 0:
+            for dr in range(1,2):
+                for dc in range(-1,2):
+                    neighId = self.getTileId( (row+dr), (col+dc)%self.cols )  
+                    
+                    # Ak to nie je ID mna, potom je to sused a vlozim ho do zoznamu susedov
+                    if neighId != tileId: toRet.append(self.tiles[neighId])
+        
+            for col in range(self.cols):
+                toRet.append(self.tiles[self.getTileId(0, col)])
+        
+        elif row == self.rows-1:
+            for dr in range(-1,0):
+                for dc in range(-1,2):
+                    
+                    neighId = self.getTileId( (row+dr), (col+dc)%self.cols )  
+                    
+                    # Ak to nie je ID mna, potom je to sused a vlozim ho do zoznamu susedov
+                    if neighId != tileId: toRet.append(self.tiles[neighId])
+
+            for col in range(self.cols):
+                toRet.append(self.tiles[self.getTileId(self.rows-1, col)])
+
+        else:
+            for dr in range(-1,2):
+                for dc in range(-1,2):
+                    
+                    neighId = self.getTileId( (row+dr)%self.rows, (col+dc)%self.cols )  
+                    
+                    # Ak to nie je ID mna, potom je to sused a vlozim ho do zoznamu susedov
+                    if neighId != tileId: toRet.append(self.tiles[neighId])
+
+        
                 
         return toRet
         

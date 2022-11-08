@@ -3,42 +3,42 @@
 #------------------------------------------------------------------------------
 
 #==============================================================================
-# Constans
+# Constans - 1 tile is around 400 000 km*km
 #------------------------------------------------------------------------------
 biomes = { 
-    "Sea":              {'color':'#2b53ff', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Rainforest":       {'color':'#005f11', 'prmst': 1, 'agrWork':  50, 'agrSource':    150, 'frgWork':  300, 'frgSource':    2000, 'pstrWork':  0, 'pstrSource':    0,'indWork':  30, 'indSource':    100},
-    "Monsoon":          {'color':'#008511', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Savannah":         {'color':'#8e852c', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Desert":           {'color':'#fefc01', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Cold desert":      {'color':'#C3D3EC', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Steppe":           {'color':'#c4a53b', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Subtropical":      {'color':'#BA6120', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Mediterranean":    {'color':'#D13A0F', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Marine":           {'color':'#86f4a2', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Humid":            {'color':'#25AB92', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Taiga":            {'color':'#9AB3AD', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Tundra":           {'color':'#B1C4C0', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Ice Caps":         {'color':'#bef9ff', 'prmst': 1, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
-    "Mountains":        {'color':'#656565', 'prmst': 0.2, 'agrWork':  0, 'agrSource':    0, 'frgWork':  0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  0, 'indSource':    0},
+    "Sea":              {'color':'#2b53ff', 'prmst': 1, 'agrWork':   0, 'agrSource':    0, 'frgWork':   0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':   0, 'indSource':    0},
+    "Rainforest":       {'color':'#005f11', 'prmst': 1, 'agrWork':  50, 'agrSource':  150, 'frgWork': 300, 'frgSource': 2000, 'pstrWork':  0, 'pstrSource':    0,'indWork':  30, 'indSource':   60},
+    "Monsoon":          {'color':'#008511', 'prmst': 1, 'agrWork':   0, 'agrSource':    0, 'frgWork':   0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':   0, 'indSource':    0},
+    "Savannah":         {'color':'#8e852c', 'prmst': 1, 'agrWork': 120, 'agrSource': 1000, 'frgWork':   0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork': 150, 'indSource':  450},
+    "Desert":           {'color':'#fefc01', 'prmst': 1, 'agrWork':  90, 'agrSource':  250, 'frgWork':   0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork': 160, 'indSource':  500},
+    "Cold desert":      {'color':'#C3D3EC', 'prmst': 1, 'agrWork':   0, 'agrSource':    0, 'frgWork':   0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':  70, 'indSource':   90},
+    "Steppe":           {'color':'#c4a53b', 'prmst': 1, 'agrWork': 140, 'agrSource': 1200, 'frgWork':   0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork': 150, 'indSource':  450},
+    "Subtropical":      {'color':'#BA6120', 'prmst': 1, 'agrWork':   0, 'agrSource':    0, 'frgWork':   0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':   0, 'indSource':    0},
+    "Mediterranean":    {'color':'#D13A0F', 'prmst': 1, 'agrWork':   0, 'agrSource':    0, 'frgWork':   0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':   0, 'indSource':    0},
+    "Marine":           {'color':'#86f4a2', 'prmst': 1, 'agrWork':   0, 'agrSource':    0, 'frgWork':   0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':   0, 'indSource':    0},
+    "Humid":            {'color':'#25AB92', 'prmst': 1, 'agrWork':   0, 'agrSource':    0, 'frgWork':   0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':   0, 'indSource':    0},
+    "Taiga":            {'color':'#9AB3AD', 'prmst': 1, 'agrWork':   0, 'agrSource':    0, 'frgWork':   0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':   0, 'indSource':    0},
+    "Tundra":           {'color':'#B1C4C0', 'prmst': 1, 'agrWork':   0, 'agrSource':    0, 'frgWork':   0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':   0, 'indSource':    0},
+    "Ice Caps":         {'color':'#bef9ff', 'prmst': 1, 'agrWork':   0, 'agrSource':    0, 'frgWork':   0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':   0, 'indSource':    0},
+    "Mountains":        {'color':'#656565', 'prmst': 0.2, 'agrWork': 0, 'agrSource':    0, 'frgWork':   0, 'frgSource':    0, 'pstrWork':  0, 'pstrSource':    0,'indWork':   0, 'indSource':    0},
 }
 
 #------------------------------------------------------------------------------
 tribes = { 
-       'Green Men'  : {'color'     : {'red':0,   'green':1,    'blue':0   }, 
-                       'preference': {'agr':0.9, 'ind'  :0.05, 'war' :0.05},
-                       'knowledge' : {'agr':0.1, 'ind'  :0.1,  'war' :0.1 },
-                      },
+        'Hunters'   : {'color'      : {'red':0,    'green':0,    'blue':1   }, 
+                       'preference' : {'frg':0.45, 'agr'  :0.30, 'pstr':0.05, 'ind':0.02, 'war':0.15, 'trd':0.03},
+                       'knowledge'  : {'frg':0.30, 'agr'  :0.25, 'pstr':0.15, 'ind':0.10, 'war':0.20, 'trd':0.10},
+                        },
        
-       'Blue Indy'  : {'color'     : {'red':0,    'green':0,    'blue':1   }, 
-                       'preference': {'agr':0.05, 'ind'  :0.9,  'war' :0.05},
-                       'knowledge' : {'agr':0.1,  'ind'  :0.1,  'war' :0.1 },
-                      },
-       
-       'Red Wariors': {'color'     : {'red':1,    'green':0,    'blue':0   }, 
-                       'preference': {'agr':0.05, 'ind'  :0.05, 'war' :0.9 },
-                       'knowledge' : {'agr':0.1,  'ind'  :0.1,  'war' :0.1 },
-                      }
+        'Fishermen' : {'color'      : {'red':0,    'green':1,    'blue':0   }, 
+                       'preference' : {'frg':0.50, 'agr'  :0.02, 'pstr':0.02, 'ind':0.06, 'war':0.30, 'trd':0.10},
+                       'knowledge'  : {'frg':0.45, 'agr'  :0.10, 'pstr':0.10, 'ind':0.10, 'war':0.10, 'trd':0.10},
+                        },
+        
+        'Nomads'    : {'color'      : {'red':1,    'green':0,    'blue':0   }, 
+                       'preference' : {'frg':0.70, 'agr'  :0.02, 'pstr':0.05, 'ind':0.03, 'war':0.05, 'trd':0.15},
+                       'knowledge'  : {'frg':0.70, 'agr'  :0.10, 'pstr':0.10, 'ind':0.10, 'war':0.10, 'trd':0.20},
+                        },
 }
 
 #==============================================================================
