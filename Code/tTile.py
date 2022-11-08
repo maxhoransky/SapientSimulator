@@ -517,6 +517,8 @@ class TTile:
                 # Znizenie preferencie ak nevyuziva vsetku alokovanu workForce
                 #--------------------------------------------------------------
                 unus  = tribeObj['unus']
+                if unus['frg'] > _PREF_UNUS_LIMIT: prefs['frg'] -= _PREF_BY_UNUS
+                if unus['pstr']> _PREF_UNUS_LIMIT: prefs['pstr']-= _PREF_BY_UNUS
                 if unus['agr'] > _PREF_UNUS_LIMIT: prefs['agr'] -= _PREF_BY_UNUS
                 if unus['ind'] > _PREF_UNUS_LIMIT: prefs['ind'] -= _PREF_BY_UNUS
             
@@ -542,7 +544,9 @@ class TTile:
                 
                 prefs = lib.normSumDic(prefs)
                 
+                simPeriodTribe['preference']['frg'] = prefs['frg']
                 simPeriodTribe['preference']['agr'] = prefs['agr']
+                simPeriodTribe['preference']['pstr'] = prefs['pstr']
                 simPeriodTribe['preference']['ind'] = prefs['ind']
             
             #------------------------------------------------------------------

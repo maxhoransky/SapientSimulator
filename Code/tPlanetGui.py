@@ -703,7 +703,7 @@ class TPlanetGui(tk.Tk):
         show   = self.str_show.get()
         tribes = tile.history[self.period]['tribes']
                 
-        if   show == 'BIOME'       : bcColor = lib.getBiomeColor (tile.biome)
+        if   show == 'BIOME'      : bcColor = lib.getBiomeColor (tile.biome)
         elif show == 'TRIBES'     : bcColor = lib.getTribesColor(tribes, self.denMax )
         elif show == 'POPULATION' : bcColor = lib.getPopulColor (tribes, self.denMax )
         elif show == 'KNOWLEDGE'  : bcColor = lib.getKnowlColor (tribes, self.knowMax)
@@ -721,7 +721,7 @@ class TPlanetGui(tk.Tk):
         # Ak je to pevnina, zobrazim zelanu agregaciu zo zelanej historie tribes
         show = self.str_show.get()
                 
-        if   show == 'BIOME'       : lbl = tile.getPeriodTrbStr(self.period)
+        if   show == 'BIOME'      : lbl = tile.getPeriodTrbStr(self.period)
         elif show == 'TRIBES'     : lbl = tile.getPeriodTrbStr(self.period)
         elif show == 'POPULATION' : lbl = tile.getPeriodPopStr(self.period)
         elif show == 'KNOWLEDGE'  : lbl = tile.getPeriodKnwStr(self.period)
