@@ -157,7 +157,7 @@ class TPlanetGui(tk.Tk):
         btn_save.grid(row=1, column=3, sticky='nwe', padx=_PADX, pady=_PADY)
         
         #----------------------------------------------------------------------
-        # Seelected Tile
+        # Selected Tile
         #----------------------------------------------------------------------
         self.lbl_tile = ttk.Label(frm, relief=tk.FLAT, text='Tile' )
         self.lbl_tile.grid(row=3, column=0, columnspan=6, sticky='w', padx=_PADX, pady=_PADY)
