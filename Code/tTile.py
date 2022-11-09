@@ -239,7 +239,7 @@ class TTile:
         toRet = 'The amount of knowledge each tribe in this tile posseses:\n'
         for tribeId, tribeObj in tribes.items():
             if tribeObj['density']>0:
-                toRet += f" {tribeId}: Forage={round(tribeObj['knowledge']['frg'], 2)}, Agriculture={round(tribeObj['knowledge']['agr'], 2)}, Cattle={round(tribeObj['knowledge']['pstr'], 2)}, Industry={round(tribeObj['knowledge']['ind'], 2)}, War={round(tribeObj['knowledge']['war'], 2)}, Trade={round(tribeObj['knowledge']['trd'], 2)}\n"
+                toRet += f"{tribeId}: Forage={round(tribeObj['knowledge']['frg'], 2)}, Agriculture={round(tribeObj['knowledge']['agr'], 2)}, Cattle={round(tribeObj['knowledge']['pstr'], 2)}, Industry={round(tribeObj['knowledge']['ind'], 2)}, War={round(tribeObj['knowledge']['war'], 2)}, Trade={round(tribeObj['knowledge']['trd'], 2)}\n"
  
         if toRet=='Knowledge:': toRet = 'No tribe here'
         
@@ -251,10 +251,10 @@ class TTile:
         
         tribes = self.getPeriod(period)['tribes']
         
-        toRet = 'Preferences:'
+        toRet = 'Preferences tribes in this tile have about resources:\n'
         for tribeId, tribeObj in tribes.items(): 
             if tribeObj['density']>0:
-                toRet += f" {tribeId}: agr={round(tribeObj['preference']['agr'], 2)}, ind={round(tribeObj['preference']['ind'], 2)}, war={round(tribeObj['preference']['war'], 2)}"
+                toRet += f"{tribeId}: Forage={round(tribeObj['preference']['frg'], 2)}, Agriculture={round(tribeObj['preference']['agr'], 2)}, Cattle={round(tribeObj['preference']['pstr'], 2)}, Industry={round(tribeObj['preference']['ind'], 2)}, War={round(tribeObj['preference']['war'], 2)}, Trade={round(tribeObj['preference']['trd'], 2)}\n"
  
         if toRet=='Preferences:': toRet = 'No tribe here'
         
@@ -531,7 +531,7 @@ class TTile:
                 if unus['agr'] > _PREF_UNUS_LIMIT: prefs['agr'] -= _PREF_BY_UNUS
                 if unus['ind'] > _PREF_UNUS_LIMIT: prefs['ind'] -= _PREF_BY_UNUS
                 if unus['war'] > _PREF_UNUS_LIMIT: prefs['war'] -= _PREF_BY_UNUS
-#                if unus['trd'] > _PREF_UNUS_LIMIT: prefs['trd'] -= _PREF_BY_UNUS
+#               if unus['trd'] > _PREF_UNUS_LIMIT: prefs['trd'] -= _PREF_BY_UNUS
             
                 #--------------------------------------------------------------
                 # Zvysenie preferencii pre resource type s maximalnou efektivitou
