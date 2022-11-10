@@ -250,7 +250,7 @@ class TTile:
             dpl += tribeObj['density'] * tribeObj['preference']['dpl']
             
         if (frg+agr+pstr+ind+sci+rlg+war+trd+dpl) == 0: toRet = 'No tribe here'
-        else                 : toRet = f"Total population consists of people focusing on:\nForage:{round(frg, 2)} Agriculture:{round(agr, 2)} Cattle:{round(pstr, 2)} Industry:{round(ind, 2)} Science:{round(sci, 2)} Religion:{round(rlg, 2)} War:{round(war, 2)} Trade:{round(trd, 2)} Diplomacy:{round(dpl, 2)}"
+        else                 : toRet = f"Total population consists of people focusing on:\nForage:{round(frg, 2)} Agriculture:{round(agr, 2)} Cattle:{round(pstr, 2)}\nIndustry:{round(ind, 2)} Science:{round(sci, 2)} Religion:{round(rlg, 2)}\nWar:{round(war, 2)} Trade:{round(trd, 2)} Diplomacy:{round(dpl, 2)}"
     
         return toRet
     
@@ -263,7 +263,7 @@ class TTile:
         toRet = 'The amount of knowledge each tribe in this tile posseses:\n'
         for tribeId, tribeObj in tribes.items():
             if tribeObj['density']>0:
-                toRet += f"{tribeId}: Forage={round(tribeObj['knowledge']['frg'], 2)}, Agriculture={round(tribeObj['knowledge']['agr'], 2)}, Cattle={round(tribeObj['knowledge']['pstr'], 2)}, Industry={round(tribeObj['knowledge']['ind'], 2)}, Science={round(tribeObj['knowledge']['sci'], 2)}, Religion={round(tribeObj['knowledge']['rlg'], 2)}, War={round(tribeObj['knowledge']['war'], 2)}, Trade={round(tribeObj['knowledge']['trd'], 2)}, Diplomacy={round(tribeObj['knowledge']['dpl'], 2)}\n"
+                toRet += f"{tribeId}: Forage={round(tribeObj['knowledge']['frg'], 2)}, Agriculture={round(tribeObj['knowledge']['agr'], 2)}, Cattle={round(tribeObj['knowledge']['pstr'], 2)}\nIndustry={round(tribeObj['knowledge']['ind'], 2)}, Science={round(tribeObj['knowledge']['sci'], 2)}, Religion={round(tribeObj['knowledge']['rlg'], 2)}\nWar={round(tribeObj['knowledge']['war'], 2)}, Trade={round(tribeObj['knowledge']['trd'], 2)}, Diplomacy={round(tribeObj['knowledge']['dpl'], 2)}\n---------------------------------------------------------\n"
  
         if toRet=='Knowledge:': toRet = 'No tribe here'
         
@@ -278,7 +278,7 @@ class TTile:
         toRet = 'Preferences tribes in this tile have about resources:\n'
         for tribeId, tribeObj in tribes.items(): 
             if tribeObj['density']>0:
-                toRet += f"{tribeId}: Forage={round(tribeObj['preference']['frg'], 2)}, Agriculture={round(tribeObj['preference']['agr'], 2)}, Cattle={round(tribeObj['preference']['pstr'], 2)}, Industry={round(tribeObj['preference']['ind'], 2)}, Science={round(tribeObj['preference']['sci'], 2)}, Religion={round(tribeObj['preference']['rlg'], 2)}, War={round(tribeObj['preference']['war'], 2)}, Trade={round(tribeObj['preference']['trd'], 2)}, Diplomacy={round(tribeObj['preference']['dpl'], 2)}\n"
+                toRet += f"{tribeId}: Forage={round(tribeObj['preference']['frg'], 2)}, Agriculture={round(tribeObj['preference']['agr'], 2)}, Cattle={round(tribeObj['preference']['pstr'], 2)}\nIndustry={round(tribeObj['preference']['ind'], 2)}, Science={round(tribeObj['preference']['sci'], 2)}, Religion={round(tribeObj['preference']['rlg'], 2)}\nWar={round(tribeObj['preference']['war'], 2)}, Trade={round(tribeObj['preference']['trd'], 2)}, Diplomacy={round(tribeObj['preference']['dpl'], 2)}\n---------------------------------------------------------\n"
  
         if toRet=='Preferences:': toRet = 'No tribe here'
         

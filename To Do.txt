@@ -6,4 +6,5 @@ To do:
         Make a technology tree
         Implement the function of technologies
     GUI:
+        Make it so the bottom line only says tile id and biome, + a lil bit more, but no more than one line
         Make all this new stuff show up
