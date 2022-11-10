@@ -68,19 +68,31 @@ class TTile:
         # Prejdem vsetky tiles
         for tile in TTile.tiles.values():
         
+            frgSum = 0
             agrSum = 0
+            pstrSum = 0
             indSum = 0
             warSum = 0
+            trdSum = 0
+            rlgSum = 0
             
             # Prejdem vsetky tribe na tile pre konkretnu periodu
             for tribe in tile.history[period]['tribes'].values():
+                frgSum += tribe['knowledge']['frg']
                 agrSum += tribe['knowledge']['agr']
+                pstrSum += tribe['knowledge']['pstr']
                 indSum += tribe['knowledge']['ind']
                 warSum += tribe['knowledge']['war']
+                trdSum += tribe['knowledge']['trd']
+#                rlgSum += tribe['knowledge']['rlg']
                 
+            if frgSum > knowMax: knowMax = frgSum
             if agrSum > knowMax: knowMax = agrSum
+            if pstrSum> knowMax: knowMax = pstrSum
             if indSum > knowMax: knowMax = indSum
             if warSum > knowMax: knowMax = warSum
+            if trdSum > knowMax: knowMax = trdSum
+            if rlgSum > knowMax: knowMax = rlgSum
 
         return knowMax
     
@@ -212,7 +224,8 @@ class TTile:
         ind = 0
         war = 0
         trd = 0
-        
+        rlg = 0
+
         #----------------------------------------------------------------------
         # Spocitam jednotlive druhy populacie
         #----------------------------------------------------------------------
@@ -224,9 +237,10 @@ class TTile:
             ind += tribeObj['density'] * tribeObj['preference']['ind']
             war += tribeObj['density'] * tribeObj['preference']['war']
             trd += tribeObj['density'] * tribeObj['preference']['trd']
+            rlg += tribeObj['density'] * tribeObj['preference']['rlg']
             
-        if (frg+agr+pstr+ind+war+trd) == 0: toRet = 'No tribe here'
-        else                 : toRet = f"Total population consists of people focusing on:\nForage:{round(frg, 2)} Agriculture:{round(agr, 2)} Cattle:{round(pstr, 2)} Industry:{round(ind, 2)} War:{round(war, 2)} Trade:{round(trd, 2)}"
+        if (frg+agr+pstr+ind+war+trd+rlg) == 0: toRet = 'No tribe here'
+        else                 : toRet = f"Total population consists of people focusing on:\nForage:{round(frg, 2)} Agriculture:{round(agr, 2)} Cattle:{round(pstr, 2)} Industry:{round(ind, 2)} War:{round(war, 2)} Trade:{round(trd, 2)} Religion:{round(rlg, 2)}"
     
         return toRet
     
@@ -239,7 +253,7 @@ class TTile:
         toRet = 'The amount of knowledge each tribe in this tile posseses:\n'
         for tribeId, tribeObj in tribes.items():
             if tribeObj['density']>0:
-                toRet += f"{tribeId}: Forage={round(tribeObj['knowledge']['frg'], 2)}, Agriculture={round(tribeObj['knowledge']['agr'], 2)}, Cattle={round(tribeObj['knowledge']['pstr'], 2)}, Industry={round(tribeObj['knowledge']['ind'], 2)}, War={round(tribeObj['knowledge']['war'], 2)}, Trade={round(tribeObj['knowledge']['trd'], 2)}\n"
+                toRet += f"{tribeId}: Forage={round(tribeObj['knowledge']['frg'], 2)}, Agriculture={round(tribeObj['knowledge']['agr'], 2)}, Cattle={round(tribeObj['knowledge']['pstr'], 2)}, Industry={round(tribeObj['knowledge']['ind'], 2)}, War={round(tribeObj['knowledge']['war'], 2)}, Trade={round(tribeObj['knowledge']['trd'], 2)}, Religion={round(tribeObj['knowledge']['rlg'], 2)}\n"
  
         if toRet=='Knowledge:': toRet = 'No tribe here'
         
@@ -254,7 +268,7 @@ class TTile:
         toRet = 'Preferences tribes in this tile have about resources:\n'
         for tribeId, tribeObj in tribes.items(): 
             if tribeObj['density']>0:
-                toRet += f"{tribeId}: Forage={round(tribeObj['preference']['frg'], 2)}, Agriculture={round(tribeObj['preference']['agr'], 2)}, Cattle={round(tribeObj['preference']['pstr'], 2)}, Industry={round(tribeObj['preference']['ind'], 2)}, War={round(tribeObj['preference']['war'], 2)}, Trade={round(tribeObj['preference']['trd'], 2)}\n"
+                toRet += f"{tribeId}: Forage={round(tribeObj['preference']['frg'], 2)}, Agriculture={round(tribeObj['preference']['agr'], 2)}, Cattle={round(tribeObj['preference']['pstr'], 2)}, Industry={round(tribeObj['preference']['ind'], 2)}, War={round(tribeObj['preference']['war'], 2)}, Trade={round(tribeObj['preference']['trd'], 2)}, Religion={round(tribeObj['preference']['rlg'], 2)}\n"
  
         if toRet=='Preferences:': toRet = 'No tribe here'
         
@@ -308,9 +322,9 @@ class TTile:
             knows = tribeObj['knowledge' ]
             
             # Pripravim si nove prazdne resources, efektivitu a unused workforce
-            resrs = {'frg':0, 'agr':0, 'pstr':0, 'ind':0, 'war':0}
-            effs  = {'frg':0, 'agr':0, 'pstr':0, 'ind':0, 'war':0}
-            unus  = {'frg':0, 'agr':0, 'pstr':0, 'ind':0, 'war':0}
+            resrs = {'frg':0, 'agr':0, 'pstr':0, 'ind':0, 'war':0, 'trd':0, 'rlg':0}
+            effs  = {'frg':0, 'agr':0, 'pstr':0, 'ind':0, 'war':0, 'trd':0, 'rlg':0}
+            unus  = {'frg':0, 'agr':0, 'pstr':0, 'ind':0, 'war':0, 'trd':0, 'rlg':0}
 
             #------------------------------------------------------------------
             # Zber FRG resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
@@ -377,7 +391,7 @@ class TTile:
         for tribeId, tribeObj in lastPeriod['tribes'].items():
 
             # Vstupne hodnoty
-            resrTot = tribeObj['resrs']['frg'] + tribeObj['resrs']['agr'] + tribeObj['resrs']['pstr'] + tribeObj['resrs']['ind'] + tribeObj['resrs']['war']
+            resrTot = tribeObj['resrs']['frg'] + tribeObj['resrs']['agr'] + tribeObj['resrs']['pstr'] + tribeObj['resrs']['ind'] + tribeObj['resrs']['war'] + tribeObj['resrs']['trd']
             
             # Zacinam simulaciu s povodnym obyvatelstvom z predchadzajucej periody
             densSim = tribeObj['density']
@@ -510,6 +524,9 @@ class TTile:
                 
                 know = self.knowledgeChange(tribeObj, 'trd')
                 simPeriodTribe['knowledge']['trd'] = know
+
+                know = self.knowledgeChange(tribeObj, 'rlg')
+                simPeriodTribe['knowledge']['rlg'] = know
         
                 #--------------------------------------------------------------
                 # Preberanie knowledge od vyspelejsich tribe
@@ -531,8 +548,8 @@ class TTile:
                 if unus['agr'] > _PREF_UNUS_LIMIT: prefs['agr'] -= _PREF_BY_UNUS
                 if unus['ind'] > _PREF_UNUS_LIMIT: prefs['ind'] -= _PREF_BY_UNUS
                 if unus['war'] > _PREF_UNUS_LIMIT: prefs['war'] -= _PREF_BY_UNUS
-#               if unus['trd'] > _PREF_UNUS_LIMIT: prefs['trd'] -= _PREF_BY_UNUS
-            
+                if unus['trd'] > _PREF_UNUS_LIMIT: prefs['trd'] -= _PREF_BY_UNUS
+                if unus['rlg'] > _PREF_UNUS_LIMIT: prefs['rlg'] -= _PREF_BY_UNUS            
                 #--------------------------------------------------------------
                 # Zvysenie preferencii pre resource type s maximalnou efektivitou
                 #--------------------------------------------------------------
@@ -560,7 +577,8 @@ class TTile:
                 simPeriodTribe['preference']['pstr'] = prefs['pstr']
                 simPeriodTribe['preference']['ind'] = prefs['ind']
                 simPeriodTribe['preference']['war'] = prefs['war']
-#                simPeriodTribe['preference']['trd'] = prefs['trd']
+                simPeriodTribe['preference']['trd'] = prefs['trd']
+                simPeriodTribe['preference']['rlg'] = prefs['rlg']
             
             #------------------------------------------------------------------
             # Koniec podmienky na nenulovu densitu

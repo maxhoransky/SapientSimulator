@@ -1,10 +1,7 @@
 To do:
     Tribes:
-        implement preferences for new planetlib stuff 
-            Foraging And pastures:
-                Make it affect preferences
-                Make it affect knowledge
-        implement preferences for trade, research, maybe religion too?
+        Add research
+        Add diplomacy
         Make tribes interact with each other
         Make a technology tree
         Implement the function of technologies
