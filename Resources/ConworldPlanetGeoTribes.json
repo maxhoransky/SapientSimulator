@@ -6199,32 +6199,6 @@
                         "period": 0,
                         "densTot": 0,
                         "tribes": {
-                              "Nomads": {
-                                    "density": 10.0,
-                                    "color": {
-                                          "red": 1,
-                                          "green": 0,
-                                          "blue": 0
-                                    },
-                                    "preference": {
-                                          "frg": 0.7,
-                                          "agr": 0.02,
-                                          "pstr": 0.05,
-                                          "ind": 0.03,
-                                          "war": 0.05,
-                                          "trd": 0.15
-                                    },
-                                    "knowledge": {
-                                          "frg": 0.7,
-                                          "agr": 0.1,
-                                          "pstr": 0.1,
-                                          "ind": 0.1,
-                                          "war": 0.1,
-                                          "trd": 0.2
-                                    },
-                                    "resrs": {},
-                                    "denses": {}
-                              },
                               "Fishermen": {
                                     "density": 0,
                                     "color": {
@@ -6233,20 +6207,58 @@
                                           "blue": 0
                                     },
                                     "preference": {
-                                          "frg": 0.5,
+                                          "frg": 0.48,
                                           "agr": 0.02,
                                           "pstr": 0.02,
                                           "ind": 0.06,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
                                           "war": 0.3,
-                                          "trd": 0.1
+                                          "trd": 0.9,
+                                          "dpl": 0.01
                                     },
                                     "knowledge": {
-                                          "frg": 0.45,
+                                          "frg": 0.43,
                                           "agr": 0.1,
                                           "pstr": 0.1,
                                           "ind": 0.1,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
                                           "war": 0.1,
-                                          "trd": 0.1
+                                          "trd": 0.9,
+                                          "dpl": 0.01
+                                    },
+                                    "resrs": {},
+                                    "denses": {}
+                              },
+                              "Nomads": {
+                                    "density": 10.0,
+                                    "color": {
+                                          "red": 1,
+                                          "green": 0,
+                                          "blue": 0
+                                    },
+                                    "preference": {
+                                          "frg": 0.68,
+                                          "agr": 0.02,
+                                          "pstr": 0.05,
+                                          "ind": 0.03,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
+                                          "war": 0.05,
+                                          "trd": 0.18,
+                                          "dpl": 0.01
+                                    },
+                                    "knowledge": {
+                                          "frg": 0.68,
+                                          "agr": 0.1,
+                                          "pstr": 0.1,
+                                          "ind": 0.1,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
+                                          "war": 0.1,
+                                          "trd": 0.19,
+                                          "dpl": 0.01
                                     },
                                     "resrs": {},
                                     "denses": {}
@@ -7045,32 +7057,6 @@
                         "period": 0,
                         "densTot": 0,
                         "tribes": {
-                              "Fishermen": {
-                                    "density": 0,
-                                    "color": {
-                                          "red": 0,
-                                          "green": 1,
-                                          "blue": 0
-                                    },
-                                    "preference": {
-                                          "frg": 0.5,
-                                          "agr": 0.02,
-                                          "pstr": 0.02,
-                                          "ind": 0.06,
-                                          "war": 0.3,
-                                          "trd": 0.1
-                                    },
-                                    "knowledge": {
-                                          "frg": 0.45,
-                                          "agr": 0.1,
-                                          "pstr": 0.1,
-                                          "ind": 0.1,
-                                          "war": 0.1,
-                                          "trd": 0.1
-                                    },
-                                    "resrs": {},
-                                    "denses": {}
-                              },
                               "Hunters": {
                                     "density": 10.0,
                                     "color": {
@@ -7079,20 +7065,58 @@
                                           "blue": 1
                                     },
                                     "preference": {
-                                          "frg": 0.45,
+                                          "frg": 0.42,
                                           "agr": 0.3,
                                           "pstr": 0.05,
                                           "ind": 0.02,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
                                           "war": 0.15,
-                                          "trd": 0.03
+                                          "trd": 0.02,
+                                          "dpl": 0.01
                                     },
                                     "knowledge": {
-                                          "frg": 0.3,
+                                          "frg": 0.28,
                                           "agr": 0.25,
                                           "pstr": 0.15,
                                           "ind": 0.1,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
                                           "war": 0.2,
-                                          "trd": 0.1
+                                          "trd": 0.9,
+                                          "dpl": 0.01
+                                    },
+                                    "resrs": {},
+                                    "denses": {}
+                              },
+                              "Fishermen": {
+                                    "density": 0,
+                                    "color": {
+                                          "red": 0,
+                                          "green": 1,
+                                          "blue": 0
+                                    },
+                                    "preference": {
+                                          "frg": 0.48,
+                                          "agr": 0.02,
+                                          "pstr": 0.02,
+                                          "ind": 0.06,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
+                                          "war": 0.3,
+                                          "trd": 0.9,
+                                          "dpl": 0.01
+                                    },
+                                    "knowledge": {
+                                          "frg": 0.43,
+                                          "agr": 0.1,
+                                          "pstr": 0.1,
+                                          "ind": 0.1,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
+                                          "war": 0.1,
+                                          "trd": 0.9,
+                                          "dpl": 0.01
                                     },
                                     "resrs": {},
                                     "denses": {}
@@ -7886,20 +7910,26 @@
                                           "blue": 0
                                     },
                                     "preference": {
-                                          "frg": 0.5,
+                                          "frg": 0.48,
                                           "agr": 0.02,
                                           "pstr": 0.02,
                                           "ind": 0.06,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
                                           "war": 0.3,
-                                          "trd": 0.1
+                                          "trd": 0.9,
+                                          "dpl": 0.01
                                     },
                                     "knowledge": {
-                                          "frg": 0.45,
+                                          "frg": 0.43,
                                           "agr": 0.1,
                                           "pstr": 0.1,
                                           "ind": 0.1,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
                                           "war": 0.1,
-                                          "trd": 0.1
+                                          "trd": 0.9,
+                                          "dpl": 0.01
                                     },
                                     "resrs": {},
                                     "denses": {}

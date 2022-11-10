@@ -26,18 +26,18 @@ biomes = {
 #------------------------------------------------------------------------------
 tribes = { 
         'Hunters'   : {'color'      : {'red':0,    'green':0,    'blue':1   }, 
-                       'preference' : {'frg':0.45, 'agr'  :0.30, 'pstr':0.05, 'ind':0.02, 'war':0.15, 'trd':0.02, 'rlg':0.01},
-                       'knowledge'  : {'frg':0.30, 'agr'  :0.25, 'pstr':0.15, 'ind':0.10, 'war':0.20, 'trd':0.9,  'rlg':0.01},
+                       'preference' : {'frg':0.42, 'agr'  :0.30, 'pstr':0.05, 'ind':0.02, 'sci':0.01, 'rlg':0.01, 'war':0.15, 'trd':0.02, 'dpl':0.01},
+                       'knowledge'  : {'frg':0.28, 'agr'  :0.25, 'pstr':0.15, 'ind':0.10, 'sci':0.01, 'rlg':0.01, 'war':0.20, 'trd':0.9 , 'dpl':0.01},
                         },
        
         'Fishermen' : {'color'      : {'red':0,    'green':1,    'blue':0   }, 
-                       'preference' : {'frg':0.50, 'agr'  :0.02, 'pstr':0.02, 'ind':0.06, 'war':0.30, 'trd':0.9, 'rlg':0.01},
-                       'knowledge'  : {'frg':0.45, 'agr'  :0.10, 'pstr':0.10, 'ind':0.10, 'war':0.10, 'trd':0.9, 'rlg':0.01},
+                       'preference' : {'frg':0.48, 'agr'  :0.02, 'pstr':0.02, 'ind':0.06, 'sci':0.01, 'rlg':0.01, 'war':0.30, 'trd':0.9, 'dpl':0.01},
+                       'knowledge'  : {'frg':0.43, 'agr'  :0.10, 'pstr':0.10, 'ind':0.10, 'sci':0.01, 'rlg':0.01, 'war':0.10, 'trd':0.9, 'dpl':0.01},
                         },
         
         'Nomads'    : {'color'      : {'red':1,    'green':0,    'blue':0   }, 
-                       'preference' : {'frg':0.70, 'agr'  :0.02, 'pstr':0.05, 'ind':0.03, 'war':0.05, 'trd':0.18, 'rlg':0.01},
-                       'knowledge'  : {'frg':0.70, 'agr'  :0.10, 'pstr':0.10, 'ind':0.10, 'war':0.10, 'trd':0.19, 'rlg':0.01},
+                       'preference' : {'frg':0.68, 'agr'  :0.02, 'pstr':0.05, 'ind':0.03, 'sci':0.01, 'rlg':0.01, 'war':0.05, 'trd':0.18, 'dpl':0.01},
+                       'knowledge'  : {'frg':0.68, 'agr'  :0.10, 'pstr':0.10, 'ind':0.10, 'sci':0.01, 'rlg':0.01, 'war':0.10, 'trd':0.19, 'dpl':0.01},
                         },
 }
 
@@ -126,9 +126,9 @@ def getPopulColor(tribes, denMax):
         
         tribeDens = tribe['density']
     
-        mix[0] += tribeDens * (tribe['preference']['war']+tribe['preference']['trd'])                                    # Channel RED   = Interaction
-        mix[1] += tribeDens * (tribe['preference']['frg']+tribe['preference']['agr']+tribe['preference']['pstr'])/2      # Channel GREEN = Food
-        mix[2] += tribeDens * (tribe['preference']['ind']+tribe['preference']['rlg'])                                    # Channel BLUE  = Society
+        mix[0] += tribeDens * (tribe['preference']['war'] + tribe['preference']['trd'] + tribe['preference']['dpl'])    # Channel RED   = Interaction
+        mix[1] += tribeDens * (tribe['preference']['frg'] + tribe['preference']['agr'] + tribe['preference']['pstr'])   # Channel GREEN = Food
+        mix[2] += tribeDens * (tribe['preference']['ind'] + tribe['preference']['sci'] + tribe['preference']['rlg'])    # Channel BLUE  = Society
         
     # Normalizujem mix na globalny denMax
     mix = normMax(mix, maxVal=denMax, norma=255)
@@ -146,9 +146,9 @@ def getKnowlColor(tribes, knowMax):
         
         if tribe['density']>0:
         
-            mix[0] += tribe['knowledge']['war']    # Channel RED   = war
-            mix[1] += tribe['knowledge']['agr']    # Channel GREEN = agr
-            mix[2] += tribe['knowledge']['ind']    # Channel BLUE  = ind
+            mix[0] += tribe['knowledge']['war'] + tribe['knowledge']['trd'] + tribe['knowledge']['dpl']    # Channel RED   = Interaction
+            mix[1] += tribe['knowledge']['frg'] + tribe['knowledge']['agr'] + tribe['knowledge']['pstr']   # Channel GREEN = Food
+            mix[2] += tribe['knowledge']['ind'] + tribe['knowledge']['sci'] + tribe['knowledge']['rlg']    # Channel BLUE  = Society
         
     # Normalizujem mix na globalny strop
     mix = normMax(mix, maxVal=knowMax, norma=255)
@@ -169,9 +169,9 @@ def getPrefsColor(tribes):
         
         if tribe['density']>0:
         
-            mix[0] += tribe['preference']['war']    # Channel RED   = war
-            mix[1] += tribe['preference']['agr']    # Channel GREEN = agr
-            mix[2] += tribe['preference']['ind']    # Channel BLUE  = ind
+            mix[0] += tribe['preference']['war'] + tribe['preference']['trd'] + tribe['preference']['dpl']    # Channel RED   = Interaction
+            mix[1] += tribe['preference']['frg'] + tribe['preference']['agr'] + tribe['preference']['pstr']   # Channel GREEN = Food
+            mix[2] += tribe['preference']['ind'] + tribe['preference']['sci'] + tribe['preference']['rlg']    # Channel BLUE  = Society
             
     # Normalizujem mix na sumu vsetkych preferencii na tomto tile
     mix = normSum(mix, norma=255)

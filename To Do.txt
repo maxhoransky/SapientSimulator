@@ -1,7 +1,7 @@
 To do:
     Tribes:
-        Add research
-        Add diplomacy
+        Make population be rounded down
+        Make knowledge gains be multiplied by research workers
         Make tribes interact with each other
         Make a technology tree
         Implement the function of technologies
