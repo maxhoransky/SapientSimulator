@@ -68,37 +68,13 @@ class TTile:
         # Prejdem vsetky tiles
         for tile in TTile.tiles.values():
         
-            frgSum = 0
-            agrSum = 0
-            pstrSum= 0
-            indSum = 0
-            rlgSum = 0
-            sciSum = 0
-            warSum = 0
-            trdSum = 0
-            dplSum = 0
+            tileKnwSum = 0
             
             # Prejdem vsetky tribe na tile pre konkretnu periodu
             for tribe in tile.history[period]['tribes'].values():
-                frgSum += tribe['knowledge']['frg']
-                agrSum += tribe['knowledge']['agr']
-                pstrSum += tribe['knowledge']['pstr']
-                indSum += tribe['knowledge']['ind']
-                sciSum += tribe['knowledge']['sci']
-                rlgSum += tribe['knowledge']['rlg']
-                warSum += tribe['knowledge']['war']
-                trdSum += tribe['knowledge']['trd']
-                dplSum += tribe['knowledge']['dpl']
+                tileKnwSum += sum(tribe['knowledge'].values())
 
-            if frgSum > knowMax: knowMax = frgSum
-            if agrSum > knowMax: knowMax = agrSum
-            if pstrSum> knowMax: knowMax = pstrSum
-            if indSum > knowMax: knowMax = indSum
-            if sciSum > knowMax: knowMax = sciSum
-            if rlgSum > knowMax: knowMax = rlgSum
-            if warSum > knowMax: knowMax = warSum
-            if trdSum > knowMax: knowMax = trdSum
-            if dplSum > knowMax: knowMax = dplSum
+            if tileKnwSum > knowMax: knowMax = tileKnwSum
 
         return knowMax
     
