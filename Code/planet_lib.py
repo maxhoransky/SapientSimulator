@@ -150,9 +150,9 @@ def getKnowlColor(tribes, knowMax):
         
         if tribe['density']>0:
         
-            mix[0] += tribe['knowledge']['war'] + tribe['knowledge']['trd'] + tribe['knowledge']['dpl']  /2  # Channel RED   = Interaction
-            mix[1] += tribe['knowledge']['frg'] + tribe['knowledge']['agr'] + tribe['knowledge']['pstr'] /2  # Channel GREEN = Food
-            mix[2] += tribe['knowledge']['ind'] + tribe['knowledge']['sci'] + tribe['knowledge']['rlg']  /2  # Channel BLUE  = Society
+            mix[0] += tribe['knowledge']['war'] + tribe['knowledge']['trd'] + tribe['knowledge']['dpl']  # Channel RED   = Interaction
+            mix[1] += tribe['knowledge']['frg'] + tribe['knowledge']['agr'] + tribe['knowledge']['pstr'] # Channel GREEN = Food
+            mix[2] += tribe['knowledge']['ind'] + tribe['knowledge']['sci'] + tribe['knowledge']['rlg']  # Channel BLUE  = Society
         
     # Normalizujem mix na globalny strop
     mix = normMax(mix, maxVal=knowMax, norma=255)
@@ -173,9 +173,9 @@ def getPrefsColor(tribes):
         
         if tribe['density']>0:
         
-            mix[0] += tribe['preference']['war'] + tribe['preference']['trd'] + tribe['preference']['dpl']  /2  # Channel RED   = Interaction
-            mix[1] += tribe['preference']['frg'] + tribe['preference']['agr'] + tribe['preference']['pstr'] /2  # Channel GREEN = Food
-            mix[2] += tribe['preference']['ind'] + tribe['preference']['sci'] + tribe['preference']['rlg']  /2  # Channel BLUE  = Society
+            mix[0] += tribe['preference']['war'] + tribe['preference']['trd'] + tribe['preference']['dpl']  # Channel RED   = Interaction
+            mix[1] += tribe['preference']['frg'] + tribe['preference']['agr'] + tribe['preference']['pstr'] # Channel GREEN = Food
+            mix[2] += tribe['preference']['ind'] + tribe['preference']['sci'] + tribe['preference']['rlg']  # Channel BLUE  = Society
             
     # Normalizujem mix na sumu vsetkych preferencii na tomto tile
     mix = normSum(mix, norma=255)

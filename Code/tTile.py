@@ -575,7 +575,8 @@ class TTile:
 
                 know = self.knowledgeChange(tribeObj, 'dpl')
                 simPeriodTribe['knowledge']['dpl'] = know
-        
+
+                # * (100 * tribeObj['density'] * tribeObj['preference']['sci'])
                 #--------------------------------------------------------------
                 # Preberanie knowledge od vyspelejsich tribe
                 #--------------------------------------------------------------
@@ -711,7 +712,6 @@ class TTile:
         attention = tribeObj['preference'][resType]
             
         if attention > _KNOW_LIMIT: toRet = tribeObj['knowledge'][resType] * _KNOW_GROWTH
-        # * (100 * tribeObj['density'] * tribeObj['preference']['sci'])
         else                      : toRet = tribeObj['knowledge'][resType] * _KNOW_DECAY
             
         # Znalosti nemozu klesnut pod zakladne minimum
