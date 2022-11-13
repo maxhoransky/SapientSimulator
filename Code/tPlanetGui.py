@@ -601,7 +601,8 @@ class TPlanetGui(tk.Tk):
         #----------------------------------------------------------------------
         msg =  self.tileLabel(tile)
         self.lbl_tile['text'] = msg
-        self.setStatus(msg)
+        msgShort = self.tileLabelShort(tile)
+        self.setStatus(msgShort)
         
         self.st_tile.delete("1.0", "end")
         for line in tile.info()['msg']:
@@ -723,13 +724,30 @@ class TPlanetGui(tk.Tk):
                 
         if   show == 'BIOME'      : lbl = tile.getPeriodTrbStr(self.period)
         elif show == 'TRIBES'     : lbl = tile.getPeriodTrbStr(self.period)
-        elif show == 'POPULATION' : lbl = tile.getPeriodPopStr(self.period)
-        elif show == 'KNOWLEDGE'  : lbl = tile.getPeriodKnwStr(self.period)
-        elif show == 'PREFERENCES': lbl = tile.getPeriodPrfStr(self.period)
+        elif show == 'POPULATION' : lbl = tile.getPeriodPopStr(self.period, False)
+        elif show == 'KNOWLEDGE'  : lbl = tile.getPeriodKnwStr(self.period, False)
+        elif show == 'PREFERENCES': lbl = tile.getPeriodPrfStr(self.period, False)
         else                      : lbl = 'Unknown show option'
 
         return f'{tile.tileId} [{tile.biome}] : {lbl}'
-    
+        
+    #--------------------------------------------------------------------------
+    def tileLabelShort(self, tile):
+        
+        # Ak je to more, zobrazim more
+        if tile.biome=="Sea": return 'This is a sea'
+        
+        # Ak je to pevnina, zobrazim zelanu agregaciu zo zelanej historie tribes
+        show = self.str_show.get()
+                
+        if   show == 'BIOME'      : lbl = tile.getPeriodTrbStr(self.period)
+        elif show == 'TRIBES'     : lbl = tile.getPeriodTrbStr(self.period)
+        elif show == 'POPULATION' : lbl = tile.getPeriodPopStr(self.period, True)
+        elif show == 'KNOWLEDGE'  : lbl = tile.getPeriodKnwStr(self.period, True)
+        elif show == 'PREFERENCES': lbl = tile.getPeriodPrfStr(self.period, True)
+        else                      : lbl = 'Unknown show option'
+
+        return f'{tile.tileId} [{tile.biome}] : {lbl}'
     #--------------------------------------------------------------------------
     def tileText(self, row, col):
         

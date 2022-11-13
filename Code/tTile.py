@@ -219,7 +219,7 @@ class TTile:
         return toRet
     
     #--------------------------------------------------------------------------
-    def getPeriodPopStr(self, period):
+    def getPeriodPopStr(self, period, short):
         "Returns string describing population with different preferences in this Tile"
         
         tribes = self.getPeriod(period)['tribes']
@@ -250,38 +250,68 @@ class TTile:
             dpl += tribeObj['density'] * tribeObj['preference']['dpl']
             
         if (frg+agr+pstr+ind+sci+rlg+war+trd+dpl) == 0: toRet = 'No tribe here'
-        else                 : toRet = f"Total population consists of people focusing on:\nForage:{round(frg, 2)} Agriculture:{round(agr, 2)} Cattle:{round(pstr, 2)}\nIndustry:{round(ind, 2)} Science:{round(sci, 2)} Religion:{round(rlg, 2)}\nWar:{round(war, 2)} Trade:{round(trd, 2)} Diplomacy:{round(dpl, 2)}"
-    
+        elif short == False: 
+            toRet = f"Total population consists of people focusing on:\nForage:{round(frg, 2)} Agriculture:{round(agr, 2)} Cattle:{round(pstr, 2)}\nIndustry:{round(ind, 2)} Science:{round(sci, 2)} Religion:{round(rlg, 2)}\nWar:{round(war, 2)} Trade:{round(trd, 2)} Diplomacy:{round(dpl, 2)}"
+        elif short == True:
+            toRet = f"People focusing on: Food:{round(frg + agr + pstr, 2)}, Development:{round(ind + sci + rlg, 2)}, Interaction:{round(war + trd + dpl, 2)}"
         return toRet
-    
+
     #--------------------------------------------------------------------------
-    def getPeriodKnwStr(self, period):
+    def getPeriodKnwStr(self, period, short):
         "Returns string describing knowledge in this Tile"
         
         tribes = self.getPeriod(period)['tribes']
         
-        toRet = 'The amount of knowledge each tribe in this tile posseses:\n'
-        for tribeId, tribeObj in tribes.items():
-            if tribeObj['density']>0:
-                toRet += f"{tribeId}: Forage={round(tribeObj['knowledge']['frg'], 2)}, Agriculture={round(tribeObj['knowledge']['agr'], 2)}, Cattle={round(tribeObj['knowledge']['pstr'], 2)}\nIndustry={round(tribeObj['knowledge']['ind'], 2)}, Science={round(tribeObj['knowledge']['sci'], 2)}, Religion={round(tribeObj['knowledge']['rlg'], 2)}\nWar={round(tribeObj['knowledge']['war'], 2)}, Trade={round(tribeObj['knowledge']['trd'], 2)}, Diplomacy={round(tribeObj['knowledge']['dpl'], 2)}\n---------------------------------------------------------\n"
- 
-        if toRet=='Knowledge:': toRet = 'No tribe here'
+        if short == False:
+            toRet = 'The amount of knowledge each tribe in this tile posseses:'
+            for tribeId, tribeObj in tribes.items():
+                if tribeObj['density']>0:
+                    toRet += f"\n{tribeId}:\nForage={round(tribeObj['knowledge']['frg'], 2)}, Agriculture={round(tribeObj['knowledge']['agr'], 2)}, Cattle={round(tribeObj['knowledge']['pstr'], 2)}\nIndustry={round(tribeObj['knowledge']['ind'], 2)}, Science={round(tribeObj['knowledge']['sci'], 2)}, Religion={round(tribeObj['knowledge']['rlg'], 2)}\nWar={round(tribeObj['knowledge']['war'], 2)}, Trade={round(tribeObj['knowledge']['trd'], 2)}, Diplomacy={round(tribeObj['knowledge']['dpl'], 2)}\n---------------------------------------------------------"
+            
+            if toRet=='The amount of knowledge each tribe in this tile posseses:': toRet = 'No tribe here'
         
+        elif short == True:
+            fodKnw = 0
+            devKnw = 0
+            intKnw = 0
+
+            for tribeId, tribeObj in tribes.items():
+                if tribeObj['density']>0:
+                    fodKnw += tribeObj['knowledge']['frg'] + tribeObj['knowledge']['agr'] + tribeObj['knowledge']['pstr']
+                    devKnw += tribeObj['knowledge']['ind'] + tribeObj['knowledge']['sci'] + tribeObj['knowledge']['rlg']
+                    intKnw += tribeObj['knowledge']['war'] + tribeObj['knowledge']['trd'] + tribeObj['knowledge']['dpl']
+            
+            if fodKnw + devKnw + intKnw == 0 : toRet = 'No tribe here'
+            else : toRet = f"Knowledge in tile: Food:{round(fodKnw,2)}, Development:{round(devKnw,2)}, Interaction:{round(intKnw,2)}"
         return toRet
     
     #--------------------------------------------------------------------------
-    def getPeriodPrfStr(self, period):
+    def getPeriodPrfStr(self, period, short):
         "Returns string describing preferences in this Tile"
         
         tribes = self.getPeriod(period)['tribes']
         
-        toRet = 'Preferences tribes in this tile have about resources:\n'
-        for tribeId, tribeObj in tribes.items(): 
-            if tribeObj['density']>0:
-                toRet += f"{tribeId}: Forage={round(tribeObj['preference']['frg'], 2)}, Agriculture={round(tribeObj['preference']['agr'], 2)}, Cattle={round(tribeObj['preference']['pstr'], 2)}\nIndustry={round(tribeObj['preference']['ind'], 2)}, Science={round(tribeObj['preference']['sci'], 2)}, Religion={round(tribeObj['preference']['rlg'], 2)}\nWar={round(tribeObj['preference']['war'], 2)}, Trade={round(tribeObj['preference']['trd'], 2)}, Diplomacy={round(tribeObj['preference']['dpl'], 2)}\n---------------------------------------------------------\n"
- 
-        if toRet=='Preferences:': toRet = 'No tribe here'
+        if short == False:
+            toRet = 'Preferences tribes in this tile have about resources:'
+            for tribeId, tribeObj in tribes.items(): 
+                if tribeObj['density']>0:
+                    toRet += f"\n{tribeId}:\nForage={round(tribeObj['preference']['frg'], 2)}, Agriculture={round(tribeObj['preference']['agr'], 2)}, Cattle={round(tribeObj['preference']['pstr'], 2)}\nIndustry={round(tribeObj['preference']['ind'], 2)}, Science={round(tribeObj['preference']['sci'], 2)}, Religion={round(tribeObj['preference']['rlg'], 2)}\nWar={round(tribeObj['preference']['war'], 2)}, Trade={round(tribeObj['preference']['trd'], 2)}, Diplomacy={round(tribeObj['preference']['dpl'], 2)}\n---------------------------------------------------------"
+    
+            if toRet=='Preferences tribes in this tile have about resources:': toRet = 'No tribe here'
         
+        elif short == True:
+            fodPrf = 0
+            devPrf = 0
+            intPrf = 0
+
+            for tribeId, tribeObj in tribes.items():
+                if tribeObj['density']>0:
+                    fodPrf += tribeObj['preference']['frg'] + tribeObj['preference']['agr'] + tribeObj['preference']['pstr']
+                    devPrf += tribeObj['preference']['ind'] + tribeObj['preference']['sci'] + tribeObj['preference']['rlg']
+                    intPrf += tribeObj['preference']['war'] + tribeObj['preference']['trd'] + tribeObj['preference']['dpl']
+            
+            if fodPrf + devPrf + intPrf == 0 : toRet = 'No tribe here'
+            else : toRet = f"Preference in tile: Food:{round(fodPrf,2)}, Development:{round(devPrf,2)}, Interaction:{round(intPrf,2)}"
         return toRet
     
     #--------------------------------------------------------------------------
@@ -371,13 +401,39 @@ class TTile:
             effs ['ind'] = eff
             unus ['ind'] = unu
 
+            '''
             #------------------------------------------------------------------
-            # Nakupovanie zvysnych AGR za zvysne IND vyrobky a 
-            # Lupenie WAR zdrojov od inych tribes
+            # Gaining RLG resources - 
             #------------------------------------------------------------------
+            (res, eff, unu) = lib.getResource( self.biome, resType='ind', workForce=dens*prefs['ind'], knowledge=knows['ind'] )
+            resrs['ind'] = res
+            effs ['ind'] = eff
+            unus ['ind'] = unu
 
+            #------------------------------------------------------------------
+            # Stealing WAR resources - 
+            #------------------------------------------------------------------
+            (res, eff, unu) = lib.getResource( self.biome, resType='ind', workForce=dens*prefs['ind'], knowledge=knows['ind'] )
+            resrs['ind'] = res
+            effs ['ind'] = eff
+            unus ['ind'] = unu
 
+            #------------------------------------------------------------------
+            # Trading TRD resources - 
+            #------------------------------------------------------------------
+            (res, eff, unu) = lib.getResource( self.biome, resType='ind', workForce=dens*prefs['ind'], knowledge=knows['ind'] )
+            resrs['ind'] = res
+            effs ['ind'] = eff
+            unus ['ind'] = unu
 
+            #------------------------------------------------------------------
+            # Zber DPL resources - 
+            #------------------------------------------------------------------
+            (res, eff, unu) = lib.getResource( self.biome, resType='ind', workForce=dens*prefs['ind'], knowledge=knows['ind'] )
+            resrs['ind'] = res
+            effs ['ind'] = eff
+            unus ['ind'] = unu
+            '''
             #------------------------------------------------------------------
             # Zapisem priebezne vypocty o ziskanych resources a efektivite do lastPeriod Tile
             #------------------------------------------------------------------
@@ -679,6 +735,7 @@ class TTile:
         attention = tribeObj['preference'][resType]
             
         if attention > _KNOW_LIMIT: toRet = tribeObj['knowledge'][resType] * _KNOW_GROWTH
+        # * (100 * tribeObj['density'] * tribeObj['preference']['sci'])
         else                      : toRet = tribeObj['knowledge'][resType] * _KNOW_DECAY
             
         # Znalosti nemozu klesnut pod zakladne minimum
