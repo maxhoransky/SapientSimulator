@@ -1,10 +1,9 @@
 To do:
     Tribes:
         Make population be rounded down
-        Make knowledge gains be multiplied by research workers
         Make tribes interact with each other
         Make a technology tree
         Implement the function of technologies
     GUI:
         Make it so the bottom line only says tile id and biome, + a lil bit more, but no more than one line
-        Make all this new stuff show up
+        Make all this new stuff show up 

@@ -18,6 +18,7 @@ _STRES_MAX       = 0.8   # Maximalna miera stresu populacie
 _STRES_EMIG      = 0.2   # Koeficient emigracie kvoli stresu
 
 _KNOW_GROWTH     = 1.10  # Koeficient zvysenia knowledge ak jej tribe venuje pozornost
+_KNOW_GROWTH_SCI = 0.05  # How much does science help speed up research
 _KNOW_LIMIT      = 0.3   # Hranica pozornosti, pri ktorej sa knowledge zvysuje
 _KNOW_DECAY      = 0.95  # Koeficient zabudania knowledge ak jej tribe nevenuje pozornost
 _KNOW_MIN        = 0.1   # Minimalna hodnota znalosti uplnych divochov
@@ -576,7 +577,6 @@ class TTile:
                 know = self.knowledgeChange(tribeObj, 'dpl')
                 simPeriodTribe['knowledge']['dpl'] = know
 
-                # * (100 * tribeObj['density'] * tribeObj['preference']['sci'])
                 #--------------------------------------------------------------
                 # Preberanie knowledge od vyspelejsich tribe
                 #--------------------------------------------------------------
@@ -711,7 +711,7 @@ class TTile:
         toRet = 0
         attention = tribeObj['preference'][resType]
             
-        if attention > _KNOW_LIMIT: toRet = tribeObj['knowledge'][resType] * _KNOW_GROWTH
+        if attention > _KNOW_LIMIT: toRet = tribeObj['knowledge'][resType] * _KNOW_GROWTH * (((tribeObj['density'] + 0.9) * (tribeObj['preference']['sci'] + 0.9) * (tribeObj['knowledge']['sci'] + 0.9) * _KNOW_GROWTH_SCI) + 1)
         else                      : toRet = tribeObj['knowledge'][resType] * _KNOW_DECAY
             
         # Znalosti nemozu klesnut pod zakladne minimum

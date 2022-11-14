@@ -30,17 +30,17 @@ biomes = {
 #------------------------------------------------------------------------------
 tribes = { 
         'Hunters'   : {'color'      : {'red':0,    'green':0,    'blue':1   }, 
-                       'preference' : {'frg':0.42, 'agr'  :0.30, 'pstr':0.05, 'ind':0.02, 'sci':0.01, 'rlg':0.01, 'war':0.15, 'trd':0.02, 'dpl':0.01},
+                       'preference' : {'frg':0.42, 'agr'  :0.30, 'pstr':0.05, 'ind':0.02, 'sci':1, 'rlg':0.01, 'war':0.15, 'trd':0.02, 'dpl':0.01},
                        'knowledge'  : {'frg':0.28, 'agr'  :0.25, 'pstr':0.15, 'ind':0.10, 'sci':0.01, 'rlg':0.01, 'war':0.20, 'trd':0.9 , 'dpl':0.01},
                         },
        
         'Fishermen' : {'color'      : {'red':0,    'green':1,    'blue':0   }, 
-                       'preference' : {'frg':0.48, 'agr'  :0.02, 'pstr':0.02, 'ind':0.06, 'sci':0.01, 'rlg':0.01, 'war':0.30, 'trd':0.9, 'dpl':0.01},
+                       'preference' : {'frg':0.48, 'agr'  :0.02, 'pstr':0.02, 'ind':0.06, 'sci':1, 'rlg':0.01, 'war':0.30, 'trd':0.9, 'dpl':0.01},
                        'knowledge'  : {'frg':0.43, 'agr'  :0.10, 'pstr':0.10, 'ind':0.10, 'sci':0.01, 'rlg':0.01, 'war':0.10, 'trd':0.9, 'dpl':0.01},
                         },
         
         'Nomads'    : {'color'      : {'red':1,    'green':0,    'blue':0   }, 
-                       'preference' : {'frg':0.68, 'agr'  :0.02, 'pstr':0.05, 'ind':0.03, 'sci':0.01, 'rlg':0.01, 'war':0.05, 'trd':0.18, 'dpl':0.01},
+                       'preference' : {'frg':0.68, 'agr'  :0.02, 'pstr':0.05, 'ind':0.03, 'sci':1, 'rlg':0.01, 'war':0.05, 'trd':0.18, 'dpl':0.01},
                        'knowledge'  : {'frg':0.68, 'agr'  :0.10, 'pstr':0.10, 'ind':0.10, 'sci':0.01, 'rlg':0.01, 'war':0.10, 'trd':0.19, 'dpl':0.01},
                         },
 }
