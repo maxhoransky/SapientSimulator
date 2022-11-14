@@ -1,9 +1,12 @@
 To do:
     Tribes:
-        Make population be rounded down
-        Make tribes interact with each other
-        Make a technology tree
-        Implement the function of technologies
-    GUI:
-        Make it so the bottom line only says tile id and biome, + a lil bit more, but no more than one line
-        Make all this new stuff show up 
+        -Science:
+            - Change science preferences
+            - Change science knowledge
+        -Make tribes interact with each other
+        -Implement Technology:
+            -Make a technology tree
+            -Let Tribes gain technologies:
+                When a tribe completes a set goal, then the stop researching stuff and instead spend
+                science on researching the newly unlocked technology, until they unlock that technology.
+            -Implement the function of technologies

@@ -17,7 +17,7 @@ _STRES_MIN       = 0.1   # Zakladna miera stresu populacie
 _STRES_MAX       = 0.8   # Maximalna miera stresu populacie
 _STRES_EMIG      = 0.2   # Koeficient emigracie kvoli stresu
 
-_KNOW_GROWTH     = 1.10  # Koeficient zvysenia knowledge ak jej tribe venuje pozornost
+_KNOW_GROWTH     = 1.05  # Koeficient zvysenia knowledge ak jej tribe venuje pozornost
 _KNOW_GROWTH_SCI = 0.05  # How much does science help speed up research
 _KNOW_LIMIT      = 0.3   # Hranica pozornosti, pri ktorej sa knowledge zvysuje
 _KNOW_DECAY      = 0.95  # Koeficient zabudania knowledge ak jej tribe nevenuje pozornost
