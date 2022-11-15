@@ -551,6 +551,7 @@ class TTile:
                 # Zmena knowledge podla miery preferencii = pozornosti, ktory tribe venoval oblasti
                 #--------------------------------------------------------------
                 know = self.knowledgeChange(tribeObj, 'frg')
+                
                 simPeriodTribe['knowledge']['frg'] = know
                 
                 know = self.knowledgeChange(tribeObj, 'agr')
@@ -711,7 +712,7 @@ class TTile:
         toRet = 0
         attention = tribeObj['preference'][resType]
             
-        if attention > _KNOW_LIMIT: toRet = tribeObj['knowledge'][resType] * _KNOW_GROWTH * (((tribeObj['density'] + 0.9) * (tribeObj['preference']['sci'] + 0.9) * (tribeObj['knowledge']['sci'] + 0.9) * _KNOW_GROWTH_SCI) + 1)
+        if attention > _KNOW_LIMIT: toRet = tribeObj['knowledge'][resType] * _KNOW_GROWTH * (((tribeObj['density'] * tribeObj['preference']['sci'] + 0.9) * (tribeObj['knowledge']['sci'] + 0.9) * _KNOW_GROWTH_SCI) + 1)
         else                      : toRet = tribeObj['knowledge'][resType] * _KNOW_DECAY
             
         # Znalosti nemozu klesnut pod zakladne minimum
@@ -737,7 +738,7 @@ class TTile:
         data = {}
         
         data['tileId' ] = self.tileId   # ID tile
-        data['biome' ]  = self.biome   # Priemerna vyska tile nad morom
+        data['biome' ]  = self.biome    # Priemerna vyska tile nad morom
         data['row'    ] = self.row      # Pozicia tile - riadok
         data['col'    ] = self.col      # Pozicia tile - stlpec
         data['history'] = self.history  # Historia tile [{'agrState':agrState, 'tribes':tribes}]
