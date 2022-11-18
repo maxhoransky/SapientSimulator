@@ -342,7 +342,7 @@ class TTile:
             resrs = {'frg':0, 'agr':0, 'pstr':0, 'ind':0, 'sci':0, 'rlg':0, 'war':0, 'trd':0, 'dpl':0}
             effs  = {'frg':0, 'agr':0, 'pstr':0, 'ind':0, 'sci':0, 'rlg':0, 'war':0, 'trd':0, 'dpl':0}
             unus  = {'frg':0, 'agr':0, 'pstr':0, 'ind':0, 'sci':0, 'rlg':0, 'war':0, 'trd':0, 'dpl':0}
-
+            
             #------------------------------------------------------------------
             # Zber FRG resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
             #------------------------------------------------------------------
@@ -432,7 +432,7 @@ class TTile:
         # Vyhodnotim zmeny populacie pre vsetky Tribes na Tile
         #----------------------------------------------------------------------
         for tribeId, tribeObj in lastPeriod['tribes'].items():
-
+            
             # Vstupne hodnoty
             resrTot = tribeObj['resrs']['frg'] + tribeObj['resrs']['agr'] + tribeObj['resrs']['pstr'] + tribeObj['resrs']['ind'] + tribeObj['resrs']['sci'] + tribeObj['resrs']['rlg'] + tribeObj['resrs']['war'] + tribeObj['resrs']['trd'] + tribeObj['resrs']['dpl']
             
@@ -460,11 +460,15 @@ class TTile:
                 strsTot = _STRES_MIN + ((densWar+densHunger) / densSim)
                 if strsTot > _STRES_MAX: strsTot = _STRES_MAX
                 
+                # Miera hladu je pomer hladom zomretej populacie voci povodnej populacii
+                hungerTotal = (densHunger / densSim)
+
                 # Zostane zit len tolko ludi kolko ma zdroje
                 densSim   = resrTot
                 
             else:
                 strsTot    = _STRES_MIN
+                hungerTotal = 0
                 densHunger = 0
                 densWar    = 0
                 
@@ -518,7 +522,8 @@ class TTile:
                                   'densHunger': densHunger,
                                   'densWar'   : densWar   ,
                                   'densEmig'  : densEmig  ,
-                                  'stres'     : strsTot
+                                  'stres'     : strsTot   ,
+                                  'hunger'    : hungerTotal
                                   }
             #------------------------------------------------------------------
             # Ak tribe prezil, zapisem ho do simulovanej periody s densSim
@@ -546,12 +551,11 @@ class TTile:
                 # Zizkam cielovu periodu pre tribId kam budem zapisovat vysledky
                 #--------------------------------------------------------------
                 simPeriodTribe = simPeriod['tribes'][tribeId]
-                
+
                 #--------------------------------------------------------------
                 # Zmena knowledge podla miery preferencii = pozornosti, ktory tribe venoval oblasti
                 #--------------------------------------------------------------
                 know = self.knowledgeChange(tribeObj, 'frg')
-                
                 simPeriodTribe['knowledge']['frg'] = know
                 
                 know = self.knowledgeChange(tribeObj, 'agr')
@@ -581,14 +585,13 @@ class TTile:
                 #--------------------------------------------------------------
                 # Preberanie knowledge od vyspelejsich tribe
                 #--------------------------------------------------------------
-
-
             
                 #--------------------------------------------------------------
                 # Zmena preferencii tribe
                 #--------------------------------------------------------------
+                
                 prefs = dict(tribeObj['preference'])
-
+                
                 #--------------------------------------------------------------
                 # Znizenie preferencie ak nevyuziva vsetku alokovanu workForce
                 #--------------------------------------------------------------
@@ -597,7 +600,6 @@ class TTile:
                 if unus['pstr']> _PREF_UNUS_LIMIT: prefs['pstr']-= _PREF_BY_UNUS
                 if unus['agr'] > _PREF_UNUS_LIMIT: prefs['agr'] -= _PREF_BY_UNUS
                 if unus['ind'] > _PREF_UNUS_LIMIT: prefs['ind'] -= _PREF_BY_UNUS
-                if unus['sci'] > _PREF_UNUS_LIMIT: prefs['sci'] -= _PREF_BY_UNUS  
                 if unus['rlg'] > _PREF_UNUS_LIMIT: prefs['rlg'] -= _PREF_BY_UNUS  
                 if unus['war'] > _PREF_UNUS_LIMIT: prefs['war'] -= _PREF_BY_UNUS
                 if unus['trd'] > _PREF_UNUS_LIMIT: prefs['trd'] -= _PREF_BY_UNUS
@@ -605,6 +607,7 @@ class TTile:
                 #--------------------------------------------------------------
                 # Zvysenie preferencii pre resource type s maximalnou efektivitou
                 #--------------------------------------------------------------
+                
                 effs = tribeObj['effs']
                 
                 # Zotriedim efektivitu zostupne
@@ -615,6 +618,19 @@ class TTile:
                 for srcType, eff in effs.items():
                     if rank == 1: prefs[srcType] += _PREF_BY_EFF
                     rank += 1
+                
+                #--------------------------------------------------------------
+                # Zvysovanie produkcie jedla a znizovanie  kôli nedostatku
+                #--------------------------------------------------------------
+                
+                prefs['frg']  *= tribeObj['denses']['hunger'] + 1
+                prefs['pstr'] *= tribeObj['denses']['hunger'] + 1
+                prefs['agr']  *= tribeObj['denses']['hunger'] + 1
+                
+                #--------------------------------------------------------------
+                # Zvysovanie nabozenstva kvoli stresu
+                #--------------------------------------------------------------
+                prefs['rlg'] *= tribeObj['denses']['stres'] + 1
                 
                 #--------------------------------------------------------------
                 # Normujem preferencie tak aby ich sucet bol 1 a zapisem do simulovanej periody
