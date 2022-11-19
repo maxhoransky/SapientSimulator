@@ -555,37 +555,58 @@ class TTile:
                 #--------------------------------------------------------------
                 # Zmena knowledge podla miery preferencii = pozornosti, ktory tribe venoval oblasti
                 #--------------------------------------------------------------
-                know = self.knowledgeChange(tribeObj, 'frg')
-                simPeriodTribe['knowledge']['frg'] = know
-                
+                knowBaseGain = 0
+                knowGain = 0
+
+                know = self.knowledgeChange(tribeObj, 'frg')          
+                simPeriodTribe['knowledge']['frg'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
+
                 know = self.knowledgeChange(tribeObj, 'agr')
-                simPeriodTribe['knowledge']['agr'] = know
+                simPeriodTribe['knowledge']['agr'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
 
                 know = self.knowledgeChange(tribeObj, 'pstr')
-                simPeriodTribe['knowledge']['pstr'] = know
+                simPeriodTribe['knowledge']['pstr'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
 
                 know = self.knowledgeChange(tribeObj, 'ind')
-                simPeriodTribe['knowledge']['ind'] = know
+                simPeriodTribe['knowledge']['ind'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
 
                 know = self.knowledgeChange(tribeObj, 'sci')
-                simPeriodTribe['knowledge']['sci'] = know
+                simPeriodTribe['knowledge']['sci'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
 
                 know = self.knowledgeChange(tribeObj, 'rlg')
-                simPeriodTribe['knowledge']['rlg'] = know
+                simPeriodTribe['knowledge']['rlg'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
 
                 know = self.knowledgeChange(tribeObj, 'war')
-                simPeriodTribe['knowledge']['war'] = know
+                simPeriodTribe['knowledge']['war'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
                 
                 know = self.knowledgeChange(tribeObj, 'trd')
-                simPeriodTribe['knowledge']['trd'] = know
+                simPeriodTribe['knowledge']['trd'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
 
                 know = self.knowledgeChange(tribeObj, 'dpl')
-                simPeriodTribe['knowledge']['dpl'] = know
-
+                simPeriodTribe['knowledge']['dpl'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
+                
                 #--------------------------------------------------------------
                 # Preberanie knowledge od vyspelejsich tribe
                 #--------------------------------------------------------------
-            
+                
                 #--------------------------------------------------------------
                 # Zmena preferencii tribe
                 #--------------------------------------------------------------
@@ -596,6 +617,7 @@ class TTile:
                 # Znizenie preferencie ak nevyuziva vsetku alokovanu workForce
                 #--------------------------------------------------------------
                 unus  = tribeObj['unus']
+
                 if unus['frg'] > _PREF_UNUS_LIMIT: prefs['frg'] -= _PREF_BY_UNUS
                 if unus['pstr']> _PREF_UNUS_LIMIT: prefs['pstr']-= _PREF_BY_UNUS
                 if unus['agr'] > _PREF_UNUS_LIMIT: prefs['agr'] -= _PREF_BY_UNUS
@@ -609,7 +631,8 @@ class TTile:
                 #--------------------------------------------------------------
                 
                 effs = tribeObj['effs']
-                
+                effs['sci'] = knowGain / (tribeObj['denses']['densSim']*prefs['sci'])
+
                 # Zotriedim efektivitu zostupne
                 effs = lib.dSort(effs, reverse=True)
                 
@@ -632,6 +655,11 @@ class TTile:
                 #--------------------------------------------------------------
                 prefs['rlg'] *= tribeObj['denses']['stres'] + 1
                 
+                #--------------------------------------------------------------
+                # Zvysovanie vedy kvoli vyzkumu
+                #--------------------------------------------------------------
+                prefs['sci'] *= (knowBaseGain/(1 + prefs['rlg'])) + 1
+
                 #--------------------------------------------------------------
                 # Normujem preferencie tak aby ich sucet bol 1 a zapisem do simulovanej periody
                 #--------------------------------------------------------------
@@ -725,17 +753,26 @@ class TTile:
     def knowledgeChange(self, tribeObj, resType):
         "Evaluates changes in the knowledge and preference for respective tribe and resource type"
         
-        toRet = 0
+        toRet = [0, 0, 0]
         attention = tribeObj['preference'][resType]
-            
-        if attention > _KNOW_LIMIT: toRet = tribeObj['knowledge'][resType] * _KNOW_GROWTH * (((tribeObj['density'] * tribeObj['preference']['sci'] + 0.9) * (tribeObj['knowledge']['sci'] + 0.9) * _KNOW_GROWTH_SCI) + 1)
-        else                      : toRet = tribeObj['knowledge'][resType] * _KNOW_DECAY
+
+        if attention > _KNOW_LIMIT:
+            toRet[1] = tribeObj['knowledge'][resType] * _KNOW_GROWTH
+            toRet[0] = tribeObj['knowledge'][resType] * _KNOW_GROWTH * (((tribeObj['density'] * tribeObj['preference']['sci'] + 0.9) * (tribeObj['knowledge']['sci'] + 0.9) * _KNOW_GROWTH_SCI) + 1)
+        else : 
+            toRet[1] = tribeObj['knowledge'][resType] * _KNOW_DECAY
+            toRet[0] = tribeObj['knowledge'][resType] * _KNOW_DECAY
             
         # Znalosti nemozu klesnut pod zakladne minimum
-        if toRet < _KNOW_MIN: toRet = _KNOW_MIN
+        if toRet[0] < _KNOW_MIN:
+            toRet[0] = _KNOW_MIN
         
         # Znalosti nemozu byt vyssie ako 1 (=100%)
-        if toRet > 1: toRet = 1
+        if toRet[0] > 1:
+            toRet[0] = 1
+
+        toRet[1] = toRet[1] - tribeObj['knowledge'][resType]
+        toRet[2] = toRet[0] - tribeObj['knowledge'][resType]
 
         return toRet
 
