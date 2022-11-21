@@ -6,25 +6,24 @@
 # Constans - 1 tile is around 400 000 km*km
 # Colour - 
 # Permissivity - 
-# typeWork - Maximal density of work force a tile cna absorb - ppl/km
-# typeSource - The amount of resources a biome cna produce - resorurces/km
+# typeWork - Maximal density of work force a tile cna absorb - ppl/km2
+# typeSource - The amount of resources a biome cna produce - resorurces/km2
 #------------------------------------------------------------------------------
 biomes = { 
-    "Sea":              {'color':'#2b53ff', 'prmst':   1, 'frgWork':    0, 'frgSource':    1, 'agrWork':   1, 'agrSource':    1, 'pstrWork':   1, 'pstrSource':    1,'indWork':   1, 'indSource':    1},
-    "Rainforest":       {'color':'#005f11', 'prmst':   1, 'frgWork': 0.35, 'frgSource':    1, 'agrWork':  50, 'agrSource':  150, 'pstrWork':   1, 'pstrSource':    1,'indWork':  30, 'indSource':   60},
-    "Monsoon":          {'color':'#008511', 'prmst':   1, 'frgWork': 0.05, 'frgSource':    1, 'agrWork': 180, 'agrSource': 2000, 'pstrWork': 150, 'pstrSource': 1300,'indWork': 100, 'indSource':  450},
-    "Savannah":         {'color':'#8e852c', 'prmst':   1, 'frgWork': 0.95, 'frgSource':    1, 'agrWork': 120, 'agrSource': 1000, 'pstrWork':   1, 'pstrSource':    1,'indWork': 150, 'indSource':  450},
-    "Desert":           {'color':'#fefc01', 'prmst':   1, 'frgWork': 0.36, 'frgSource':    1, 'agrWork':  90, 'agrSource':  250, 'pstrWork':   1, 'pstrSource':    1,'indWork': 160, 'indSource':  500},
-    "Cold desert":      {'color':'#C3D3EC', 'prmst':   1, 'frgWork':    1, 'frgSource':    1, 'agrWork':   1, 'agrSource':    1, 'pstrWork':   1, 'pstrSource':    1,'indWork':  70, 'indSource':   90},
-    "Steppe":           {'color':'#c4a53b', 'prmst':   1, 'frgWork':    1, 'frgSource':    1, 'agrWork': 140, 'agrSource': 1200, 'pstrWork':   1, 'pstrSource':    1,'indWork': 150, 'indSource':  450},
-    "Subtropical":      {'color':'#BA6120', 'prmst':   1, 'frgWork':    1, 'frgSource':    1, 'agrWork':   1, 'agrSource':    1, 'pstrWork':   1, 'pstrSource':    1,'indWork':   1, 'indSource':    1},
-    "Mediterranean":    {'color':'#D13A0F', 'prmst':   1, 'frgWork':    1, 'frgSource':    1, 'agrWork': 180, 'agrSource': 2000, 'pstrWork':   1, 'pstrSource':    1,'indWork': 150, 'indSource':  450},
-    "Marine":           {'color':'#86f4a2', 'prmst':   1, 'frgWork':    1, 'frgSource': 1000, 'agrWork':  50, 'agrSource':  150, 'pstrWork': 100, 'pstrSource':  900,'indWork': 250, 'indSource': 3000},
-    "Humid":            {'color':'#25AB92', 'prmst':   1, 'frgWork':    1, 'frgSource': 1550, 'agrWork':  20, 'agrSource':   70, 'pstrWork':  50, 'pstrSource':  400,'indWork': 300, 'indSource': 4000},
-    "Taiga":            {'color':'#9AB3AD', 'prmst':   1, 'frgWork':    1, 'frgSource': 1325, 'agrWork':  20, 'agrSource':   50, 'pstrWork':   1, 'pstrSource':    1,'indWork': 200, 'indSource': 1250},
-    "Tundra":           {'color':'#B1C4C0', 'prmst':   1, 'frgWork':    1, 'frgSource': 1325, 'agrWork':  30, 'agrSource':   80, 'pstrWork':   1, 'pstrSource':    1,'indWork': 250, 'indSource': 2500},
-    "Ice Caps":         {'color':'#bef9ff', 'prmst':   1, 'frgWork':    1, 'frgSource':  750, 'agrWork':   1, 'agrSource':    1, 'pstrWork':   1, 'pstrSource':    1,'indWork':  50, 'indSource':  300},
-    "Mountains":        {'color':'#656565', 'prmst':   1, 'frgWork':    1, 'frgSource':    1, 'agrWork': 115, 'agrSource':    1, 'pstrWork':   1, 'pstrSource':    1,'indWork': 350, 'indSource': 5000},
+    "Sea":              {'color':'#2b53ff', 'prmst':    0, 'frgWork':    0, 'frgSource':    0, 'agrWork':    0, 'agrSource':    1, 'pstrWork':    0, 'pstrSource':    0,'indWork':    0, 'indSource':    0},
+    "Rainforest":       {'color':'#005f11', 'prmst':    1, 'frgWork': 0.35, 'frgSource': 0.35, 'agrWork': 6.25, 'agrSource':    1, 'pstrWork':    1, 'pstrSource':    1,'indWork':   30, 'indSource':   60},
+    "Monsoon":          {'color':'#008511', 'prmst':    1, 'frgWork': 0.10, 'frgSource': 0.20, 'agrWork': 1.13, 'agrSource':    1, 'pstrWork':  150, 'pstrSource': 1300,'indWork':  100, 'indSource':  450},
+    "Savannah":         {'color':'#8e852c', 'prmst':    1, 'frgWork': 0.95, 'frgSource': 1.90, 'agrWork':23.63, 'agrSource':    1, 'pstrWork':    1, 'pstrSource':    1,'indWork':  150, 'indSource':  450},
+    "Desert":           {'color':'#fefc01', 'prmst':    1, 'frgWork': 0.35, 'frgSource': 1.05, 'agrWork': 0.01, 'agrSource':    1, 'pstrWork':    1, 'pstrSource':    1,'indWork':  160, 'indSource':  500},
+    "Cold desert":      {'color':'#C3D3EC', 'prmst':    1, 'frgWork': 0.05, 'frgSource': 0.05, 'agrWork': 0.01, 'agrSource':    1, 'pstrWork':    1, 'pstrSource':    1,'indWork':   70, 'indSource':   90},
+    "Steppe":           {'color':'#c4a53b', 'prmst':    1, 'frgWork': 0.10, 'frgSource': 0.30, 'agrWork': 9.05, 'agrSource':    1, 'pstrWork':    1, 'pstrSource':    1,'indWork':  150, 'indSource':  450},
+    "Subtropical":      {'color':'#BA6120', 'prmst':    1, 'frgWork': 0.45, 'frgSource': 1.35, 'agrWork': 9.41, 'agrSource':    1, 'pstrWork':    1, 'pstrSource':    1,'indWork':    1, 'indSource':    1},
+    "Mediterranean":    {'color':'#D13A0F', 'prmst':    1, 'frgWork': 0.20, 'frgSource': 0.80, 'agrWork':    1, 'agrSource':    1, 'pstrWork':    1, 'pstrSource':    1,'indWork':  150, 'indSource':  450},
+    "Marine":           {'color':'#86f4a2', 'prmst':    1, 'frgWork': 0.80, 'frgSource': 3.20, 'agrWork':    1, 'agrSource':    1, 'pstrWork':  100, 'pstrSource':  900,'indWork':  250, 'indSource': 3000},
+    "Humid":            {'color':'#25AB92', 'prmst':    1, 'frgWork': 0.25, 'frgSource': 0.75, 'agrWork':    1, 'agrSource':    1, 'pstrWork':   50, 'pstrSource':  400,'indWork':  300, 'indSource': 4000},
+    "Taiga":            {'color':'#9AB3AD', 'prmst':    1, 'frgWork': 0.10, 'frgSource': 0.20, 'agrWork':    1, 'agrSource':    1, 'pstrWork':    1, 'pstrSource':    1,'indWork':  200, 'indSource': 1250},
+    "Tundra":           {'color':'#B1C4C0', 'prmst':    1, 'frgWork': 0.05, 'frgSource': 0.15, 'agrWork':    1, 'agrSource':    1, 'pstrWork':    1, 'pstrSource':    1,'indWork':  250, 'indSource': 2500},
+    "Ice Caps":         {'color':'#bef9ff', 'prmst': 0.01, 'frgWork': 0.01, 'frgSource': 0.01, 'agrWork': 0.01, 'agrSource': 0.01, 'pstrWork': 0.01, 'pstrSource': 0.01,'indWork': 0.01, 'indSource': 0.01},
 }
 
 #------------------------------------------------------------------------------

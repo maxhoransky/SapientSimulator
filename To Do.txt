@@ -1,7 +1,6 @@
 To do:
     Tribes:
         -Science:
-            - Change science preferences
             - Change science knowledge
         -Make tribes interact with each other
         -Implement Technology:

@@ -78,7 +78,7 @@ class SiqoJournal:
         #----------------------------------------------------------------------
         # Vystup na obrazovku
         #----------------------------------------------------------------------
-        #if line and not self.fileOnly: print(line)
+        if line and not self.fileOnly: print(line)
 
         #----------------------------------------------------------------------
         # Vystup do zoznamu v pamati
