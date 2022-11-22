@@ -68,7 +68,7 @@
       },
       "Tile 0, 5": {
             "tileId": "Tile 0, 5",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 5,
             "history": [
@@ -81,7 +81,7 @@
       },
       "Tile 0, 6": {
             "tileId": "Tile 0, 6",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 6,
             "history": [
@@ -94,7 +94,7 @@
       },
       "Tile 0, 7": {
             "tileId": "Tile 0, 7",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 7,
             "history": [
@@ -107,7 +107,7 @@
       },
       "Tile 0, 8": {
             "tileId": "Tile 0, 8",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 8,
             "history": [
@@ -120,7 +120,7 @@
       },
       "Tile 0, 9": {
             "tileId": "Tile 0, 9",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 9,
             "history": [
@@ -133,7 +133,7 @@
       },
       "Tile 0, 10": {
             "tileId": "Tile 0, 10",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 10,
             "history": [
@@ -146,7 +146,7 @@
       },
       "Tile 0, 11": {
             "tileId": "Tile 0, 11",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 11,
             "history": [
@@ -159,7 +159,7 @@
       },
       "Tile 0, 12": {
             "tileId": "Tile 0, 12",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 12,
             "history": [
@@ -172,7 +172,7 @@
       },
       "Tile 0, 13": {
             "tileId": "Tile 0, 13",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 13,
             "history": [
@@ -185,7 +185,7 @@
       },
       "Tile 0, 14": {
             "tileId": "Tile 0, 14",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 14,
             "history": [
@@ -198,7 +198,7 @@
       },
       "Tile 0, 15": {
             "tileId": "Tile 0, 15",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 15,
             "history": [
@@ -211,7 +211,7 @@
       },
       "Tile 0, 16": {
             "tileId": "Tile 0, 16",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 16,
             "history": [
@@ -224,7 +224,7 @@
       },
       "Tile 0, 17": {
             "tileId": "Tile 0, 17",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 17,
             "history": [
@@ -237,7 +237,7 @@
       },
       "Tile 0, 18": {
             "tileId": "Tile 0, 18",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 18,
             "history": [
@@ -5359,7 +5359,7 @@
       },
       "Tile 0, 32": {
             "tileId": "Tile 0, 32",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 32,
             "history": [
@@ -5372,7 +5372,7 @@
       },
       "Tile 0, 33": {
             "tileId": "Tile 0, 33",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 33,
             "history": [
@@ -5385,7 +5385,7 @@
       },
       "Tile 0, 34": {
             "tileId": "Tile 0, 34",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 34,
             "history": [
@@ -5398,7 +5398,7 @@
       },
       "Tile 0, 35": {
             "tileId": "Tile 0, 35",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 35,
             "history": [
@@ -5411,7 +5411,7 @@
       },
       "Tile 0, 36": {
             "tileId": "Tile 0, 36",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 36,
             "history": [
@@ -5424,7 +5424,7 @@
       },
       "Tile 0, 37": {
             "tileId": "Tile 0, 37",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 0,
             "col": 37,
             "history": [
@@ -6199,38 +6199,6 @@
                         "period": 0,
                         "densTot": 0,
                         "tribes": {
-                              "Fishermen": {
-                                    "density": 0,
-                                    "color": {
-                                          "red": 0,
-                                          "green": 1,
-                                          "blue": 0
-                                    },
-                                    "preference": {
-                                          "frg": 0.48,
-                                          "agr": 0.02,
-                                          "pstr": 0.02,
-                                          "ind": 0.06,
-                                          "sci": 0.01,
-                                          "rlg": 0.01,
-                                          "war": 0.3,
-                                          "trd": 0.09,
-                                          "dpl": 0.01
-                                    },
-                                    "knowledge": {
-                                          "frg": 0.43,
-                                          "agr": 0.1,
-                                          "pstr": 0.1,
-                                          "ind": 0.1,
-                                          "sci": 0.01,
-                                          "rlg": 0.01,
-                                          "war": 0.1,
-                                          "trd": 0.09,
-                                          "dpl": 0.01
-                                    },
-                                    "resrs": {},
-                                    "denses": {}
-                              },
                               "Nomads": {
                                     "density": 1.0,
                                     "color": {
@@ -7057,33 +7025,33 @@
                         "period": 0,
                         "densTot": 0,
                         "tribes": {
-                              "Hunters": {
-                                    "density": 1.0,
+                              "Nomads": {
+                                    "density": 0,
                                     "color": {
-                                          "red": 0,
+                                          "red": 1,
                                           "green": 0,
-                                          "blue": 1
+                                          "blue": 0
                                     },
                                     "preference": {
-                                          "frg": 0.42,
-                                          "agr": 0.3,
+                                          "frg": 0.68,
+                                          "agr": 0.02,
                                           "pstr": 0.05,
-                                          "ind": 0.02,
+                                          "ind": 0.03,
                                           "sci": 0.01,
                                           "rlg": 0.01,
-                                          "war": 0.15,
-                                          "trd": 0.02,
+                                          "war": 0.05,
+                                          "trd": 0.18,
                                           "dpl": 0.01
                                     },
                                     "knowledge": {
-                                          "frg": 0.28,
-                                          "agr": 0.25,
-                                          "pstr": 0.15,
+                                          "frg": 0.68,
+                                          "agr": 0.1,
+                                          "pstr": 0.1,
                                           "ind": 0.1,
                                           "sci": 0.01,
                                           "rlg": 0.01,
-                                          "war": 0.2,
-                                          "trd": 0.09,
+                                          "war": 0.1,
+                                          "trd": 0.19,
                                           "dpl": 0.01
                                     },
                                     "resrs": {},
@@ -7115,6 +7083,38 @@
                                           "sci": 0.01,
                                           "rlg": 0.01,
                                           "war": 0.1,
+                                          "trd": 0.09,
+                                          "dpl": 0.01
+                                    },
+                                    "resrs": {},
+                                    "denses": {}
+                              },
+                              "Hunters": {
+                                    "density": 1.0,
+                                    "color": {
+                                          "red": 0,
+                                          "green": 0,
+                                          "blue": 1
+                                    },
+                                    "preference": {
+                                          "frg": 0.42,
+                                          "agr": 0.3,
+                                          "pstr": 0.05,
+                                          "ind": 0.02,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
+                                          "war": 0.15,
+                                          "trd": 0.02,
+                                          "dpl": 0.01
+                                    },
+                                    "knowledge": {
+                                          "frg": 0.28,
+                                          "agr": 0.25,
+                                          "pstr": 0.15,
+                                          "ind": 0.1,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
+                                          "war": 0.2,
                                           "trd": 0.09,
                                           "dpl": 0.01
                                     },
@@ -15857,7 +15857,7 @@
       },
       "Tile 24, 7": {
             "tileId": "Tile 24, 7",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 7,
             "history": [
@@ -15870,7 +15870,7 @@
       },
       "Tile 24, 8": {
             "tileId": "Tile 24, 8",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 8,
             "history": [
@@ -15883,7 +15883,7 @@
       },
       "Tile 24, 9": {
             "tileId": "Tile 24, 9",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 9,
             "history": [
@@ -15896,7 +15896,7 @@
       },
       "Tile 24, 10": {
             "tileId": "Tile 24, 10",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 10,
             "history": [
@@ -15909,7 +15909,7 @@
       },
       "Tile 24, 11": {
             "tileId": "Tile 24, 11",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 11,
             "history": [
@@ -15922,7 +15922,7 @@
       },
       "Tile 24, 12": {
             "tileId": "Tile 24, 12",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 12,
             "history": [
@@ -15935,7 +15935,7 @@
       },
       "Tile 24, 13": {
             "tileId": "Tile 24, 13",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 13,
             "history": [
@@ -15948,7 +15948,7 @@
       },
       "Tile 24, 14": {
             "tileId": "Tile 24, 14",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 14,
             "history": [
@@ -15961,7 +15961,7 @@
       },
       "Tile 24, 15": {
             "tileId": "Tile 24, 15",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 15,
             "history": [
@@ -15974,7 +15974,7 @@
       },
       "Tile 24, 16": {
             "tileId": "Tile 24, 16",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 16,
             "history": [
@@ -15987,7 +15987,7 @@
       },
       "Tile 24, 17": {
             "tileId": "Tile 24, 17",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 17,
             "history": [
@@ -16000,7 +16000,7 @@
       },
       "Tile 24, 18": {
             "tileId": "Tile 24, 18",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 18,
             "history": [
@@ -16013,7 +16013,7 @@
       },
       "Tile 24, 19": {
             "tileId": "Tile 24, 19",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 19,
             "history": [
@@ -16026,7 +16026,7 @@
       },
       "Tile 24, 20": {
             "tileId": "Tile 24, 20",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 20,
             "history": [
@@ -16039,7 +16039,7 @@
       },
       "Tile 24, 21": {
             "tileId": "Tile 24, 21",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 21,
             "history": [
@@ -16052,7 +16052,7 @@
       },
       "Tile 24, 22": {
             "tileId": "Tile 24, 22",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 22,
             "history": [
@@ -16065,7 +16065,7 @@
       },
       "Tile 24, 23": {
             "tileId": "Tile 24, 23",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 23,
             "history": [
@@ -16078,7 +16078,7 @@
       },
       "Tile 24, 24": {
             "tileId": "Tile 24, 24",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 24,
             "history": [
@@ -16091,7 +16091,7 @@
       },
       "Tile 24, 25": {
             "tileId": "Tile 24, 25",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 25,
             "history": [
@@ -16104,7 +16104,7 @@
       },
       "Tile 24, 26": {
             "tileId": "Tile 24, 26",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 26,
             "history": [
@@ -16117,7 +16117,7 @@
       },
       "Tile 24, 27": {
             "tileId": "Tile 24, 27",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 27,
             "history": [
@@ -16130,7 +16130,7 @@
       },
       "Tile 24, 28": {
             "tileId": "Tile 24, 28",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 28,
             "history": [
@@ -16143,7 +16143,7 @@
       },
       "Tile 24, 29": {
             "tileId": "Tile 24, 29",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 29,
             "history": [
@@ -16156,7 +16156,7 @@
       },
       "Tile 24, 30": {
             "tileId": "Tile 24, 30",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 30,
             "history": [
@@ -16169,7 +16169,7 @@
       },
       "Tile 24, 31": {
             "tileId": "Tile 24, 31",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 31,
             "history": [
@@ -16182,7 +16182,7 @@
       },
       "Tile 24, 32": {
             "tileId": "Tile 24, 32",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 32,
             "history": [
@@ -16195,7 +16195,7 @@
       },
       "Tile 24, 33": {
             "tileId": "Tile 24, 33",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 33,
             "history": [
@@ -16208,7 +16208,7 @@
       },
       "Tile 24, 34": {
             "tileId": "Tile 24, 34",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 34,
             "history": [
@@ -16221,7 +16221,7 @@
       },
       "Tile 24, 35": {
             "tileId": "Tile 24, 35",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 35,
             "history": [
@@ -16234,7 +16234,7 @@
       },
       "Tile 24, 36": {
             "tileId": "Tile 24, 36",
-            "biome": "Ice Caps",
+            "biome": "Cold desert",
             "row": 24,
             "col": 36,
             "history": [
