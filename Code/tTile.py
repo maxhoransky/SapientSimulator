@@ -304,6 +304,10 @@ class TTile:
         simPeriod  = self.getPeriod(period  )
         
         #----------------------------------------------------------------------
+        # Determine what events happen based on stats
+        #----------------------------------------------------------------------
+
+        #----------------------------------------------------------------------
         # Vyriesim zber resurces vratane trades podla stavu v lastPeriod
         #----------------------------------------------------------------------
         self.getResource(lastPeriod)
