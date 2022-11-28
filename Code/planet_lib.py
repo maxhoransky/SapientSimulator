@@ -34,7 +34,7 @@ tribes = {
        
         'Fishermen' : {'color'      : {'red':0,    'green':1,    'blue':0   }, 
                        'preference' : {'frg':0.48, 'agr'  :0.02, 'pstr':0.02, 'ind':0.06, 'sci':0.01, 'rlg':0.01, 'war':0.30, 'trd':0.09, 'dpl':0.01},
-                       'knowledge'  : {'frg':0.43, 'agr'  :0.10, 'pstr':0.10, 'ind':0.10, 'sci':0.01, 'rlg':0.01, 'war':0.10, 'trd':0.09, 'dpl':0.01},
+                       'knowledge'  : {'frg':0.44, 'agr'  :0.09, 'pstr':0.10, 'ind':0.10, 'sci':0.01, 'rlg':0.01, 'war':0.10, 'trd':0.09, 'dpl':0.01},
                         },
         
         'Nomads'    : {'color'      : {'red':1,    'green':0,    'blue':0   }, 
