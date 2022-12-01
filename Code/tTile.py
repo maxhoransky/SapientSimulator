@@ -382,6 +382,19 @@ class TTile:
             effs ['ind'] = eff
             unus ['ind'] = unu
 
+            #------------------------------------------------------------------
+            # Zber WAR resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile           ------------!!!REVIEW-Not Finished!!!------------
+            #------------------------------------------------------------------
+            warForce = dens*prefs['war']
+            if warForce > 0:
+                resrs['war'] = warForce * (knows['war'] + 0.9) * ((resrs['ind'] * prefs['war']) + 0.9)
+                effs ['war'] = resrs['war'] / warForce
+
+                maxWarForce  = (tribeObj['knowledge']['war'] + 0.9) * ((resrs['ind'] * tribeObj['preference']['war']) + 0.9)
+                usedWarForce = min(tribeObj['density'] * tribeObj['preference']['war'], maxWarForce)
+
+                unus ['war'] = warForce - usedWarForce
+
             '''
             #------------------------------------------------------------------
             # Gaining RLG resources - 
@@ -391,13 +404,7 @@ class TTile:
             effs ['ind'] = eff
             unus ['ind'] = unu
 
-            #------------------------------------------------------------------
-            # Stealing WAR resources - 
-            #------------------------------------------------------------------
-            (res, eff, unu) = lib.getResource( self.biome, resType='ind', workForce=dens*prefs['ind'], knowledge=knows['ind'] )
-            resrs['ind'] = res
-            effs ['ind'] = eff
-            unus ['ind'] = unu
+
 
             #------------------------------------------------------------------
             # Trading TRD resources - 
@@ -424,7 +431,12 @@ class TTile:
             
         #----------------------------------------------------------------------
         self.journal.O()
-
+    #--------------------------------------------------------------------------
+    def evaluateWarEvent(self, lastPeriod, simPeriod):
+        return
+    #--------------------------------------------------------------------------
+    def evaluateTradeEvent(self, lastPeriod, simPeriod):
+        return
     #--------------------------------------------------------------------------
     def evaluateDensity(self, lastPeriod, simPeriod):
         "Evaluates population density per Tribe based on earned resources and emigration"
