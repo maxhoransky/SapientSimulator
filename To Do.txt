@@ -1,5 +1,8 @@
 To do:
     Tribes:
+        -Gain War Resources - Fix
+        -Change War State
+        -Change Trade State
         -Science:
             - Change science knowledge
         -Make tribes interact with each other
