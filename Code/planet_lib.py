@@ -4,8 +4,8 @@
 
 #==============================================================================
 # Constans - 1 tile is around 400 000 km*km
-# Colour - 
-# Permissivity - 
+# Colour - Colour of Biome 
+# Permissivity - How passable the terrain is on scale from 0 to 2
 # typeWork - Maximal density of work force a tile cna absorb - ppl/km2
 # typeSource - The amount of resources a biome cna produce - resorurces/km2
 #------------------------------------------------------------------------------
