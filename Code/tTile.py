@@ -382,6 +382,7 @@ class TTile:
             effs ['ind'] = eff
             unus ['ind'] = unu
 
+            '''
             #------------------------------------------------------------------
             # Zber WAR resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile           ------------!!!REVIEW-Not Finished!!!------------
             #------------------------------------------------------------------
@@ -395,7 +396,7 @@ class TTile:
 
                 unus ['war'] = warForce - usedWarForce
 
-            '''
+            
             #------------------------------------------------------------------
             # Gaining RLG resources - 
             #------------------------------------------------------------------
@@ -556,6 +557,153 @@ class TTile:
     def changePrefsAndKnowledge(self, lastPeriod, simPeriod):
         "Evaluates changes in preferences and knowledge"
         
+        #----------------------------------------------------------------------
+        # Vyhodnotim zmeny pre vsetky Tribes na Tile ktore maju nenulovu densitu
+        #----------------------------------------------------------------------
+        for tribeId, tribeObj in lastPeriod['tribes'].items():
+
+            if tribeObj['denses']['densSim'] > 0:
+                
+                #--------------------------------------------------------------
+                # Zizkam cielovu periodu pre tribId kam budem zapisovat vysledky
+                #--------------------------------------------------------------
+                simPeriodTribe = simPeriod['tribes'][tribeId]
+
+                #--------------------------------------------------------------
+                # Zmena knowledge podla miery preferencii = pozornosti, ktory tribe venoval oblasti
+                #--------------------------------------------------------------
+                knowBaseGain = 0
+                knowGain = 0
+
+                know = self.knowledgeChange(tribeObj, 'frg')          
+                simPeriodTribe['knowledge']['frg'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
+
+                know = self.knowledgeChange(tribeObj, 'agr')
+                simPeriodTribe['knowledge']['agr'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
+
+                know = self.knowledgeChange(tribeObj, 'pstr')
+                simPeriodTribe['knowledge']['pstr'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
+
+                know = self.knowledgeChange(tribeObj, 'ind')
+                simPeriodTribe['knowledge']['ind'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
+
+                know = self.knowledgeChange(tribeObj, 'sci')
+                simPeriodTribe['knowledge']['sci'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
+
+                know = self.knowledgeChange(tribeObj, 'rlg')
+                simPeriodTribe['knowledge']['rlg'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
+
+                know = self.knowledgeChange(tribeObj, 'war')
+                simPeriodTribe['knowledge']['war'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
+                
+                know = self.knowledgeChange(tribeObj, 'trd')
+                simPeriodTribe['knowledge']['trd'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
+
+                know = self.knowledgeChange(tribeObj, 'dpl')
+                simPeriodTribe['knowledge']['dpl'] = know[0]
+                knowBaseGain += know[1]
+                knowGain += know[2]
+                
+                #--------------------------------------------------------------
+                # Preberanie knowledge od vyspelejsich tribe
+                #--------------------------------------------------------------
+                
+                #--------------------------------------------------------------
+                # Zmena preferencii tribe
+                #--------------------------------------------------------------
+                
+                prefs = dict(tribeObj['preference'])
+                
+                #--------------------------------------------------------------
+                # Znizenie preferencie ak nevyuziva vsetku alokovanu workForce
+                #--------------------------------------------------------------
+                unus  = tribeObj['unus']
+
+                if unus['frg'] > _PREF_UNUS_LIMIT: prefs['frg'] -= _PREF_BY_UNUS
+                if unus['pstr']> _PREF_UNUS_LIMIT: prefs['pstr']-= _PREF_BY_UNUS
+                if unus['agr'] > _PREF_UNUS_LIMIT: prefs['agr'] -= _PREF_BY_UNUS
+                if unus['ind'] > _PREF_UNUS_LIMIT: prefs['ind'] -= _PREF_BY_UNUS
+                if unus['rlg'] > _PREF_UNUS_LIMIT: prefs['rlg'] -= _PREF_BY_UNUS  
+                if unus['war'] > _PREF_UNUS_LIMIT: prefs['war'] -= _PREF_BY_UNUS
+                if unus['trd'] > _PREF_UNUS_LIMIT: prefs['trd'] -= _PREF_BY_UNUS
+                if unus['dpl'] > _PREF_UNUS_LIMIT: prefs['dpl'] -= _PREF_BY_UNUS            
+                #--------------------------------------------------------------
+                # Zvysenie preferencii pre resource type s maximalnou efektivitou
+                #--------------------------------------------------------------
+                
+                effs = tribeObj['effs']
+                effs['sci'] = knowGain / (tribeObj['denses']['densSim']*prefs['sci'])
+
+                # Zotriedim efektivitu zostupne
+                effs = lib.dSort(effs, reverse=True)
+                
+                # Zvysim preferencie maximalnej efektivity
+                rank = 1
+                for srcType, eff in effs.items():
+                    if rank == 1: prefs[srcType] += _PREF_BY_EFF
+                    rank += 1
+                
+                #--------------------------------------------------------------
+                # Zvysovanie produkcie jedla a znizovanie  kôli nedostatku
+                #--------------------------------------------------------------
+                
+                prefs['frg']  *= tribeObj['denses']['hunger'] + 1
+                prefs['pstr'] *= tribeObj['denses']['hunger'] + 1
+                prefs['agr']  *= tribeObj['denses']['hunger'] + 1
+                
+                #--------------------------------------------------------------
+                # Zvysovanie nabozenstva kvoli stresu
+                #--------------------------------------------------------------
+                prefs['rlg'] *= tribeObj['denses']['stres'] + 1
+                
+                #--------------------------------------------------------------
+                # Zvysovanie vedy kvoli vyzkumu
+                #--------------------------------------------------------------
+                prefs['sci'] *= (knowBaseGain/(1 + prefs['rlg'])) + 1
+
+                #--------------------------------------------------------------
+                # Normujem preferencie tak aby ich sucet bol 1 a zapisem do simulovanej periody
+                #--------------------------------------------------------------
+                for resType, pref in prefs.items():
+                   if pref < _PREF_MIN: prefs[resType] = _PREF_MIN
+                
+                prefs = lib.normSumDic(prefs)
+                
+                simPeriodTribe['preference']['frg'] = prefs['frg']
+                simPeriodTribe['preference']['agr'] = prefs['agr']
+                simPeriodTribe['preference']['pstr']= prefs['pstr']
+                simPeriodTribe['preference']['ind'] = prefs['ind']
+                simPeriodTribe['preference']['sci'] = prefs['sci']
+                simPeriodTribe['preference']['rlg'] = prefs['rlg']
+                simPeriodTribe['preference']['war'] = prefs['war']
+                simPeriodTribe['preference']['trd'] = prefs['trd']
+                simPeriodTribe['preference']['dpl'] = prefs['dpl']
+            
+            #------------------------------------------------------------------
+            # Koniec podmienky na nenulovu densitu
+            #------------------------------------------------------------------
+
+        self.journal.O()
+
+    #--------------------------------------------------------------------------
+    def evaluateDisposition(self, lastPeriod, simPeriod):
+                
         #----------------------------------------------------------------------
         # Vyhodnotim zmeny pre vsetky Tribes na Tile ktore maju nenulovu densitu
         #----------------------------------------------------------------------
