@@ -1,7 +1,7 @@
 To do:
     Tribes:
         -Celkovy limit populacie na tile, takze tribe zo sebou bojuju
-        -Disposition
+        -Disposition - tTile line 708
             -10 az 10
             Pri kontakte vznikne náhodný trend od -1 az 1
             Zmena
@@ -27,7 +27,7 @@ To do:
         -Make tribes interact with each other
         -Implement Technology:
             -Make a technology tree
-            -Let Tribes gain technologies:
+            -Let Tribes gain technologies: 
                 When a tribe completes a set goal, then the stop researching stuff and instead spend
                 science on researching the newly unlocked technology, until they unlock that technology.
             -Implement the function of technologies
