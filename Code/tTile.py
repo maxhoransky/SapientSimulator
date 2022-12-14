@@ -711,7 +711,7 @@ class TTile:
         #----------------------------------------------------------------------
         dispositionPairs = {}
         usedIDs = []
-
+        
         for tribeId, tribeObj in lastPeriod['tribes'].items():
             if tribeObj['denses']['densSim'] > 0:
                 usedIDs.append(tribeId)
@@ -720,6 +720,7 @@ class TTile:
                         dispositionPairs[tribeId] = recTribeId
         if dispositionPairs != {}:
             print(dispositionPairs)
+            print(usedIDs)
 
     #--------------------------------------------------------------------------
     #--------------------------------------------------------------------------
