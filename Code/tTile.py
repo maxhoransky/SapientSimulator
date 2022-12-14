@@ -709,18 +709,22 @@ class TTile:
         #----------------------------------------------------------------------
         # Vyhodnotim zmeny pre vsetky Tribes na Tile ktore maju nenulovu densitu
         #----------------------------------------------------------------------
-        dispositionPairs = {}
+        dispositionPairs = []
         usedIDs = []
-        
+
         for tribeId, tribeObj in lastPeriod['tribes'].items():
             if tribeObj['denses']['densSim'] > 0:
                 usedIDs.append(tribeId)
+                print('tribeId - '+tribeId)
                 for recTribeId, recTribeObj in lastPeriod['tribes'].items():
                     if recTribeId not in usedIDs and recTribeObj['denses']['densSim'] > 0:
-                        dispositionPairs[tribeId] = recTribeId
-        if dispositionPairs != {}:
-            print(dispositionPairs)
-            print(usedIDs)
+                        pairTuple = (tribeId, recTribeId)
+                        dispositionPairs.append(pairTuple)
+                        print('recTribeId - '+recTribeId)
+        if dispositionPairs != []:
+            print('dispositionPairs - ',dispositionPairs)
+            print('usedIDs - ',usedIDs)
+            print('---------------TURN START--------------------------')
 
     #--------------------------------------------------------------------------
     #--------------------------------------------------------------------------
