@@ -715,16 +715,19 @@ class TTile:
         for tribeId, tribeObj in lastPeriod['tribes'].items():
             if tribeObj['denses']['densSim'] > 0:
                 usedIDs.append(tribeId)
-                print('tribeId - '+tribeId)
                 for recTribeId, recTribeObj in lastPeriod['tribes'].items():
                     if recTribeId not in usedIDs and recTribeObj['denses']['densSim'] > 0:
                         pairTuple = (tribeId, recTribeId)
                         dispositionPairs.append(pairTuple)
-                        print('recTribeId - '+recTribeId)
         if dispositionPairs != []:
-            print('dispositionPairs - ',dispositionPairs)
-            print('usedIDs - ',usedIDs)
-            print('---------------TURN START--------------------------')
+            for pair in dispositionPairs:
+                if pair[1] not in lastPeriod['tribes'][pair[0]]['disp']:
+                    lastPeriod['tribes'][pair[0]]['disp'][pair[1]] = (0, 0)
+                    # Creates a Tuple, first int is 0 and is the base disposition
+                    # The second int should be random from -1 to 1 and is the random trend
+                lastDisp = lastPeriod['tribes'][pair[0]]['disp'][pair[1]]
+
+                print(lastDisp)
 
     #--------------------------------------------------------------------------
     #--------------------------------------------------------------------------
