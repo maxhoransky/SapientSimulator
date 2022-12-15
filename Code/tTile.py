@@ -2,6 +2,7 @@
 # Siqo class TTile
 #------------------------------------------------------------------------------
 import planet_lib    as lib
+import random
 
 #==============================================================================
 # package's constants
@@ -16,6 +17,8 @@ _DENS_GROWTH     = 0.2   # Koeficient prirodzeneho prirastku populacie
 _STRES_MIN       = 0.1   # Zakladna miera stresu populacie
 _STRES_MAX       = 0.8   # Maximalna miera stresu populacie
 _STRES_EMIG      = 0.2   # Koeficient emigracie kvoli stresu
+
+_DISP_DIPL       = 1.7  # Koeficient zvysovania dispozicie pomocou diplomacie
 
 _KNOW_GROWTH     = 1.05  # Koeficient zvysenia knowledge ak jej tribe venuje pozornost
 _KNOW_GROWTH_SCI = 0.05  # How much does science help speed up research
@@ -478,6 +481,7 @@ class TTile:
                 
                 # Miera stresu je pomer zomretej populacie voci povodnej populacii
                 strsTot = _STRES_MIN + ((densWar+densHunger) / densSim)
+
                 if strsTot > _STRES_MAX: strsTot = _STRES_MAX
                 
                 # Miera hladu je pomer hladom zomretej populacie voci povodnej populacii
@@ -485,7 +489,7 @@ class TTile:
 
                 # Zostane zit len tolko ludi kolko ma zdroje
                 densSim   = resrTot
-                
+                    
             else:
                 strsTot    = _STRES_MIN
                 hungerTotal = 0
@@ -537,6 +541,7 @@ class TTile:
             #------------------------------------------------------------------
             # Zapisem priebezne vypocty do lastPeriod
             #------------------------------------------------------------------
+            
             tribeObj['denses'] = {'densSim'   : densSim   ,
                                   'densGrowth': densGrowth,
                                   'densHunger': densHunger,
@@ -722,12 +727,30 @@ class TTile:
         if dispositionPairs != []:
             for pair in dispositionPairs:
                 if pair[1] not in lastPeriod['tribes'][pair[0]]['disp']:
-                    lastPeriod['tribes'][pair[0]]['disp'][pair[1]] = (0, 0)
+                    lastDisp = [0, random.uniform(-1, 1)]
                     # Creates a Tuple, first int is 0 and is the base disposition
                     # The second int should be random from -1 to 1 and is the random trend
-                lastDisp = lastPeriod['tribes'][pair[0]]['disp'][pair[1]]
+                else:
+                    lastDisp = lastPeriod['tribes'][pair[0]]['disp'][pair[1]]
+                
+                # Change disposition by the random trend
+                lastDisp[0] += lastDisp[1]
+                # Change disposition by the stress of both tribes
+                lastDisp[0] -= lastPeriod['tribes'][pair[0]]['denses']['stres']
+                lastDisp[0] -= lastPeriod['tribes'][pair[1]]['denses']['stres']
+                # Change disposition by the war state between the two tribes
+                    #lastDisp[0] += war
+                # Change disposition by the trade state between the two tribes
+                    #lastDisp[0] += trade
+                # Change disposition by the diplomacy of one of the two tribes
+                #lastDisp[0] += diplomacia pick one at random   
+                randTribe = random.randint(0, 1)
+                lastDisp[0] += ((1 + lastPeriod['tribes'][pair[randTribe]]['preference']['dpl']) * (1 + lastPeriod['tribes'][pair[randTribe]]['knowledge']['dpl']) - 1) * _DISP_DIPL
 
-                print(lastDisp)
+                simPeriod['tribes'][pair[0]]['disp'][pair[1]] = lastDisp
+                simPeriod['tribes'][pair[1]]['disp'][pair[0]] = lastDisp
+
+                print(simPeriod['tribes'][pair[0]]['disp'][pair[1]])
 
     #--------------------------------------------------------------------------
     #--------------------------------------------------------------------------

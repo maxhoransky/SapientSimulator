@@ -1,5 +1,6 @@
 To do:
     Tribes:
+        -REbalance stres cus its always 0.1
         -Celkovy limit populacie na tile, takze tribe zo sebou bojuju
         -Disposition - tTile line 708
             -10 az 10
