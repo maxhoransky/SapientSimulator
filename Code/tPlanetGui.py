@@ -111,7 +111,7 @@ class TPlanetGui(tk.Tk):
         self.journal.O( f'TPlanetGui{self.title}.show: End' )
 
     #==========================================================================
-    # Common gauges
+    # Head: Common gauges vpravo hore
     #--------------------------------------------------------------------------
     def CommonsShow(self):
        
@@ -259,7 +259,7 @@ class TPlanetGui(tk.Tk):
         if tribe is not None: self.str_dens.set(tribe['density'])
 
     #==========================================================================
-    # Pravy panel pre nastroje
+    # Head: Tools dole vpravo
     #--------------------------------------------------------------------------
     def toolsShow(self):
        
@@ -288,6 +288,7 @@ class TPlanetGui(tk.Tk):
         self.tabSelected = self.tabs.index("current")
 #        self.refresh()
 
+    #==========================================================================
     #--------------------------------------------------------------------------
     def tabEditShow(self):
        
@@ -394,6 +395,7 @@ class TPlanetGui(tk.Tk):
                     self.mapShow()
                     self.showTileOptions()
             
+    #==========================================================================
     #--------------------------------------------------------------------------
     def tabSimulShow(self):
        
@@ -467,8 +469,7 @@ class TPlanetGui(tk.Tk):
         if self.state == 'RUNNING':
             self.after(700, self.simPeriod)
         
-    #--------------------------------------------------------------------------
-    #--------------------------------------------------------------------------
+    #==========================================================================
     #--------------------------------------------------------------------------
     def tabTribeShow(self):
        
@@ -478,28 +479,19 @@ class TPlanetGui(tk.Tk):
         frm = ttk.Frame(self.tabs)
 
         frm.columnconfigure( 0, weight=1)
-        frm.columnconfigure( 1, weight=1)
-        frm.columnconfigure( 2, weight=1)
-        frm.columnconfigure( 3, weight=1)
-        frm.columnconfigure( 4, weight=1)
-        frm.columnconfigure( 5, weight=1)
-        frm.columnconfigure( 6, weight=1)
-        frm.columnconfigure( 7, weight=1)
-        frm.columnconfigure( 8, weight=1)
-        frm.columnconfigure( 9, weight=1)
        
         frm.rowconfigure   (0, weight=1)
-        frm.rowconfigure   (1, weight=1)
-        frm.rowconfigure   (2, weight=1)
-        frm.rowconfigure   (3, weight=1)
-        frm.rowconfigure   (4, weight=1)
-        frm.rowconfigure   (5, weight=1)
-        frm.rowconfigure   (6, weight=1)
-        frm.rowconfigure   (7, weight=1)
-        frm.rowconfigure   (8, weight=1)
  
         # Vlozim frame do Tabs       
         self.tabs.add(frm, text='Tribes')
+
+        #----------------------------------------------------------------------
+        self.st_tribe = scrolledtext.ScrolledText(frm, wrap="none", width=100, height=15)
+        self.st_tribe.grid(row=0, column=0, sticky='nwes')
+
+        st_scrollbar = ttk.Scrollbar(self.st_tribe, orient='horizontal', command=self.st_tribe.xview)
+        self.st_tribe["xscrollcommand"] = st_scrollbar.set
+        st_scrollbar.pack(side="bottom", fill="x", expand=False)
 
     #==========================================================================
     # Lavy panel pre mapu
@@ -597,16 +589,26 @@ class TPlanetGui(tk.Tk):
         tile = self.lblTiles[self.lblTileSelected]
         
         #----------------------------------------------------------------------
-        # Vypis podla typu SHOW
+        # Vypis do Common Tools podla typu SHOW
         #----------------------------------------------------------------------
         msg =  self.tileLabel(tile)
         self.lbl_tile['text'] = msg
         msgShort = self.tileLabelShort(tile)
         self.setStatus(msgShort)
         
+        #----------------------------------------------------------------------
+        # Vypis do Tab: Edit podla typu SHOW
+        #----------------------------------------------------------------------
         self.st_tile.delete("1.0", "end")
         for line in tile.info()['msg']:
             self.st_tile.insert(END, line + '\n')
+        
+        #----------------------------------------------------------------------
+        # Vypis do Tab: Tribe
+        #----------------------------------------------------------------------
+        self.st_tribe.delete("1.0", "end")
+        for line in tile.getPeriodDispText(self.period):
+            self.st_tribe.insert(END, line + '\n')
         
     #--------------------------------------------------------------------------
     def tileLeftClick(self, event):
@@ -931,7 +933,7 @@ class TPlanetGui(tk.Tk):
     #--------------------------------------------------------------------------
 
 #------------------------------------------------------------------------------
-print('Max Planet GUI ver 0.30')
+print('Max Planet GUI ver 0.31')
 
 #==============================================================================
 #                              END OF FILE

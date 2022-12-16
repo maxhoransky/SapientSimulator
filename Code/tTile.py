@@ -295,6 +295,34 @@ class TTile:
         return toRet
     
     #--------------------------------------------------------------------------
+    def getPeriodDispText(self, period):
+        "Returns list describing Dispo between all pairs of Tribes in this Tile"
+        
+        toRet = []
+        tribes = self.getPeriod(period)['tribes']
+        
+        #----------------------------------------------------------------------
+        # Prejdem cez vsetky tribe na Tile
+        #----------------------------------------------------------------------
+        for tribeId, tribeObj in tribes.items(): 
+            
+            if tribeObj['density']>0:
+                
+                toRet.append(f"Tribe {tribeId:15} ({tribeObj['density']:06.3})")
+                
+                #--------------------------------------------------------------
+                # Prejdem vsetkych adversaries                
+                #--------------------------------------------------------------
+                if 'disp' in tribeObj.keys():
+                    
+                    for advId, advObj in tribeObj['disp'].items(): 
+                        toRet.append( f"     Adverse {advId:15}: Disp={advObj['disp']:06.3}")
+                        
+                    toRet.append("----------------------------------------------------")
+            
+        return toRet
+
+    #--------------------------------------------------------------------------
     def simPeriod(self, period):
         "Simulates respective period for this Tile based on previous period values"
         
