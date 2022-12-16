@@ -316,7 +316,7 @@ class TTile:
                 if 'disp' in tribeObj.keys():
                     
                     for advId, advObj in tribeObj['disp'].items(): 
-                        toRet.append( f"     Adverse {advId:15}: Disp={advObj['disp']:06.3}")
+                        toRet.append( f"     Relations - {advId:15}: Disp = {advObj['disp']:06.3} | Trend = {advObj['trend']:06.3}")
                         
                     toRet.append("----------------------------------------------------")
             
