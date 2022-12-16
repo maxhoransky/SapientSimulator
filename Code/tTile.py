@@ -320,12 +320,14 @@ class TTile:
         #----------------------------------------------------------------------
         self.evaluateDensity(lastPeriod, simPeriod)
 
+        self.evaluateDisposition(lastPeriod, simPeriod)
+
         #----------------------------------------------------------------------
         # Vyriesim zmenu knowledge/preferenci Tribe 
         #----------------------------------------------------------------------
         self.changePrefsAndKnowledge(lastPeriod, simPeriod)
         
-        self.evaluateDisposition(lastPeriod, simPeriod)
+        
 
 
         self.journal.O(f'{self.tileId}.simPeriod: done')
@@ -562,6 +564,49 @@ class TTile:
         self.journal.O()
 
     #--------------------------------------------------------------------------
+    def evaluateDisposition(self, lastPeriod, simPeriod):
+        #----------------------------------------------------------------------
+        # Vyhodnotim zmeny pre vsetky Tribes na Tile ktore maju nenulovu densitu
+        #----------------------------------------------------------------------
+        dispositionPairs = []
+        usedIDs = []
+
+        for tribeId, tribeObj in lastPeriod['tribes'].items():
+            if tribeObj['denses']['densSim'] > 0:
+                usedIDs.append(tribeId)
+                for recTribeId, recTribeObj in lastPeriod['tribes'].items():
+                    if recTribeId not in usedIDs and recTribeObj['denses']['densSim'] > 0:
+                        pairTuple = (tribeId, recTribeId)
+                        dispositionPairs.append(pairTuple)
+        if dispositionPairs != []:
+            for pair in dispositionPairs:
+                if pair[1] not in lastPeriod['tribes'][pair[0]]['disp']:
+                    lastDisp = [0, random.uniform(-1, 1)]
+                    # Creates a Tuple, first int is 0 and is the base disposition
+                    # The second int should be random from -1 to 1 and is the random trend
+                else:
+                    lastDisp = lastPeriod['tribes'][pair[0]]['disp'][pair[1]]
+                
+                # Change disposition by the random trend
+                lastDisp[0] += lastDisp[1]
+                # Change disposition by the stress of both tribes
+                lastDisp[0] -= lastPeriod['tribes'][pair[0]]['denses']['stres']
+                lastDisp[0] -= lastPeriod['tribes'][pair[1]]['denses']['stres']
+                # Change disposition by the war state between the two tribes
+                    #lastDisp[0] += war
+                # Change disposition by the trade state between the two tribes
+                    #lastDisp[0] += trade
+                # Change disposition by the diplomacy of one of the two tribes
+                #lastDisp[0] += diplomacia pick one at random   
+                randTribe = random.randint(0, 1)
+                lastDisp[0] += ((1 + lastPeriod['tribes'][pair[randTribe]]['preference']['dpl']) * (1 + lastPeriod['tribes'][pair[randTribe]]['knowledge']['dpl']) - 1) * _DISP_DIPL
+
+                simPeriod['tribes'][pair[0]]['disp'][pair[1]] = lastDisp
+                simPeriod['tribes'][pair[1]]['disp'][pair[0]] = lastDisp
+
+                print(simPeriod['tribes'][pair[0]]['disp'][pair[1]])
+
+    #--------------------------------------------------------------------------
     def changePrefsAndKnowledge(self, lastPeriod, simPeriod):
         "Evaluates changes in preferences and knowledge"
         
@@ -708,49 +753,6 @@ class TTile:
             #------------------------------------------------------------------
 
         self.journal.O()
-
-    #--------------------------------------------------------------------------
-    def evaluateDisposition(self, lastPeriod, simPeriod):
-        #----------------------------------------------------------------------
-        # Vyhodnotim zmeny pre vsetky Tribes na Tile ktore maju nenulovu densitu
-        #----------------------------------------------------------------------
-        dispositionPairs = []
-        usedIDs = []
-
-        for tribeId, tribeObj in lastPeriod['tribes'].items():
-            if tribeObj['denses']['densSim'] > 0:
-                usedIDs.append(tribeId)
-                for recTribeId, recTribeObj in lastPeriod['tribes'].items():
-                    if recTribeId not in usedIDs and recTribeObj['denses']['densSim'] > 0:
-                        pairTuple = (tribeId, recTribeId)
-                        dispositionPairs.append(pairTuple)
-        if dispositionPairs != []:
-            for pair in dispositionPairs:
-                if pair[1] not in lastPeriod['tribes'][pair[0]]['disp']:
-                    lastDisp = [0, random.uniform(-1, 1)]
-                    # Creates a Tuple, first int is 0 and is the base disposition
-                    # The second int should be random from -1 to 1 and is the random trend
-                else:
-                    lastDisp = lastPeriod['tribes'][pair[0]]['disp'][pair[1]]
-                
-                # Change disposition by the random trend
-                lastDisp[0] += lastDisp[1]
-                # Change disposition by the stress of both tribes
-                lastDisp[0] -= lastPeriod['tribes'][pair[0]]['denses']['stres']
-                lastDisp[0] -= lastPeriod['tribes'][pair[1]]['denses']['stres']
-                # Change disposition by the war state between the two tribes
-                    #lastDisp[0] += war
-                # Change disposition by the trade state between the two tribes
-                    #lastDisp[0] += trade
-                # Change disposition by the diplomacy of one of the two tribes
-                #lastDisp[0] += diplomacia pick one at random   
-                randTribe = random.randint(0, 1)
-                lastDisp[0] += ((1 + lastPeriod['tribes'][pair[randTribe]]['preference']['dpl']) * (1 + lastPeriod['tribes'][pair[randTribe]]['knowledge']['dpl']) - 1) * _DISP_DIPL
-
-                simPeriod['tribes'][pair[0]]['disp'][pair[1]] = lastDisp
-                simPeriod['tribes'][pair[1]]['disp'][pair[0]] = lastDisp
-
-                print(simPeriod['tribes'][pair[0]]['disp'][pair[1]])
 
     #--------------------------------------------------------------------------
     #--------------------------------------------------------------------------
