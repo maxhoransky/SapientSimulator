@@ -581,17 +581,17 @@ class TTile:
         if dispositionPairs != []:
             for pair in dispositionPairs:
                 if pair[1] not in lastPeriod['tribes'][pair[0]]['disp']:
-                    lastDisp = [0, random.uniform(-1, 1)]
+                    lastDisp = {'disp':0,'trend': random.uniform(-1, 1)}
                     # Creates a Tuple, first int is 0 and is the base disposition
                     # The second int should be random from -1 to 1 and is the random trend
                 else:
                     lastDisp = lastPeriod['tribes'][pair[0]]['disp'][pair[1]]
                 
                 # Change disposition by the random trend
-                lastDisp[0] += lastDisp[1]
+                lastDisp['disp'] += lastDisp['trend']
                 # Change disposition by the stress of both tribes
-                lastDisp[0] -= lastPeriod['tribes'][pair[0]]['denses']['stres']
-                lastDisp[0] -= lastPeriod['tribes'][pair[1]]['denses']['stres']
+                lastDisp['disp'] -= lastPeriod['tribes'][pair[0]]['denses']['stres']
+                lastDisp['disp'] -= lastPeriod['tribes'][pair[1]]['denses']['stres']
                 # Change disposition by the war state between the two tribes
                     #lastDisp[0] += war
                 # Change disposition by the trade state between the two tribes
@@ -599,7 +599,7 @@ class TTile:
                 # Change disposition by the diplomacy of one of the two tribes
                 #lastDisp[0] += diplomacia pick one at random   
                 randTribe = random.randint(0, 1)
-                lastDisp[0] += ((1 + lastPeriod['tribes'][pair[randTribe]]['preference']['dpl']) * (1 + lastPeriod['tribes'][pair[randTribe]]['knowledge']['dpl']) - 1) * _DISP_DIPL
+                lastDisp['disp'] += ((1 + lastPeriod['tribes'][pair[randTribe]]['preference']['dpl']) * (1 + lastPeriod['tribes'][pair[randTribe]]['knowledge']['dpl']) - 1) * _DISP_DIPL
 
                 simPeriod['tribes'][pair[0]]['disp'][pair[1]] = lastDisp
                 simPeriod['tribes'][pair[1]]['disp'][pair[0]] = lastDisp
