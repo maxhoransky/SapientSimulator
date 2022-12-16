@@ -1,5 +1,11 @@
 To do:
     Tribes:
+        -Rebalance effs
+            -Science
+            -Diplomacy
+        -Rebalance prefs
+            -Science
+            -Diplomacy
         -REbalance stres cus its always 0.1
         -Celkovy limit populacie na tile, takze tribe zo sebou bojuju
         -Disposition - tTile line 708
