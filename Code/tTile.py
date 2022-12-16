@@ -316,7 +316,7 @@ class TTile:
                 if 'disp' in tribeObj.keys():
                     
                     for advId, advObj in tribeObj['disp'].items(): 
-                        toRet.append( f"     Relations - {advId:15}: Disp = {advObj['disp']:06.3} | Trend = {advObj['trend']:06.3}")
+                        toRet.append( f"     Relations - {advId:15}: Disp = {advObj['disp']:06.3} | Trend = {advObj['trend']:06.3} | War = N | Trade = N")
                         
                     toRet.append("----------------------------------------------------")
             
@@ -355,9 +355,6 @@ class TTile:
         #----------------------------------------------------------------------
         self.changePrefsAndKnowledge(lastPeriod, simPeriod)
         
-        
-
-
         self.journal.O(f'{self.tileId}.simPeriod: done')
 
     #==========================================================================
@@ -588,7 +585,7 @@ class TTile:
                 simPeriodTribe = self.getPeriodTribe(period, tribeId, tribeObj)
                 simPeriodTribe['density'] += densSim
                 
-            #------------------------------------------------------------------
+        #------------------------------------------------------------------
         self.journal.O()
 
     #--------------------------------------------------------------------------
@@ -626,14 +623,26 @@ class TTile:
                     #lastDisp[0] += trade
                 # Change disposition by the diplomacy of one of the two tribes
                 #lastDisp[0] += diplomacia pick one at random   
+                baseDisp = lastDisp['disp']
+
                 randTribe = random.randint(0, 1)
                 lastDisp['disp'] += ((1 + lastPeriod['tribes'][pair[randTribe]]['preference']['dpl']) * (1 + lastPeriod['tribes'][pair[randTribe]]['knowledge']['dpl']) - 1) * _DISP_DIPL
 
+
                 simPeriod['tribes'][pair[0]]['disp'][pair[1]] = lastDisp
                 simPeriod['tribes'][pair[1]]['disp'][pair[0]] = lastDisp
+                
+                print("-----------------------------------------------------------\n", lastPeriod['tribes'][pair[0]]['effs'])
+                lastPeriod['tribes'][pair[0]]['effs']['dpl'] = lastDisp['disp'] / (lastPeriod['tribes'][pair[0]]['denses']['densSim'] * lastPeriod['tribes'][pair[0]]['preference']['dpl'])
+                lastPeriod['tribes'][pair[1]]['effs']['dpl'] = lastDisp['disp'] / (lastPeriod['tribes'][pair[1]]['denses']['densSim'] * lastPeriod['tribes'][pair[1]]['preference']['dpl'])
+                print(lastPeriod['tribes'][pair[0]]['effs'])
 
-                print(simPeriod['tribes'][pair[0]]['disp'][pair[1]])
+                prefs['sci'] *= (baseDisp/(1 + prefs['dpl'])) + 1
 
+                #effs['sci'] = knowGain / (tribeObj['denses']['densSim'] * prefs['sci'])
+                #prefs['sci'] *= (knowBaseGain/(1 + prefs['rlg'])) + 1
+        #------------------------------------------------------------------     
+        self.journal.O()
     #--------------------------------------------------------------------------
     def changePrefsAndKnowledge(self, lastPeriod, simPeriod):
         "Evaluates changes in preferences and knowledge"
@@ -722,13 +731,13 @@ class TTile:
                 if unus['ind'] > _PREF_UNUS_LIMIT: prefs['ind'] -= _PREF_BY_UNUS
                 if unus['rlg'] > _PREF_UNUS_LIMIT: prefs['rlg'] -= _PREF_BY_UNUS  
                 if unus['war'] > _PREF_UNUS_LIMIT: prefs['war'] -= _PREF_BY_UNUS
-                if unus['trd'] > _PREF_UNUS_LIMIT: prefs['trd'] -= _PREF_BY_UNUS
-                if unus['dpl'] > _PREF_UNUS_LIMIT: prefs['dpl'] -= _PREF_BY_UNUS            
+                if unus['trd'] > _PREF_UNUS_LIMIT: prefs['trd'] -= _PREF_BY_UNUS         
                 #--------------------------------------------------------------
                 # Zvysenie preferencii pre resource type s maximalnou efektivitou
                 #--------------------------------------------------------------
                 
                 effs = tribeObj['effs']
+
                 effs['sci'] = knowGain / (tribeObj['denses']['densSim']*prefs['sci'])
 
                 # Zotriedim efektivitu zostupne
