@@ -18,6 +18,8 @@ _STRES_MIN       = 0.1   # Zakladna miera stresu populacie
 _STRES_MAX       = 0.8   # Maximalna miera stresu populacie
 _STRES_EMIG      = 0.2   # Koeficient emigracie kvoli stresu
 
+_DISP_MIN       = 1.7  # Koeficient zvysovania dispozicie pomocou diplomacie
+_DISP_L       = 1.7  # Koeficient zvysovania dispozicie pomocou diplomacie
 _DISP_DIPL       = 1.7  # Koeficient zvysovania dispozicie pomocou diplomacie
 
 _KNOW_GROWTH     = 1.05  # Koeficient zvysenia knowledge ak jej tribe venuje pozornost
@@ -637,7 +639,8 @@ class TTile:
                 lastPeriod['tribes'][pair[1]]['effs']['dpl'] = lastDisp['disp'] / (lastPeriod['tribes'][pair[1]]['denses']['densSim'] * lastPeriod['tribes'][pair[1]]['preference']['dpl'])
                 print(lastPeriod['tribes'][pair[0]]['effs'])
 
-                prefs['sci'] *= (baseDisp/(1 + prefs['dpl'])) + 1
+                lastPeriod['tribes'][pair[0]]['preference']['dpl'] *= (baseDisp/(1 + lastPeriod['tribes'][pair[0]]['preference']['war'])) + 1
+                lastPeriod['tribes'][pair[1]]['preference']['dpl'] *= (baseDisp/(1 + lastPeriod['tribes'][pair[1]]['preference']['war'])) + 1
 
                 #effs['sci'] = knowGain / (tribeObj['denses']['densSim'] * prefs['sci'])
                 #prefs['sci'] *= (knowBaseGain/(1 + prefs['rlg'])) + 1
@@ -737,8 +740,6 @@ class TTile:
                 #--------------------------------------------------------------
                 
                 effs = tribeObj['effs']
-
-                effs['sci'] = knowGain / (tribeObj['denses']['densSim']*prefs['sci'])
 
                 # Zotriedim efektivitu zostupne
                 effs = lib.dSort(effs, reverse=True)
