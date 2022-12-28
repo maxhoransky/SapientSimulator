@@ -18,8 +18,8 @@ _STRES_MIN       = 0.1   # Zakladna miera stresu populacie
 _STRES_MAX       = 0.8   # Maximalna miera stresu populacie
 _STRES_EMIG      = 0.2   # Koeficient emigracie kvoli stresu
 
-_DISP_MIN       = 1.7  # Koeficient zvysovania dispozicie pomocou diplomacie
-_DISP_L       = 1.7  # Koeficient zvysovania dispozicie pomocou diplomacie
+_DISP_MAX        = 10.0  # Maximum possible Disposition
+_DISP_L          = 1.7  # Koeficient zvysovania dispozicie pomocou diplomacie
 _DISP_DIPL       = 1.7  # Koeficient zvysovania dispozicie pomocou diplomacie
 
 _KNOW_GROWTH     = 1.05  # Koeficient zvysenia knowledge ak jej tribe venuje pozornost
@@ -630,6 +630,10 @@ class TTile:
                 randTribe = random.randint(0, 1)
                 lastDisp['disp'] += ((1 + lastPeriod['tribes'][pair[randTribe]]['preference']['dpl']) * (1 + lastPeriod['tribes'][pair[randTribe]]['knowledge']['dpl']) - 1) * _DISP_DIPL
 
+                if lastDisp['disp'] > _DISP_MAX:
+                    lastDisp['disp'] = _DISP_MAX
+                if lastDisp['disp'] < _DISP_MAX * -1:
+                    lastDisp['disp'] = _DISP_MAX * -1
 
                 simPeriod['tribes'][pair[0]]['disp'][pair[1]] = lastDisp
                 simPeriod['tribes'][pair[1]]['disp'][pair[0]] = lastDisp

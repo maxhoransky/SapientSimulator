@@ -8,7 +8,7 @@ To do:
             -Diplomacy
         -REbalance stres cus its always 0.1
         -Celkovy limit populacie na tile, takze tribe zo sebou bojuju
-        -Disposition - tTile line 708
+        -Disposition
             -10 az 10
             Pri kontakte vznikne náhodný trend od -1 az 1
             Zmena
@@ -18,7 +18,7 @@ To do:
                 -Diplomacy
                 -random_trend
 
-            disposition_between_two_populations_on_a_tile  = time * (diplomacy_pick_one_at_random + random_trend - stress) 
+            disposition_between_two_populations_on_a_tile  = time * (diplomacy_pick_one_at_random + random_trend - stress)
 
             Vojna zacne:
                 Logaritmicka krivka disposicie od 0 po -10, kazde kolo sa rolne sanca
