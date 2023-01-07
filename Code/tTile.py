@@ -337,10 +337,6 @@ class TTile:
         simPeriod  = self.getPeriod(period  )
         
         #----------------------------------------------------------------------
-        # Determine what events happen based on stats
-        #----------------------------------------------------------------------
-
-        #----------------------------------------------------------------------
         # Vyriesim zber resurces vratane trades podla stavu v lastPeriod
         #----------------------------------------------------------------------
         self.getResource(lastPeriod)
@@ -467,12 +463,6 @@ class TTile:
             
         #----------------------------------------------------------------------
         self.journal.O()
-    #--------------------------------------------------------------------------
-    def evaluateWarEvent(self, lastPeriod, simPeriod):
-        return
-    #--------------------------------------------------------------------------
-    def evaluateTradeEvent(self, lastPeriod, simPeriod):
-        return
     #--------------------------------------------------------------------------
     def evaluateDensity(self, lastPeriod, simPeriod):
         "Evaluates population density per Tribe based on earned resources and emigration"
@@ -648,8 +638,23 @@ class TTile:
 
                 #effs['sci'] = knowGain / (tribeObj['denses']['densSim'] * prefs['sci'])
                 #prefs['sci'] *= (knowBaseGain/(1 + prefs['rlg'])) + 1
+
+                self.evaluateWarEvent(lastPeriod, simPeriod, lastPeriod['tribes'][pair[0]]['preference']['dpl'])
         #------------------------------------------------------------------     
         self.journal.O()
+    
+    #--------------------------------------------------------------------------
+    def evaluateWarEvent(self, lastPeriod, simPeriod, disp):
+        print(disp)
+        print(random.expovariate(disp))
+
+
+
+    #--------------------------------------------------------------------------
+    def evaluateTradeEvent(self, lastPeriod, simPeriod):
+        return
+    
+    
     #--------------------------------------------------------------------------
     def changePrefsAndKnowledge(self, lastPeriod, simPeriod):
         "Evaluates changes in preferences and knowledge"
