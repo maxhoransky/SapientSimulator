@@ -645,10 +645,12 @@ class TTile:
     
     #--------------------------------------------------------------------------
     def evaluateWarEvent(self, lastPeriod, simPeriod, disp):
-        print(disp)
-        print(random.expovariate(disp))
-
-
+        if disp < 0:
+            chance = lib.power(disp * -1)
+            randomVal = random.uniform(0, 1)
+            if chance > randomVal:
+                print("War Started")
+        
 
     #--------------------------------------------------------------------------
     def evaluateTradeEvent(self, lastPeriod, simPeriod):
