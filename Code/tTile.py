@@ -318,7 +318,12 @@ class TTile:
                 if 'disp' in tribeObj.keys():
                     
                     for advId, advObj in tribeObj['disp'].items(): 
-                        toRet.append( f"     Relations - {advId:15}: Disp = {advObj['disp']:06.3} | Trend = {advObj['trend']:06.3} | War = N | Trade = N")
+                        #toRet.append( f"     Relations - {advId:15}: Disp = {advObj['disp']:06.3} | Trend = {advObj['trend']:06.3} | War = N | Trade = N")
+                        toRet.append( f"     Relations - {advId:15}: Disp = {advObj['disp']:06.3} | Trend = {advObj['trend']:06.3}")
+                        if tribeObj['wars'][advId] == True:
+                            toRet.append(( f" | War = Y"))
+                        else:
+                            toRet.append(( f" | War = N"))
                         
                     toRet.append("----------------------------------------------------")
             
@@ -599,10 +604,12 @@ class TTile:
             for pair in dispositionPairs:
                 if pair[1] not in lastPeriod['tribes'][pair[0]]['disp']:
                     lastDisp = {'disp':0,'trend': random.uniform(-1, 1)}
+                    lastWar = False
                     # Creates a Tuple, first int is 0 and is the base disposition
                     # The second int should be random from -1 to 1 and is the random trend
                 else:
                     lastDisp = lastPeriod['tribes'][pair[0]]['disp'][pair[1]]
+                    lastWar = lastPeriod['tribes'][pair[0]]['wars'][pair[1]]
                 
                 # Change disposition by the random trend
                 lastDisp['disp'] += lastDisp['trend']
@@ -627,11 +634,16 @@ class TTile:
 
                 simPeriod['tribes'][pair[0]]['disp'][pair[1]] = lastDisp
                 simPeriod['tribes'][pair[1]]['disp'][pair[0]] = lastDisp
+
+                lastWar = self.evaluateWarEvent(lastPeriod, simPeriod, lastDisp['disp'], lastWar)
+
+                simPeriod['tribes'][pair[0]]['wars'][pair[1]] = lastWar
+                simPeriod['tribes'][pair[1]]['wars'][pair[0]] = lastWar
                 
-                print("-----------------------------------------------------------\n", lastPeriod['tribes'][pair[0]]['effs'])
+                #print("-----------------------------------------------------------\n", lastPeriod['tribes'][pair[0]]['effs'])
                 lastPeriod['tribes'][pair[0]]['effs']['dpl'] = lastDisp['disp'] / (lastPeriod['tribes'][pair[0]]['denses']['densSim'] * lastPeriod['tribes'][pair[0]]['preference']['dpl'])
                 lastPeriod['tribes'][pair[1]]['effs']['dpl'] = lastDisp['disp'] / (lastPeriod['tribes'][pair[1]]['denses']['densSim'] * lastPeriod['tribes'][pair[1]]['preference']['dpl'])
-                print(lastPeriod['tribes'][pair[0]]['effs'])
+                #print(lastPeriod['tribes'][pair[0]]['effs'])
 
                 lastPeriod['tribes'][pair[0]]['preference']['dpl'] *= (baseDisp/(1 + lastPeriod['tribes'][pair[0]]['preference']['war'])) + 1
                 lastPeriod['tribes'][pair[1]]['preference']['dpl'] *= (baseDisp/(1 + lastPeriod['tribes'][pair[1]]['preference']['war'])) + 1
@@ -639,17 +651,19 @@ class TTile:
                 #effs['sci'] = knowGain / (tribeObj['denses']['densSim'] * prefs['sci'])
                 #prefs['sci'] *= (knowBaseGain/(1 + prefs['rlg'])) + 1
 
-                self.evaluateWarEvent(lastPeriod, simPeriod, lastPeriod['tribes'][pair[0]]['preference']['dpl'])
+                
         #------------------------------------------------------------------     
         self.journal.O()
     
     #--------------------------------------------------------------------------
-    def evaluateWarEvent(self, lastPeriod, simPeriod, disp):
+    def evaluateWarEvent(self, lastPeriod, simPeriod, disp, lastWar):
         if disp < 0:
             chance = lib.power(disp * -1)
             randomVal = random.uniform(0, 1)
             if chance > randomVal:
-                print("War Started")
+                lastWar = True
+            
+        return lastWar
         
 
     #--------------------------------------------------------------------------
@@ -837,6 +851,8 @@ class TTile:
             actPeriod['tribes'][tribeId]['resrs'     ] = {}
             actPeriod['tribes'][tribeId]['denses'    ] = {}
             actPeriod['tribes'][tribeId]['disp'      ] = {}
+            actPeriod['tribes'][tribeId]['wars'      ] = {}
+            actPeriod['tribes'][tribeId]['trades'    ] = {}
 
         #----------------------------------------------------------------------
         return actPeriod['tribes'][tribeId]
