@@ -657,15 +657,22 @@ class TTile:
     
     #--------------------------------------------------------------------------
     def evaluateWarEvent(self, lastPeriod, simPeriod, disp, lastWar):
-        if disp < 0:
-            chance = lib.power(disp * -1)
-            randomVal = random.uniform(0, 1)
-            if chance > randomVal:
-                lastWar = True
-            
+        if lastWar == False:
+            if disp < 0:
+                chance = lib.power(disp * -1)
+                randomVal = random.uniform(0, 1)
+                if chance > randomVal:
+                    lastWar = True
+
+        elif lastWar == True:
+            if disp > 0:
+                chance = lib.power(disp)
+                randomVal = random.uniform(0, 1)
+                if chance > randomVal:
+                    lastWar = False
+        
         return lastWar
         
-
     #--------------------------------------------------------------------------
     def evaluateTradeEvent(self, lastPeriod, simPeriod):
         return
