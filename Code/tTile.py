@@ -318,12 +318,21 @@ class TTile:
                 if 'disp' in tribeObj.keys():
                     
                     for advId, advObj in tribeObj['disp'].items(): 
-                        #toRet.append( f"     Relations - {advId:15}: Disp = {advObj['disp']:06.3} | Trend = {advObj['trend']:06.3} | War = N | Trade = N")
-                        toRet.append( f"     Relations - {advId:15}: Disp = {advObj['disp']:06.3} | Trend = {advObj['trend']:06.3}")
+                        dispString = f"     Relations - {advId:15}: Disp = {advObj['disp']:06.3} | Trend = {advObj['trend']:06.3}"
+
                         if tribeObj['wars'][advId] == True:
-                            toRet.append(( f" | War = Y"))
+                            dispString += f" | War = Y"
                         else:
-                            toRet.append(( f" | War = N"))
+                            dispString += f" | War = N"
+
+                        if tribeObj['trades'][advId] == True:
+                            dispString += f" | Trade = Y"
+                        else:
+                            dispString += f" | Trade = N"
+
+                        toRet.append(dispString)
+                        
+                        
                         
                     toRet.append("----------------------------------------------------")
             
@@ -605,11 +614,13 @@ class TTile:
                 if pair[1] not in lastPeriod['tribes'][pair[0]]['disp']:
                     lastDisp = {'disp':0,'trend': random.uniform(-1, 1)}
                     lastWar = False
+                    lastTrade = False
                     # Creates a Tuple, first int is 0 and is the base disposition
                     # The second int should be random from -1 to 1 and is the random trend
                 else:
                     lastDisp = lastPeriod['tribes'][pair[0]]['disp'][pair[1]]
                     lastWar = lastPeriod['tribes'][pair[0]]['wars'][pair[1]]
+                    lastTrade = lastPeriod['tribes'][pair[0]]['trades'][pair[1]]
                 
                 # Change disposition by the random trend
                 lastDisp['disp'] += lastDisp['trend']
@@ -621,9 +632,7 @@ class TTile:
                 # Change disposition by the trade state between the two tribes
                     #lastDisp[0] += trade
                 # Change disposition by the diplomacy of one of the two tribes
-                #lastDisp[0] += diplomacia pick one at random   
                 baseDisp = lastDisp['disp']
-
                 randTribe = random.randint(0, 1)
                 lastDisp['disp'] += ((1 + lastPeriod['tribes'][pair[randTribe]]['preference']['dpl']) * (1 + lastPeriod['tribes'][pair[randTribe]]['knowledge']['dpl']) - 1) * _DISP_DIPL
 
@@ -636,9 +645,12 @@ class TTile:
                 simPeriod['tribes'][pair[1]]['disp'][pair[0]] = lastDisp
 
                 lastWar = self.evaluateWarEvent(lastPeriod, simPeriod, lastDisp['disp'], lastWar)
+                lastTrade = self.evaluateTradeEvent(lastPeriod, simPeriod, lastDisp['disp'], lastTrade)
 
                 simPeriod['tribes'][pair[0]]['wars'][pair[1]] = lastWar
                 simPeriod['tribes'][pair[1]]['wars'][pair[0]] = lastWar
+                simPeriod['tribes'][pair[0]]['trades'][pair[1]] = lastTrade
+                simPeriod['tribes'][pair[1]]['trades'][pair[0]] = lastTrade
                 
                 #print("-----------------------------------------------------------\n", lastPeriod['tribes'][pair[0]]['effs'])
                 lastPeriod['tribes'][pair[0]]['effs']['dpl'] = lastDisp['disp'] / (lastPeriod['tribes'][pair[0]]['denses']['densSim'] * lastPeriod['tribes'][pair[0]]['preference']['dpl'])
@@ -674,10 +686,23 @@ class TTile:
         return lastWar
         
     #--------------------------------------------------------------------------
-    def evaluateTradeEvent(self, lastPeriod, simPeriod):
-        return
-    
-    
+    def evaluateTradeEvent(self, lastPeriod, simPeriod ,disp, lastTrade):
+        if lastTrade == False:
+            if disp > 0:
+                chance = lib.power(disp)
+                randomVal = random.uniform(0, 1)
+                if chance > randomVal:
+                    lastTrade = True
+
+        elif lastTrade == True:
+            if disp < 0:
+                chance = lib.power(disp * -1)
+                randomVal = random.uniform(0, 1)
+                if chance > randomVal:
+                    lastTrade = False
+        
+        return lastTrade
+
     #--------------------------------------------------------------------------
     def changePrefsAndKnowledge(self, lastPeriod, simPeriod):
         "Evaluates changes in preferences and knowledge"
