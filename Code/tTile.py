@@ -351,7 +351,7 @@ class TTile:
         simPeriod  = self.getPeriod(period  )
         
         #----------------------------------------------------------------------
-        # Vyriesim zber resurces vratane trades podla stavu v lastPeriod
+        # Vyriesim zber resurces vratane trades a war podla stavu v lastPeriod
         #----------------------------------------------------------------------
         self.getResource(lastPeriod)
         
@@ -366,7 +366,7 @@ class TTile:
         # Vyriesim zmenu knowledge/preferenci Tribe 
         #----------------------------------------------------------------------
         self.changePrefsAndKnowledge(lastPeriod, simPeriod)
-        
+
         self.journal.O(f'{self.tileId}.simPeriod: done')
 
     #==========================================================================
@@ -598,6 +598,7 @@ class TTile:
     def evaluateDisposition(self, lastPeriod, simPeriod):
         #----------------------------------------------------------------------
         # Vyhodnotim zmeny pre vsetky Tribes na Tile ktore maju nenulovu densitu
+        # disposition_between_two_populations_on_a_tile  = time * (diplomacy_pick_one_at_random + random_trend - stress)
         #----------------------------------------------------------------------
         dispositionPairs = []
         usedIDs = []
