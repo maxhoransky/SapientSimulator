@@ -483,107 +483,27 @@ class TTile:
     #--------------------------------------------------------------------------
     def getWarResource(self, lastPeriod):
         "Evaluates resources per Tribe based on war state"
+        #----------------------------------------------------------------------
+        # Vyhodnotim zmeny pre vsetky Tribes na Tile ktore maju nenulovu densitu
+        # disposition_between_two_populations_on_a_tile  = time * (diplomacy_pick_one_at_random + random_trend - stress)
+        #----------------------------------------------------------------------
+        dispositionPairs = []
+        usedIDs = []
 
-        self.journal.I(f'{self.tileId}.getResource:')
-        
-        #----------------------------------------------------------------------
-        # Zber AGR urody a IND vyrobkov jednotlivymi tribe
-        #----------------------------------------------------------------------
         for tribeId, tribeObj in lastPeriod['tribes'].items():
-            
-            # Vlastnosti tribe
-            dens  = tribeObj['density'   ]
-            prefs = tribeObj['preference']
-            knows = tribeObj['knowledge' ]
-            
-            # Pripravim si nove prazdne resources, efektivitu a unused workforce
-            resrs = {'frg':0, 'agr':0, 'pstr':0, 'ind':0, 'sci':0, 'rlg':0, 'war':0, 'trd':0, 'dpl':0}
-            effs  = {'frg':0, 'agr':0, 'pstr':0, 'ind':0, 'sci':0, 'rlg':0, 'war':0, 'trd':0, 'dpl':0}
-            unus  = {'frg':0, 'agr':0, 'pstr':0, 'ind':0, 'sci':0, 'rlg':0, 'war':0, 'trd':0, 'dpl':0}
-            
-            #------------------------------------------------------------------
-            # Zber FRG resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
-            #------------------------------------------------------------------
-            (res, eff, unu) = lib.getResource( self.biome, resType='frg', workForce=dens*prefs['frg'], knowledge=knows['frg'] )
-            
-            resrs['frg'] = res
-            effs ['frg'] = eff
-            unus ['frg'] = unu
-            
-            #------------------------------------------------------------------
-            # Zber AGR resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
-            #------------------------------------------------------------------
-            (res, eff, unu) = lib.getResource( self.biome, resType='agr', workForce=dens*prefs['agr'], knowledge=knows['agr'] )
-            
-            resrs['agr'] = res
-            effs ['agr'] = eff
-            unus ['agr'] = unu
-
-            #------------------------------------------------------------------
-            # Zber PSTR resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
-            #------------------------------------------------------------------
-            (res, eff, unu) = lib.getResource( self.biome, resType='pstr', workForce=dens*prefs['pstr'], knowledge=knows['pstr'] )
-            
-            resrs['pstr'] = res
-            effs ['pstr'] = eff
-            unus ['pstr'] = unu
-            
-            #------------------------------------------------------------------
-            # Zber IND resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
-            #------------------------------------------------------------------
-            (res, eff, unu) = lib.getResource( self.biome, resType='ind', workForce=dens*prefs['ind'], knowledge=knows['ind'] )
-            resrs['ind'] = res
-            effs ['ind'] = eff
-            unus ['ind'] = unu
-
-            '''
-            #------------------------------------------------------------------
-            # Zber WAR resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile           ------------!!!REVIEW-Not Finished!!!------------
-            #------------------------------------------------------------------
-            warForce = dens*prefs['war']
-            if warForce > 0:
-                resrs['war'] = warForce * (knows['war'] + 0.9) * ((resrs['ind'] * prefs['war']) + 0.9)
-                effs ['war'] = resrs['war'] / warForce
-
-                maxWarForce  = (tribeObj['knowledge']['war'] + 0.9) * ((resrs['ind'] * tribeObj['preference']['war']) + 0.9)
-                usedWarForce = min(tribeObj['density'] * tribeObj['preference']['war'], maxWarForce)
-
-                unus ['war'] = warForce - usedWarForce
-
-            
-            #------------------------------------------------------------------
-            # Gaining RLG resources - 
-            #------------------------------------------------------------------
-            (res, eff, unu) = lib.getResource( self.biome, resType='ind', workForce=dens*prefs['ind'], knowledge=knows['ind'] )
-            resrs['ind'] = res
-            effs ['ind'] = eff
-            unus ['ind'] = unu
-
-
-
-            #------------------------------------------------------------------
-            # Trading TRD resources - 
-            #------------------------------------------------------------------
-            (res, eff, unu) = lib.getResource( self.biome, resType='ind', workForce=dens*prefs['ind'], knowledge=knows['ind'] )
-            resrs['ind'] = res
-            effs ['ind'] = eff
-            unus ['ind'] = unu
-
-            #------------------------------------------------------------------
-            # Zber DPL resources - 
-            #------------------------------------------------------------------
-            (res, eff, unu) = lib.getResource( self.biome, resType='ind', workForce=dens*prefs['ind'], knowledge=knows['ind'] )
-            resrs['ind'] = res
-            effs ['ind'] = eff
-            unus ['ind'] = unu
-            '''
-            #------------------------------------------------------------------
-            # Zapisem priebezne vypocty o ziskanych resources a efektivite do lastPeriod Tile
-            #------------------------------------------------------------------
-            tribeObj['resrs'] = resrs
-            tribeObj['unus' ] = unus
-            tribeObj['effs' ] = effs
-            
+            if tribeObj['density'] > 0:
+                usedIDs.append(tribeId)
+                for recTribeId, recTribeObj in lastPeriod['tribes'].items():
+                    if recTribeId not in usedIDs and recTribeObj['density'] > 0:
+                        pairTuple = (tribeId, recTribeId)
+                        dispositionPairs.append(pairTuple)
+        if dispositionPairs != []:
+            for pair in dispositionPairs:
+                if pair[1] in lastPeriod['tribes'][pair[0]]['disp'] and lastPeriod['tribes'][pair[0]]['wars'][pair[1]] == True:
+                    #(res, eff, unu) = lib.getWarResource( self.biome, resType='agr', workForce=dens*prefs['agr'], knowledge=knows['agr'] )
+                    armySize = [lastPeriod['tribes'][pair[0]]['density'] * lastPeriod['tribes'][pair[0]]['preference']['war'], lastPeriod['tribes'][pair[1]]['density'] * lastPeriod['tribes'][pair[1]]['preference']['war']]
+                    armyPower = [armySize[0] * (lastPeriod['tribes'][pair[0]]['knowledge']['war'] + 1), armySize[1] * (lastPeriod['tribes'][pair[1]]['knowledge']['war'] + 1)]
+                    print(armySize, armyPower)
         #----------------------------------------------------------------------
         self.journal.O()
     
