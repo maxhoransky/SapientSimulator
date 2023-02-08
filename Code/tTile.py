@@ -507,11 +507,11 @@ class TTile:
                     armyPower = [armySize[0] * (lastPeriod['tribes'][pair[0]]['knowledge']['war'] + 1), armySize[1] * (lastPeriod['tribes'][pair[1]]['knowledge']['war'] + 1)]
                     #print(armySize, armyPower)
                     if armyPower[0] > armyPower [1]:
-                        lastPeriod['tribes'][pair[0]]['resrs']['war'] = (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF
-                        lastPeriod['tribes'][pair[1]]['resrs']['war'] = (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF * -1
+                        lastPeriod['tribes'][pair[0]]['resrs']['war'] += (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF
+                        lastPeriod['tribes'][pair[1]]['resrs']['war'] -= (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF
                     elif armyPower[1] > armyPower [0]:
-                        lastPeriod['tribes'][pair[1]]['resrs']['war'] = (armyPower[1] - armyPower[0]) * _WAR_RSRS_EFF
-                        lastPeriod['tribes'][pair[0]]['resrs']['war'] = (armyPower[1] - armyPower[0]) * _WAR_RSRS_EFF * -1
+                        lastPeriod['tribes'][pair[1]]['resrs']['war'] += (armyPower[1] - armyPower[0]) * _WAR_RSRS_EFF
+                        lastPeriod['tribes'][pair[0]]['resrs']['war'] -= (armyPower[1] - armyPower[0]) * _WAR_RSRS_EFF
                     
         #----------------------------------------------------------------------
         self.journal.O()
