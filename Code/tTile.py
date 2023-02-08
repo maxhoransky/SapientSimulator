@@ -22,7 +22,7 @@ _DISP_MAX        = 10.0  # Maximum possible Disposition
 _DISP_L          = 1.7  # Koeficient zvysovania dispozicie pomocou diplomacie
 _DISP_DIPL       = 1.7  # Koeficient zvysovania dispozicie pomocou diplomacie
 
-_KNOW_GROWTH     = 1.05  # Koeficient zvysenia knowledge ak jej tribe venuje pozornost
+_KNOW_GROWTH     = 1.05  # Koeficient zvysenia knowledge ak jej tribe venuje pozornostS
 _KNOW_GROWTH_SCI = 0.05  # How much does science help speed up research
 _KNOW_LIMIT      = 0.3   # Hranica pozornosti, pri ktorej sa knowledge zvysuje
 _KNOW_DECAY      = 0.95  # Koeficient zabudania knowledge ak jej tribe nevenuje pozornost
@@ -32,6 +32,9 @@ _PREF_UNUS_LIMIT =   5   # Ak je unused workforce vyssia ako tato hranica, zapri
 _PREF_BY_UNUS    = 0.1   # Zmena preferncie podla unused workforce pre biome
 _PREF_BY_EFF     = 0.1   # Zmena preferencie podla efektivity vyuzitia pracovnej sily (preferencie)
 _PREF_MIN        = 0.05  # Minimalna hodnota preferencie pre resType
+
+_WAR_RSRS_EFF    = 1.5   # Efektivita kolko zdrojov ziska vyherna armada
+_WAR_KILL_EFF    = 1.5   # Efektivita  o kolko sa znizi densita po vojne
 
 #==============================================================================
 # TTile
@@ -500,10 +503,16 @@ class TTile:
         if dispositionPairs != []:
             for pair in dispositionPairs:
                 if pair[1] in lastPeriod['tribes'][pair[0]]['disp'] and lastPeriod['tribes'][pair[0]]['wars'][pair[1]] == True:
-                    #(res, eff, unu) = lib.getWarResource( self.biome, resType='agr', workForce=dens*prefs['agr'], knowledge=knows['agr'] )
                     armySize = [lastPeriod['tribes'][pair[0]]['density'] * lastPeriod['tribes'][pair[0]]['preference']['war'], lastPeriod['tribes'][pair[1]]['density'] * lastPeriod['tribes'][pair[1]]['preference']['war']]
                     armyPower = [armySize[0] * (lastPeriod['tribes'][pair[0]]['knowledge']['war'] + 1), armySize[1] * (lastPeriod['tribes'][pair[1]]['knowledge']['war'] + 1)]
-                    print(armySize, armyPower)
+                    #print(armySize, armyPower)
+                    if armyPower[0] > armyPower [1]:
+                        lastPeriod['tribes'][pair[0]]['resrs']['war'] = (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF
+                        lastPeriod['tribes'][pair[1]]['resrs']['war'] = (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF * -1
+                    elif armyPower[1] > armyPower [0]:
+                        lastPeriod['tribes'][pair[1]]['resrs']['war'] = (armyPower[1] - armyPower[0]) * _WAR_RSRS_EFF
+                        lastPeriod['tribes'][pair[0]]['resrs']['war'] = (armyPower[1] - armyPower[0]) * _WAR_RSRS_EFF * -1
+                    
         #----------------------------------------------------------------------
         self.journal.O()
     
@@ -513,7 +522,40 @@ class TTile:
 
         self.journal.I(f'{self.tileId}.evaluateDensity:')
         period = lastPeriod['period']+1
-        
+
+        #----------------------------------------------------------------------
+        # Pripravim pocty ludi co zomru z vojny na 0
+        #----------------------------------------------------------------------
+        tribeWarDeaths = {}
+        for tribeId in lastPeriod['tribes'].keys():
+            tribeWarDeaths[tribeId] = 0
+        #----------------------------------------------------------------------
+        # Vyhodnotim kolko ludi zomrie vo vojnach
+        #----------------------------------------------------------------------
+        dispositionPairs = []
+        usedIDs = []
+
+        for tribeId, tribeObj in lastPeriod['tribes'].items():
+            if tribeObj['density'] > 0:
+                usedIDs.append(tribeId)
+                for recTribeId, recTribeObj in lastPeriod['tribes'].items():
+                    if recTribeId not in usedIDs and recTribeObj['density'] > 0:
+                        pairTuple = (tribeId, recTribeId)
+                        dispositionPairs.append(pairTuple)
+        if dispositionPairs != []:
+            for pair in dispositionPairs:
+                if pair[1] in lastPeriod['tribes'][pair[0]]['disp'] and lastPeriod['tribes'][pair[0]]['wars'][pair[1]] == True:
+                    armySize = [lastPeriod['tribes'][pair[0]]['density'] * lastPeriod['tribes'][pair[0]]['preference']['war'], lastPeriod['tribes'][pair[1]]['density'] * lastPeriod['tribes'][pair[1]]['preference']['war']]
+                    armyPower = [armySize[0] * (lastPeriod['tribes'][pair[0]]['knowledge']['war'] + 1), armySize[1] * (lastPeriod['tribes'][pair[1]]['knowledge']['war'] + 1)]
+                    #print(armySize, armyPower)
+                    if armyPower[0] > armyPower [1]:
+                        tribeWarDeaths[pair[1]] = lastPeriod['tribes'][pair[1]]['resrs']['war'] = (armyPower[1] - armyPower[0]) / (lastPeriod['tribes'][pair[1]]['knowledge']['war'] + 1) * _WAR_KILL_EFF * -1
+                    elif armyPower[1] > armyPower [0]:
+                        tribeWarDeaths[pair[0]] = lastPeriod['tribes'][pair[0]]['resrs']['war'] = (armyPower[0] - armyPower[1]) / (lastPeriod['tribes'][pair[0]]['knowledge']['war'] + 1) * _WAR_KILL_EFF * -1
+                    
+            print(tribeWarDeaths)
+        #----------------------------------------------------------------------
+
         #----------------------------------------------------------------------
         # Vyhodnotim zmeny populacie pre vsetky Tribes na Tile
         #----------------------------------------------------------------------
@@ -536,8 +578,8 @@ class TTile:
             #------------------------------------------------------------------
             if densSim > resrTot: 
                 
-                # Zistim, kolko populcie zomrie lebo nema zdroje kvoli vojne
-                densWar   = 0
+                # Zistim, kolko populcie zomrie z vojny
+                densWar   = tribeWarDeaths[tribeId]
                 
                 # Zistim, kolko populcie zomrie lebo nema vyprodukovane zdroje
                 densHunger = densSim - resrTot
