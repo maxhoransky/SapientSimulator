@@ -21,6 +21,7 @@ _STRES_EMIG      = 0.2   # Koeficient emigracie kvoli stresu
 _DISP_MAX        = 10.0  # Maximum possible Disposition
 _DISP_L          = 1.7  # Koeficient zvysovania dispozicie pomocou diplomacie
 _DISP_DIPL       = 1.7  # Koeficient zvysovania dispozicie pomocou diplomacie
+_DISP_TREND_MAX  = 0.2  # Maximalna a minimalana hodnota trendu
 
 _KNOW_GROWTH     = 1.05  # Koeficient zvysenia knowledge ak jej tribe venuje pozornostS
 _KNOW_GROWTH_SCI = 0.05  # How much does science help speed up research
@@ -654,7 +655,7 @@ class TTile:
         if dispositionPairs != []:
             for pair in dispositionPairs:
                 if pair[1] not in lastPeriod['tribes'][pair[0]]['disp']:
-                    lastDisp = {'disp':0,'trend': random.uniform(-1, 1)}
+                    lastDisp = {'disp':0,'trend': random.uniform(-_DISP_TREND_MAX, _DISP_TREND_MAX)}
                     lastWar = False
                     lastTrade = False
                     # Creates a Tuple, first int is 0 and is the base disposition
