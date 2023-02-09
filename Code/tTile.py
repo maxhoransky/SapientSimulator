@@ -18,8 +18,7 @@ _STRES_MIN       = 0.1   # Zakladna miera stresu populacie
 _STRES_MAX       = 0.8   # Maximalna miera stresu populacie
 _STRES_EMIG      = 0.2   # Koeficient emigracie kvoli stresu
 
-_DISP_MAX        = 10.0  # Maximum possible Disposition
-_DISP_L          = 1.7  # Koeficient zvysovania dispozicie pomocou diplomacie
+_DISP_MAX        = 10.0 # Maximum possible Disposition
 _DISP_DIPL       = 1.7  # Koeficient zvysovania dispozicie pomocou diplomacie
 _DISP_TREND_MAX  = 0.2  # Maximalna a minimalana hodnota trendu
 
@@ -666,10 +665,13 @@ class TTile:
                     lastTrade = lastPeriod['tribes'][pair[0]]['trades'][pair[1]]
                 
                 # Change disposition by the random trend
+                print("Start - " + str(lastDisp['disp']) )
                 lastDisp['disp'] += lastDisp['trend']
+                print("Rand - " + str(lastDisp['disp'])  )
                 # Change disposition by the stress of both tribes
                 lastDisp['disp'] -= lastPeriod['tribes'][pair[0]]['denses']['stres']
                 lastDisp['disp'] -= lastPeriod['tribes'][pair[1]]['denses']['stres']
+                print("Stress - "+ str(lastDisp['disp'])  )
                 # Change disposition by the war state between the two tribes
                     #lastDisp[0] += war
                 # Change disposition by the trade state between the two tribes
@@ -678,6 +680,8 @@ class TTile:
                 baseDisp = lastDisp['disp']
                 randTribe = random.randint(0, 1)
                 lastDisp['disp'] += ((1 + lastPeriod['tribes'][pair[randTribe]]['preference']['dpl']) * (1 + lastPeriod['tribes'][pair[randTribe]]['knowledge']['dpl']) - 1) * _DISP_DIPL
+
+                print("Dipl - "+ str(lastDisp['disp']) + '\n')
 
                 if lastDisp['disp'] > _DISP_MAX:
                     lastDisp['disp'] = _DISP_MAX
