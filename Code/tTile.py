@@ -18,6 +18,9 @@ _STRES_MIN       = 0.1   # Zakladna miera stresu populacie
 _STRES_MAX       = 0.8   # Maximalna miera stresu populacie
 _STRES_EMIG      = 0.2   # Koeficient emigracie kvoli stresu
 
+_STRES_WAR       = 0.8   # Koeficient stresu zo smrti vojakov
+_STRES_WAR_END   = 0.7   # Koeficient ako velmi zvacsuje stres sancu zrusit vojnu
+
 _DISP_MAX        = 10.0 # Maximum possible Disposition
 _DISP_TREND_MAX  = 0.1  # Maximalna a minimalana hodnota trendu
 _DISP_DIPL       = 1.7  # Koeficient zvysovania dispozicie pomocou diplomacie
@@ -34,8 +37,8 @@ _PREF_BY_UNUS    = 0.1   # Zmena preferncie podla unused workforce pre biome
 _PREF_BY_EFF     = 0.1   # Zmena preferencie podla efektivity vyuzitia pracovnej sily (preferencie)
 _PREF_MIN        = 0.05  # Minimalna hodnota preferencie pre resType
 
-_WAR_RSRS_EFF    = 1.5   # Efektivita kolko zdrojov ziska vyherna armada
-_WAR_KILL_EFF    = 0.2   # Efektivita  o kolko sa znizi densita po vojne
+_WAR_RSRS_EFF    = 0.6   # Efektivita kolko zdrojov ziska vyherna armada
+_WAR_KILL_EFF    = 0.4   # Efektivita  o kolko sa znizi densita po vojne
 
 #==============================================================================
 # TTile
@@ -549,7 +552,7 @@ class TTile:
             if densSim > resrTot: 
                 
                 # Zistim, kolko populcie zomrie  kvoli vojne
-                densWar   = tribeWarDeaths[tribeId]
+                densWar   = tribeWarDeaths[tribeId] * _STRES_WAR
                 
                 # Zistim, kolko populcie zomrie lebo nema vyprodukovane zdroje
                 densHunger = densSim - resrTot
@@ -690,7 +693,7 @@ class TTile:
                 simPeriod['tribes'][pair[0]]['disp'][pair[1]] = lastDisp
                 simPeriod['tribes'][pair[1]]['disp'][pair[0]] = lastDisp
 
-                lastWar = self.evaluateWarEvent(lastPeriod, simPeriod, lastDisp['disp'], lastWar)
+                lastWar = self.evaluateWarEvent(lastPeriod, simPeriod, lastDisp['disp'], lastWar, (lastPeriod['tribes'][pair[0]]['denses']['stres'] + lastPeriod['tribes'][pair[1]]['denses']['stres']) / 2)
                 lastTrade = self.evaluateTradeEvent(lastPeriod, simPeriod, lastDisp['disp'], lastTrade)
 
                 simPeriod['tribes'][pair[0]]['wars'][pair[1]] = lastWar
@@ -714,7 +717,7 @@ class TTile:
         self.journal.O()
     
     #--------------------------------------------------------------------------
-    def evaluateWarEvent(self, lastPeriod, simPeriod, disp, lastWar):
+    def evaluateWarEvent(self, lastPeriod, simPeriod, disp, lastWar, stres):
         if lastWar == False:
             if disp < 0:
                 chance = lib.power(disp * -1)
@@ -728,7 +731,12 @@ class TTile:
                 randomVal = random.uniform(0, 1)
                 if chance > randomVal:
                     lastWar = False
-        
+            elif stres > 0.5:
+                chance = lib.power((stres - 0.5) * 33.333333 * _STRES_WAR_END)
+                randomVal = random.uniform(0, 1)
+                if chance > randomVal:
+                    lastWar = False
+
         return lastWar
         
     #--------------------------------------------------------------------------
