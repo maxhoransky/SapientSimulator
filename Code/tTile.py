@@ -357,8 +357,6 @@ class TTile:
         # Vyriesim zber resurces vratane trades a war podla stavu v lastPeriod
         #----------------------------------------------------------------------
         self.getResource(lastPeriod)
-        
-        self.getWarResource(lastPeriod)
 
         #----------------------------------------------------------------------
         # Vyriesim ubytok/prirastok populacie na zaklade ziskanych resources a emigracie
@@ -432,47 +430,6 @@ class TTile:
             effs ['ind'] = eff
             unus ['ind'] = unu
 
-            '''
-            #------------------------------------------------------------------
-            # Zber WAR resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile           ------------!!!REVIEW-Not Finished!!!------------
-            #------------------------------------------------------------------
-            warForce = dens*prefs['war']
-            if warForce > 0:
-                resrs['war'] = warForce * (knows['war'] + 0.9) * ((resrs['ind'] * prefs['war']) + 0.9)
-                effs ['war'] = resrs['war'] / warForce
-
-                maxWarForce  = (tribeObj['knowledge']['war'] + 0.9) * ((resrs['ind'] * tribeObj['preference']['war']) + 0.9)
-                usedWarForce = min(tribeObj['density'] * tribeObj['preference']['war'], maxWarForce)
-
-                unus ['war'] = warForce - usedWarForce
-
-            
-            #------------------------------------------------------------------
-            # Gaining RLG resources - 
-            #------------------------------------------------------------------
-            (res, eff, unu) = lib.getResource( self.biome, resType='ind', workForce=dens*prefs['ind'], knowledge=knows['ind'] )
-            resrs['ind'] = res
-            effs ['ind'] = eff
-            unus ['ind'] = unu
-
-
-
-            #------------------------------------------------------------------
-            # Trading TRD resources - 
-            #------------------------------------------------------------------
-            (res, eff, unu) = lib.getResource( self.biome, resType='ind', workForce=dens*prefs['ind'], knowledge=knows['ind'] )
-            resrs['ind'] = res
-            effs ['ind'] = eff
-            unus ['ind'] = unu
-
-            #------------------------------------------------------------------
-            # Zber DPL resources - 
-            #------------------------------------------------------------------
-            (res, eff, unu) = lib.getResource( self.biome, resType='ind', workForce=dens*prefs['ind'], knowledge=knows['ind'] )
-            resrs['ind'] = res
-            effs ['ind'] = eff
-            unus ['ind'] = unu
-            '''
             #------------------------------------------------------------------
             # Zapisem priebezne vypocty o ziskanych resources a efektivite do lastPeriod Tile
             #------------------------------------------------------------------
@@ -549,11 +506,18 @@ class TTile:
                     armyPower = [armySize[0] * (lastPeriod['tribes'][pair[0]]['knowledge']['war'] + 1), armySize[1] * (lastPeriod['tribes'][pair[1]]['knowledge']['war'] + 1)]
                     #print(armySize, armyPower)
                     if armyPower[0] > armyPower [1]:
-                        tribeWarDeaths[pair[1]] = lastPeriod['tribes'][pair[1]]['resrs']['war'] = (armyPower[1] - armyPower[0]) / (lastPeriod['tribes'][pair[1]]['knowledge']['war'] + 1) * _WAR_KILL_EFF * -1
+                        tribeWarDeaths[pair[1]] = (armyPower[1] - armyPower[0]) / (lastPeriod['tribes'][pair[1]]['knowledge']['war'] + 1) * _WAR_KILL_EFF * -1
+                        # Vyhercovia vojny zoberu zdroje porazenim
+                        lastPeriod['tribes'][pair[0]]['resrs']['war'] += (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF
+                        lastPeriod['tribes'][pair[1]]['resrs']['war'] -= (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF
+
                     elif armyPower[1] > armyPower [0]:
-                        tribeWarDeaths[pair[0]] = lastPeriod['tribes'][pair[0]]['resrs']['war'] = (armyPower[0] - armyPower[1]) / (lastPeriod['tribes'][pair[0]]['knowledge']['war'] + 1) * _WAR_KILL_EFF * -1
+                        tribeWarDeaths[pair[0]] = (armyPower[0] - armyPower[1]) / (lastPeriod['tribes'][pair[0]]['knowledge']['war'] + 1) * _WAR_KILL_EFF * -1
+                        # Vyhercovia vojny zoberu zdroje porazenim
+                        lastPeriod['tribes'][pair[1]]['resrs']['war'] += (armyPower[1] - armyPower[0]) * _WAR_RSRS_EFF
+                        lastPeriod['tribes'][pair[0]]['resrs']['war'] -= (armyPower[1] - armyPower[0]) * _WAR_RSRS_EFF
                     
-            print(tribeWarDeaths)
+            #print(tribeWarDeaths)
         #----------------------------------------------------------------------
 
         #----------------------------------------------------------------------
@@ -562,8 +526,8 @@ class TTile:
         for tribeId, tribeObj in lastPeriod['tribes'].items():
             
             # Vstupne hodnoty
-            resrTot = tribeObj['resrs']['frg'] + tribeObj['resrs']['agr'] + tribeObj['resrs']['pstr'] + tribeObj['resrs']['ind'] + tribeObj['resrs']['sci'] + tribeObj['resrs']['rlg'] + tribeObj['resrs']['war'] + tribeObj['resrs']['trd'] + tribeObj['resrs']['dpl']
-            
+            resrTot = tribeObj['resrs']['frg'] + tribeObj['resrs']['agr'] + tribeObj['resrs']['pstr'] + tribeObj['resrs']['trd'] + tribeObj['resrs']['war']
+
             # Zacinam simulaciu s povodnym obyvatelstvom z predchadzajucej periody
             densSim = tribeObj['density']
 
@@ -574,11 +538,16 @@ class TTile:
             densSim   += densGrowth
 
             #------------------------------------------------------------------
+            # Ubytok populacie nasledkom vojny
+            #------------------------------------------------------------------
+            densSim -= tribeWarDeaths[tribeId]
+
+            #------------------------------------------------------------------
             # Ubytok populacie nasledkom nedostatku zdrojov 1 res per 1 clovek/km2
             #------------------------------------------------------------------
             if densSim > resrTot: 
                 
-                # Zistim, kolko populcie zomrie z vojny
+                # Zistim, kolko populcie zomrie  kvoli vojne
                 densWar   = tribeWarDeaths[tribeId]
                 
                 # Zistim, kolko populcie zomrie lebo nema vyprodukovane zdroje
