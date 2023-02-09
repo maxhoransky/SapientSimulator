@@ -19,8 +19,9 @@ _STRES_MAX       = 0.8   # Maximalna miera stresu populacie
 _STRES_EMIG      = 0.2   # Koeficient emigracie kvoli stresu
 
 _DISP_MAX        = 10.0 # Maximum possible Disposition
+_DISP_TREND_MAX  = 0.1  # Maximalna a minimalana hodnota trendu
 _DISP_DIPL       = 1.7  # Koeficient zvysovania dispozicie pomocou diplomacie
-_DISP_TREND_MAX  = 0.2  # Maximalna a minimalana hodnota trendu
+_DISP_STRESS     = 0.6  # Koeficient zvysovania dispozicie pomocou diplomacie
 
 _KNOW_GROWTH     = 1.05  # Koeficient zvysenia knowledge ak jej tribe venuje pozornostS
 _KNOW_GROWTH_SCI = 0.05  # How much does science help speed up research
@@ -34,7 +35,7 @@ _PREF_BY_EFF     = 0.1   # Zmena preferencie podla efektivity vyuzitia pracovnej
 _PREF_MIN        = 0.05  # Minimalna hodnota preferencie pre resType
 
 _WAR_RSRS_EFF    = 1.5   # Efektivita kolko zdrojov ziska vyherna armada
-_WAR_KILL_EFF    = 1.5   # Efektivita  o kolko sa znizi densita po vojne
+_WAR_KILL_EFF    = 0.2   # Efektivita  o kolko sa znizi densita po vojne
 
 #==============================================================================
 # TTile
@@ -631,7 +632,9 @@ class TTile:
                 
                 simPeriodTribe = self.getPeriodTribe(period, tribeId, tribeObj)
                 simPeriodTribe['density'] += densSim
-                
+
+            print(tribeObj['denses']['stres'])
+
         #------------------------------------------------------------------
         self.journal.O()
 
@@ -665,23 +668,19 @@ class TTile:
                     lastTrade = lastPeriod['tribes'][pair[0]]['trades'][pair[1]]
                 
                 # Change disposition by the random trend
-                print("Start - " + str(lastDisp['disp']) )
+                #print("Start - " + str(lastDisp['disp']) )
                 lastDisp['disp'] += lastDisp['trend']
-                print("Rand - " + str(lastDisp['disp'])  )
+                #print("Rand - " + str(lastDisp['disp'])  )
                 # Change disposition by the stress of both tribes
-                lastDisp['disp'] -= lastPeriod['tribes'][pair[0]]['denses']['stres']
-                lastDisp['disp'] -= lastPeriod['tribes'][pair[1]]['denses']['stres']
-                print("Stress - "+ str(lastDisp['disp'])  )
-                # Change disposition by the war state between the two tribes
-                    #lastDisp[0] += war
-                # Change disposition by the trade state between the two tribes
-                    #lastDisp[0] += trade
+                lastDisp['disp'] -= lastPeriod['tribes'][pair[0]]['denses']['stres'] * _DISP_STRESS
+                lastDisp['disp'] -= lastPeriod['tribes'][pair[1]]['denses']['stres'] * _DISP_STRESS
+                #print("Stress - "+ str(lastDisp['disp'])  )
                 # Change disposition by the diplomacy of one of the two tribes
                 baseDisp = lastDisp['disp']
                 randTribe = random.randint(0, 1)
                 lastDisp['disp'] += ((1 + lastPeriod['tribes'][pair[randTribe]]['preference']['dpl']) * (1 + lastPeriod['tribes'][pair[randTribe]]['knowledge']['dpl']) - 1) * _DISP_DIPL
 
-                print("Dipl - "+ str(lastDisp['disp']) + '\n')
+                #print("Dipl - "+ str(lastDisp['disp']) + '\n')
 
                 if lastDisp['disp'] > _DISP_MAX:
                     lastDisp['disp'] = _DISP_MAX

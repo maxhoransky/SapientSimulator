@@ -1,0 +1,5310 @@
+{
+      "rows": 20,
+      "cols": 20,
+      "Tile 0, 0": {
+            "tileId": "Tile 0, 0",
+            "biome": "Sea",
+            "row": 0,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 1": {
+            "tileId": "Tile 0, 1",
+            "biome": "Sea",
+            "row": 0,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 2": {
+            "tileId": "Tile 0, 2",
+            "biome": "Sea",
+            "row": 0,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 3": {
+            "tileId": "Tile 0, 3",
+            "biome": "Sea",
+            "row": 0,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 4": {
+            "tileId": "Tile 0, 4",
+            "biome": "Sea",
+            "row": 0,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 5": {
+            "tileId": "Tile 0, 5",
+            "biome": "Sea",
+            "row": 0,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 6": {
+            "tileId": "Tile 0, 6",
+            "biome": "Sea",
+            "row": 0,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 7": {
+            "tileId": "Tile 0, 7",
+            "biome": "Sea",
+            "row": 0,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 8": {
+            "tileId": "Tile 0, 8",
+            "biome": "Sea",
+            "row": 0,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 9": {
+            "tileId": "Tile 0, 9",
+            "biome": "Sea",
+            "row": 0,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 10": {
+            "tileId": "Tile 0, 10",
+            "biome": "Sea",
+            "row": 0,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 11": {
+            "tileId": "Tile 0, 11",
+            "biome": "Sea",
+            "row": 0,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 12": {
+            "tileId": "Tile 0, 12",
+            "biome": "Sea",
+            "row": 0,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 13": {
+            "tileId": "Tile 0, 13",
+            "biome": "Sea",
+            "row": 0,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 14": {
+            "tileId": "Tile 0, 14",
+            "biome": "Sea",
+            "row": 0,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 15": {
+            "tileId": "Tile 0, 15",
+            "biome": "Sea",
+            "row": 0,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 16": {
+            "tileId": "Tile 0, 16",
+            "biome": "Sea",
+            "row": 0,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 17": {
+            "tileId": "Tile 0, 17",
+            "biome": "Sea",
+            "row": 0,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 18": {
+            "tileId": "Tile 0, 18",
+            "biome": "Sea",
+            "row": 0,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 0, 19": {
+            "tileId": "Tile 0, 19",
+            "biome": "Sea",
+            "row": 0,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 0": {
+            "tileId": "Tile 1, 0",
+            "biome": "Sea",
+            "row": 1,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 1": {
+            "tileId": "Tile 1, 1",
+            "biome": "Sea",
+            "row": 1,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 2": {
+            "tileId": "Tile 1, 2",
+            "biome": "Sea",
+            "row": 1,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 3": {
+            "tileId": "Tile 1, 3",
+            "biome": "Sea",
+            "row": 1,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 4": {
+            "tileId": "Tile 1, 4",
+            "biome": "Sea",
+            "row": 1,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 5": {
+            "tileId": "Tile 1, 5",
+            "biome": "Sea",
+            "row": 1,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 6": {
+            "tileId": "Tile 1, 6",
+            "biome": "Sea",
+            "row": 1,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 7": {
+            "tileId": "Tile 1, 7",
+            "biome": "Sea",
+            "row": 1,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 8": {
+            "tileId": "Tile 1, 8",
+            "biome": "Sea",
+            "row": 1,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 9": {
+            "tileId": "Tile 1, 9",
+            "biome": "Sea",
+            "row": 1,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 10": {
+            "tileId": "Tile 1, 10",
+            "biome": "Sea",
+            "row": 1,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 11": {
+            "tileId": "Tile 1, 11",
+            "biome": "Sea",
+            "row": 1,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 12": {
+            "tileId": "Tile 1, 12",
+            "biome": "Sea",
+            "row": 1,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 13": {
+            "tileId": "Tile 1, 13",
+            "biome": "Sea",
+            "row": 1,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 14": {
+            "tileId": "Tile 1, 14",
+            "biome": "Sea",
+            "row": 1,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 15": {
+            "tileId": "Tile 1, 15",
+            "biome": "Sea",
+            "row": 1,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 16": {
+            "tileId": "Tile 1, 16",
+            "biome": "Sea",
+            "row": 1,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 17": {
+            "tileId": "Tile 1, 17",
+            "biome": "Sea",
+            "row": 1,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 18": {
+            "tileId": "Tile 1, 18",
+            "biome": "Sea",
+            "row": 1,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 1, 19": {
+            "tileId": "Tile 1, 19",
+            "biome": "Sea",
+            "row": 1,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 0": {
+            "tileId": "Tile 2, 0",
+            "biome": "Sea",
+            "row": 2,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 1": {
+            "tileId": "Tile 2, 1",
+            "biome": "Sea",
+            "row": 2,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 2": {
+            "tileId": "Tile 2, 2",
+            "biome": "Sea",
+            "row": 2,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 3": {
+            "tileId": "Tile 2, 3",
+            "biome": "Sea",
+            "row": 2,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 4": {
+            "tileId": "Tile 2, 4",
+            "biome": "Sea",
+            "row": 2,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 5": {
+            "tileId": "Tile 2, 5",
+            "biome": "Sea",
+            "row": 2,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 6": {
+            "tileId": "Tile 2, 6",
+            "biome": "Sea",
+            "row": 2,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 7": {
+            "tileId": "Tile 2, 7",
+            "biome": "Sea",
+            "row": 2,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 8": {
+            "tileId": "Tile 2, 8",
+            "biome": "Sea",
+            "row": 2,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 9": {
+            "tileId": "Tile 2, 9",
+            "biome": "Sea",
+            "row": 2,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 10": {
+            "tileId": "Tile 2, 10",
+            "biome": "Sea",
+            "row": 2,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 11": {
+            "tileId": "Tile 2, 11",
+            "biome": "Sea",
+            "row": 2,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 12": {
+            "tileId": "Tile 2, 12",
+            "biome": "Sea",
+            "row": 2,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 13": {
+            "tileId": "Tile 2, 13",
+            "biome": "Sea",
+            "row": 2,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 14": {
+            "tileId": "Tile 2, 14",
+            "biome": "Sea",
+            "row": 2,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 15": {
+            "tileId": "Tile 2, 15",
+            "biome": "Sea",
+            "row": 2,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 16": {
+            "tileId": "Tile 2, 16",
+            "biome": "Sea",
+            "row": 2,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 17": {
+            "tileId": "Tile 2, 17",
+            "biome": "Sea",
+            "row": 2,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 18": {
+            "tileId": "Tile 2, 18",
+            "biome": "Sea",
+            "row": 2,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 2, 19": {
+            "tileId": "Tile 2, 19",
+            "biome": "Sea",
+            "row": 2,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 0": {
+            "tileId": "Tile 3, 0",
+            "biome": "Sea",
+            "row": 3,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 1": {
+            "tileId": "Tile 3, 1",
+            "biome": "Sea",
+            "row": 3,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 2": {
+            "tileId": "Tile 3, 2",
+            "biome": "Sea",
+            "row": 3,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 3": {
+            "tileId": "Tile 3, 3",
+            "biome": "Sea",
+            "row": 3,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 4": {
+            "tileId": "Tile 3, 4",
+            "biome": "Sea",
+            "row": 3,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 5": {
+            "tileId": "Tile 3, 5",
+            "biome": "Sea",
+            "row": 3,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 6": {
+            "tileId": "Tile 3, 6",
+            "biome": "Sea",
+            "row": 3,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 7": {
+            "tileId": "Tile 3, 7",
+            "biome": "Sea",
+            "row": 3,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 8": {
+            "tileId": "Tile 3, 8",
+            "biome": "Sea",
+            "row": 3,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 9": {
+            "tileId": "Tile 3, 9",
+            "biome": "Sea",
+            "row": 3,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 10": {
+            "tileId": "Tile 3, 10",
+            "biome": "Sea",
+            "row": 3,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 11": {
+            "tileId": "Tile 3, 11",
+            "biome": "Sea",
+            "row": 3,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 12": {
+            "tileId": "Tile 3, 12",
+            "biome": "Sea",
+            "row": 3,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 13": {
+            "tileId": "Tile 3, 13",
+            "biome": "Sea",
+            "row": 3,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 14": {
+            "tileId": "Tile 3, 14",
+            "biome": "Sea",
+            "row": 3,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 15": {
+            "tileId": "Tile 3, 15",
+            "biome": "Sea",
+            "row": 3,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 16": {
+            "tileId": "Tile 3, 16",
+            "biome": "Sea",
+            "row": 3,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 17": {
+            "tileId": "Tile 3, 17",
+            "biome": "Sea",
+            "row": 3,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 18": {
+            "tileId": "Tile 3, 18",
+            "biome": "Sea",
+            "row": 3,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 3, 19": {
+            "tileId": "Tile 3, 19",
+            "biome": "Sea",
+            "row": 3,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 0": {
+            "tileId": "Tile 4, 0",
+            "biome": "Sea",
+            "row": 4,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 1": {
+            "tileId": "Tile 4, 1",
+            "biome": "Sea",
+            "row": 4,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 2": {
+            "tileId": "Tile 4, 2",
+            "biome": "Sea",
+            "row": 4,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 3": {
+            "tileId": "Tile 4, 3",
+            "biome": "Sea",
+            "row": 4,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 4": {
+            "tileId": "Tile 4, 4",
+            "biome": "Sea",
+            "row": 4,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 5": {
+            "tileId": "Tile 4, 5",
+            "biome": "Sea",
+            "row": 4,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 6": {
+            "tileId": "Tile 4, 6",
+            "biome": "Sea",
+            "row": 4,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 7": {
+            "tileId": "Tile 4, 7",
+            "biome": "Sea",
+            "row": 4,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 8": {
+            "tileId": "Tile 4, 8",
+            "biome": "Sea",
+            "row": 4,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 9": {
+            "tileId": "Tile 4, 9",
+            "biome": "Sea",
+            "row": 4,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 10": {
+            "tileId": "Tile 4, 10",
+            "biome": "Sea",
+            "row": 4,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 11": {
+            "tileId": "Tile 4, 11",
+            "biome": "Sea",
+            "row": 4,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 12": {
+            "tileId": "Tile 4, 12",
+            "biome": "Sea",
+            "row": 4,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 13": {
+            "tileId": "Tile 4, 13",
+            "biome": "Sea",
+            "row": 4,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 14": {
+            "tileId": "Tile 4, 14",
+            "biome": "Sea",
+            "row": 4,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 15": {
+            "tileId": "Tile 4, 15",
+            "biome": "Sea",
+            "row": 4,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 16": {
+            "tileId": "Tile 4, 16",
+            "biome": "Sea",
+            "row": 4,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 17": {
+            "tileId": "Tile 4, 17",
+            "biome": "Sea",
+            "row": 4,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 18": {
+            "tileId": "Tile 4, 18",
+            "biome": "Sea",
+            "row": 4,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 4, 19": {
+            "tileId": "Tile 4, 19",
+            "biome": "Sea",
+            "row": 4,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 0": {
+            "tileId": "Tile 5, 0",
+            "biome": "Sea",
+            "row": 5,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 1": {
+            "tileId": "Tile 5, 1",
+            "biome": "Sea",
+            "row": 5,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 2": {
+            "tileId": "Tile 5, 2",
+            "biome": "Sea",
+            "row": 5,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 3": {
+            "tileId": "Tile 5, 3",
+            "biome": "Sea",
+            "row": 5,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 4": {
+            "tileId": "Tile 5, 4",
+            "biome": "Sea",
+            "row": 5,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 5": {
+            "tileId": "Tile 5, 5",
+            "biome": "Sea",
+            "row": 5,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 6": {
+            "tileId": "Tile 5, 6",
+            "biome": "Sea",
+            "row": 5,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 7": {
+            "tileId": "Tile 5, 7",
+            "biome": "Sea",
+            "row": 5,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 8": {
+            "tileId": "Tile 5, 8",
+            "biome": "Sea",
+            "row": 5,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 9": {
+            "tileId": "Tile 5, 9",
+            "biome": "Sea",
+            "row": 5,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 10": {
+            "tileId": "Tile 5, 10",
+            "biome": "Sea",
+            "row": 5,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 11": {
+            "tileId": "Tile 5, 11",
+            "biome": "Sea",
+            "row": 5,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 12": {
+            "tileId": "Tile 5, 12",
+            "biome": "Sea",
+            "row": 5,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 13": {
+            "tileId": "Tile 5, 13",
+            "biome": "Sea",
+            "row": 5,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 14": {
+            "tileId": "Tile 5, 14",
+            "biome": "Sea",
+            "row": 5,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 15": {
+            "tileId": "Tile 5, 15",
+            "biome": "Sea",
+            "row": 5,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 16": {
+            "tileId": "Tile 5, 16",
+            "biome": "Sea",
+            "row": 5,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 17": {
+            "tileId": "Tile 5, 17",
+            "biome": "Sea",
+            "row": 5,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 18": {
+            "tileId": "Tile 5, 18",
+            "biome": "Sea",
+            "row": 5,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 5, 19": {
+            "tileId": "Tile 5, 19",
+            "biome": "Sea",
+            "row": 5,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 0": {
+            "tileId": "Tile 6, 0",
+            "biome": "Sea",
+            "row": 6,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 1": {
+            "tileId": "Tile 6, 1",
+            "biome": "Sea",
+            "row": 6,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 2": {
+            "tileId": "Tile 6, 2",
+            "biome": "Sea",
+            "row": 6,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 3": {
+            "tileId": "Tile 6, 3",
+            "biome": "Sea",
+            "row": 6,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 4": {
+            "tileId": "Tile 6, 4",
+            "biome": "Sea",
+            "row": 6,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 5": {
+            "tileId": "Tile 6, 5",
+            "biome": "Sea",
+            "row": 6,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 6": {
+            "tileId": "Tile 6, 6",
+            "biome": "Sea",
+            "row": 6,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 7": {
+            "tileId": "Tile 6, 7",
+            "biome": "Sea",
+            "row": 6,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 8": {
+            "tileId": "Tile 6, 8",
+            "biome": "Sea",
+            "row": 6,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 9": {
+            "tileId": "Tile 6, 9",
+            "biome": "Sea",
+            "row": 6,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 10": {
+            "tileId": "Tile 6, 10",
+            "biome": "Sea",
+            "row": 6,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 11": {
+            "tileId": "Tile 6, 11",
+            "biome": "Sea",
+            "row": 6,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 12": {
+            "tileId": "Tile 6, 12",
+            "biome": "Sea",
+            "row": 6,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 13": {
+            "tileId": "Tile 6, 13",
+            "biome": "Sea",
+            "row": 6,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 14": {
+            "tileId": "Tile 6, 14",
+            "biome": "Sea",
+            "row": 6,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 15": {
+            "tileId": "Tile 6, 15",
+            "biome": "Sea",
+            "row": 6,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 16": {
+            "tileId": "Tile 6, 16",
+            "biome": "Sea",
+            "row": 6,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 17": {
+            "tileId": "Tile 6, 17",
+            "biome": "Sea",
+            "row": 6,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 18": {
+            "tileId": "Tile 6, 18",
+            "biome": "Sea",
+            "row": 6,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 6, 19": {
+            "tileId": "Tile 6, 19",
+            "biome": "Sea",
+            "row": 6,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 0": {
+            "tileId": "Tile 7, 0",
+            "biome": "Sea",
+            "row": 7,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 1": {
+            "tileId": "Tile 7, 1",
+            "biome": "Sea",
+            "row": 7,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 2": {
+            "tileId": "Tile 7, 2",
+            "biome": "Sea",
+            "row": 7,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 3": {
+            "tileId": "Tile 7, 3",
+            "biome": "Sea",
+            "row": 7,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 4": {
+            "tileId": "Tile 7, 4",
+            "biome": "Sea",
+            "row": 7,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 5": {
+            "tileId": "Tile 7, 5",
+            "biome": "Sea",
+            "row": 7,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 6": {
+            "tileId": "Tile 7, 6",
+            "biome": "Sea",
+            "row": 7,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 7": {
+            "tileId": "Tile 7, 7",
+            "biome": "Sea",
+            "row": 7,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 8": {
+            "tileId": "Tile 7, 8",
+            "biome": "Sea",
+            "row": 7,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 9": {
+            "tileId": "Tile 7, 9",
+            "biome": "Sea",
+            "row": 7,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 10": {
+            "tileId": "Tile 7, 10",
+            "biome": "Savannah",
+            "row": 7,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {
+                              "Hunters": {
+                                    "density": 5.0,
+                                    "color": {
+                                          "red": 0,
+                                          "green": 0,
+                                          "blue": 1
+                                    },
+                                    "preference": {
+                                          "frg": 0.42,
+                                          "agr": 0.3,
+                                          "pstr": 0.05,
+                                          "ind": 0.02,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
+                                          "war": 0.15,
+                                          "trd": 0.02,
+                                          "dpl": 0.01
+                                    },
+                                    "knowledge": {
+                                          "frg": 0.28,
+                                          "agr": 0.25,
+                                          "pstr": 0.15,
+                                          "ind": 0.1,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
+                                          "war": 0.2,
+                                          "trd": 0.09,
+                                          "dpl": 0.01
+                                    },
+                                    "resrs": {},
+                                    "denses": {},
+                                    "disp": {},
+                                    "wars": {},
+                                    "trades": {}
+                              },
+                              "Fishermen": {
+                                    "density": 5.0,
+                                    "color": {
+                                          "red": 0,
+                                          "green": 1,
+                                          "blue": 0
+                                    },
+                                    "preference": {
+                                          "frg": 0.48,
+                                          "agr": 0.02,
+                                          "pstr": 0.02,
+                                          "ind": 0.06,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
+                                          "war": 0.3,
+                                          "trd": 0.09,
+                                          "dpl": 0.01
+                                    },
+                                    "knowledge": {
+                                          "frg": 0.44,
+                                          "agr": 0.09,
+                                          "pstr": 0.1,
+                                          "ind": 0.1,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
+                                          "war": 0.1,
+                                          "trd": 0.09,
+                                          "dpl": 0.01
+                                    },
+                                    "resrs": {},
+                                    "denses": {},
+                                    "disp": {},
+                                    "wars": {},
+                                    "trades": {}
+                              },
+                              "Nomads": {
+                                    "density": 5.0,
+                                    "color": {
+                                          "red": 1,
+                                          "green": 0,
+                                          "blue": 0
+                                    },
+                                    "preference": {
+                                          "frg": 0.68,
+                                          "agr": 0.02,
+                                          "pstr": 0.05,
+                                          "ind": 0.03,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
+                                          "war": 0.05,
+                                          "trd": 0.18,
+                                          "dpl": 0.01
+                                    },
+                                    "knowledge": {
+                                          "frg": 0.68,
+                                          "agr": 0.1,
+                                          "pstr": 0.1,
+                                          "ind": 0.1,
+                                          "sci": 0.01,
+                                          "rlg": 0.01,
+                                          "war": 0.1,
+                                          "trd": 0.19,
+                                          "dpl": 0.01
+                                    },
+                                    "resrs": {},
+                                    "denses": {},
+                                    "disp": {},
+                                    "wars": {},
+                                    "trades": {}
+                              }
+                        }
+                  }
+            ]
+      },
+      "Tile 7, 11": {
+            "tileId": "Tile 7, 11",
+            "biome": "Sea",
+            "row": 7,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 12": {
+            "tileId": "Tile 7, 12",
+            "biome": "Sea",
+            "row": 7,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 13": {
+            "tileId": "Tile 7, 13",
+            "biome": "Sea",
+            "row": 7,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 14": {
+            "tileId": "Tile 7, 14",
+            "biome": "Sea",
+            "row": 7,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 15": {
+            "tileId": "Tile 7, 15",
+            "biome": "Sea",
+            "row": 7,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 16": {
+            "tileId": "Tile 7, 16",
+            "biome": "Sea",
+            "row": 7,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 17": {
+            "tileId": "Tile 7, 17",
+            "biome": "Sea",
+            "row": 7,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 18": {
+            "tileId": "Tile 7, 18",
+            "biome": "Sea",
+            "row": 7,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 7, 19": {
+            "tileId": "Tile 7, 19",
+            "biome": "Sea",
+            "row": 7,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 0": {
+            "tileId": "Tile 8, 0",
+            "biome": "Sea",
+            "row": 8,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 1": {
+            "tileId": "Tile 8, 1",
+            "biome": "Sea",
+            "row": 8,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 2": {
+            "tileId": "Tile 8, 2",
+            "biome": "Sea",
+            "row": 8,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 3": {
+            "tileId": "Tile 8, 3",
+            "biome": "Sea",
+            "row": 8,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 4": {
+            "tileId": "Tile 8, 4",
+            "biome": "Sea",
+            "row": 8,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 5": {
+            "tileId": "Tile 8, 5",
+            "biome": "Sea",
+            "row": 8,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 6": {
+            "tileId": "Tile 8, 6",
+            "biome": "Sea",
+            "row": 8,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 7": {
+            "tileId": "Tile 8, 7",
+            "biome": "Sea",
+            "row": 8,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 8": {
+            "tileId": "Tile 8, 8",
+            "biome": "Sea",
+            "row": 8,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 9": {
+            "tileId": "Tile 8, 9",
+            "biome": "Sea",
+            "row": 8,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 10": {
+            "tileId": "Tile 8, 10",
+            "biome": "Sea",
+            "row": 8,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 11": {
+            "tileId": "Tile 8, 11",
+            "biome": "Sea",
+            "row": 8,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 12": {
+            "tileId": "Tile 8, 12",
+            "biome": "Sea",
+            "row": 8,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 13": {
+            "tileId": "Tile 8, 13",
+            "biome": "Sea",
+            "row": 8,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 14": {
+            "tileId": "Tile 8, 14",
+            "biome": "Sea",
+            "row": 8,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 15": {
+            "tileId": "Tile 8, 15",
+            "biome": "Sea",
+            "row": 8,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 16": {
+            "tileId": "Tile 8, 16",
+            "biome": "Sea",
+            "row": 8,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 17": {
+            "tileId": "Tile 8, 17",
+            "biome": "Sea",
+            "row": 8,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 18": {
+            "tileId": "Tile 8, 18",
+            "biome": "Sea",
+            "row": 8,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 8, 19": {
+            "tileId": "Tile 8, 19",
+            "biome": "Sea",
+            "row": 8,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 0": {
+            "tileId": "Tile 9, 0",
+            "biome": "Sea",
+            "row": 9,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 1": {
+            "tileId": "Tile 9, 1",
+            "biome": "Sea",
+            "row": 9,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 2": {
+            "tileId": "Tile 9, 2",
+            "biome": "Sea",
+            "row": 9,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 3": {
+            "tileId": "Tile 9, 3",
+            "biome": "Sea",
+            "row": 9,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 4": {
+            "tileId": "Tile 9, 4",
+            "biome": "Sea",
+            "row": 9,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 5": {
+            "tileId": "Tile 9, 5",
+            "biome": "Sea",
+            "row": 9,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 6": {
+            "tileId": "Tile 9, 6",
+            "biome": "Sea",
+            "row": 9,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 7": {
+            "tileId": "Tile 9, 7",
+            "biome": "Sea",
+            "row": 9,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 8": {
+            "tileId": "Tile 9, 8",
+            "biome": "Sea",
+            "row": 9,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 9": {
+            "tileId": "Tile 9, 9",
+            "biome": "Sea",
+            "row": 9,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 10": {
+            "tileId": "Tile 9, 10",
+            "biome": "Sea",
+            "row": 9,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 11": {
+            "tileId": "Tile 9, 11",
+            "biome": "Sea",
+            "row": 9,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 12": {
+            "tileId": "Tile 9, 12",
+            "biome": "Sea",
+            "row": 9,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 13": {
+            "tileId": "Tile 9, 13",
+            "biome": "Sea",
+            "row": 9,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 14": {
+            "tileId": "Tile 9, 14",
+            "biome": "Sea",
+            "row": 9,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 15": {
+            "tileId": "Tile 9, 15",
+            "biome": "Sea",
+            "row": 9,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 16": {
+            "tileId": "Tile 9, 16",
+            "biome": "Sea",
+            "row": 9,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 17": {
+            "tileId": "Tile 9, 17",
+            "biome": "Sea",
+            "row": 9,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 18": {
+            "tileId": "Tile 9, 18",
+            "biome": "Sea",
+            "row": 9,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 9, 19": {
+            "tileId": "Tile 9, 19",
+            "biome": "Sea",
+            "row": 9,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 0": {
+            "tileId": "Tile 10, 0",
+            "biome": "Sea",
+            "row": 10,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 1": {
+            "tileId": "Tile 10, 1",
+            "biome": "Sea",
+            "row": 10,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 2": {
+            "tileId": "Tile 10, 2",
+            "biome": "Sea",
+            "row": 10,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 3": {
+            "tileId": "Tile 10, 3",
+            "biome": "Sea",
+            "row": 10,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 4": {
+            "tileId": "Tile 10, 4",
+            "biome": "Sea",
+            "row": 10,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 5": {
+            "tileId": "Tile 10, 5",
+            "biome": "Sea",
+            "row": 10,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 6": {
+            "tileId": "Tile 10, 6",
+            "biome": "Sea",
+            "row": 10,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 7": {
+            "tileId": "Tile 10, 7",
+            "biome": "Sea",
+            "row": 10,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 8": {
+            "tileId": "Tile 10, 8",
+            "biome": "Sea",
+            "row": 10,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 9": {
+            "tileId": "Tile 10, 9",
+            "biome": "Sea",
+            "row": 10,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 10": {
+            "tileId": "Tile 10, 10",
+            "biome": "Sea",
+            "row": 10,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 11": {
+            "tileId": "Tile 10, 11",
+            "biome": "Sea",
+            "row": 10,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 12": {
+            "tileId": "Tile 10, 12",
+            "biome": "Sea",
+            "row": 10,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 13": {
+            "tileId": "Tile 10, 13",
+            "biome": "Sea",
+            "row": 10,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 14": {
+            "tileId": "Tile 10, 14",
+            "biome": "Sea",
+            "row": 10,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 15": {
+            "tileId": "Tile 10, 15",
+            "biome": "Sea",
+            "row": 10,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 16": {
+            "tileId": "Tile 10, 16",
+            "biome": "Sea",
+            "row": 10,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 17": {
+            "tileId": "Tile 10, 17",
+            "biome": "Sea",
+            "row": 10,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 18": {
+            "tileId": "Tile 10, 18",
+            "biome": "Sea",
+            "row": 10,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 10, 19": {
+            "tileId": "Tile 10, 19",
+            "biome": "Sea",
+            "row": 10,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 0": {
+            "tileId": "Tile 11, 0",
+            "biome": "Sea",
+            "row": 11,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 1": {
+            "tileId": "Tile 11, 1",
+            "biome": "Sea",
+            "row": 11,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 2": {
+            "tileId": "Tile 11, 2",
+            "biome": "Sea",
+            "row": 11,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 3": {
+            "tileId": "Tile 11, 3",
+            "biome": "Sea",
+            "row": 11,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 4": {
+            "tileId": "Tile 11, 4",
+            "biome": "Sea",
+            "row": 11,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 5": {
+            "tileId": "Tile 11, 5",
+            "biome": "Sea",
+            "row": 11,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 6": {
+            "tileId": "Tile 11, 6",
+            "biome": "Sea",
+            "row": 11,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 7": {
+            "tileId": "Tile 11, 7",
+            "biome": "Sea",
+            "row": 11,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 8": {
+            "tileId": "Tile 11, 8",
+            "biome": "Sea",
+            "row": 11,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 9": {
+            "tileId": "Tile 11, 9",
+            "biome": "Sea",
+            "row": 11,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 10": {
+            "tileId": "Tile 11, 10",
+            "biome": "Sea",
+            "row": 11,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 11": {
+            "tileId": "Tile 11, 11",
+            "biome": "Sea",
+            "row": 11,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 12": {
+            "tileId": "Tile 11, 12",
+            "biome": "Sea",
+            "row": 11,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 13": {
+            "tileId": "Tile 11, 13",
+            "biome": "Sea",
+            "row": 11,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 14": {
+            "tileId": "Tile 11, 14",
+            "biome": "Sea",
+            "row": 11,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 15": {
+            "tileId": "Tile 11, 15",
+            "biome": "Sea",
+            "row": 11,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 16": {
+            "tileId": "Tile 11, 16",
+            "biome": "Sea",
+            "row": 11,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 17": {
+            "tileId": "Tile 11, 17",
+            "biome": "Sea",
+            "row": 11,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 18": {
+            "tileId": "Tile 11, 18",
+            "biome": "Sea",
+            "row": 11,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 11, 19": {
+            "tileId": "Tile 11, 19",
+            "biome": "Sea",
+            "row": 11,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 0": {
+            "tileId": "Tile 12, 0",
+            "biome": "Sea",
+            "row": 12,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 1": {
+            "tileId": "Tile 12, 1",
+            "biome": "Sea",
+            "row": 12,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 2": {
+            "tileId": "Tile 12, 2",
+            "biome": "Sea",
+            "row": 12,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 3": {
+            "tileId": "Tile 12, 3",
+            "biome": "Sea",
+            "row": 12,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 4": {
+            "tileId": "Tile 12, 4",
+            "biome": "Sea",
+            "row": 12,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 5": {
+            "tileId": "Tile 12, 5",
+            "biome": "Sea",
+            "row": 12,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 6": {
+            "tileId": "Tile 12, 6",
+            "biome": "Sea",
+            "row": 12,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 7": {
+            "tileId": "Tile 12, 7",
+            "biome": "Sea",
+            "row": 12,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 8": {
+            "tileId": "Tile 12, 8",
+            "biome": "Sea",
+            "row": 12,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 9": {
+            "tileId": "Tile 12, 9",
+            "biome": "Sea",
+            "row": 12,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 10": {
+            "tileId": "Tile 12, 10",
+            "biome": "Sea",
+            "row": 12,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 11": {
+            "tileId": "Tile 12, 11",
+            "biome": "Sea",
+            "row": 12,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 12": {
+            "tileId": "Tile 12, 12",
+            "biome": "Sea",
+            "row": 12,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 13": {
+            "tileId": "Tile 12, 13",
+            "biome": "Sea",
+            "row": 12,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 14": {
+            "tileId": "Tile 12, 14",
+            "biome": "Sea",
+            "row": 12,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 15": {
+            "tileId": "Tile 12, 15",
+            "biome": "Sea",
+            "row": 12,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 16": {
+            "tileId": "Tile 12, 16",
+            "biome": "Sea",
+            "row": 12,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 17": {
+            "tileId": "Tile 12, 17",
+            "biome": "Sea",
+            "row": 12,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 18": {
+            "tileId": "Tile 12, 18",
+            "biome": "Sea",
+            "row": 12,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 12, 19": {
+            "tileId": "Tile 12, 19",
+            "biome": "Sea",
+            "row": 12,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 0": {
+            "tileId": "Tile 13, 0",
+            "biome": "Sea",
+            "row": 13,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 1": {
+            "tileId": "Tile 13, 1",
+            "biome": "Sea",
+            "row": 13,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 2": {
+            "tileId": "Tile 13, 2",
+            "biome": "Sea",
+            "row": 13,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 3": {
+            "tileId": "Tile 13, 3",
+            "biome": "Sea",
+            "row": 13,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 4": {
+            "tileId": "Tile 13, 4",
+            "biome": "Sea",
+            "row": 13,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 5": {
+            "tileId": "Tile 13, 5",
+            "biome": "Sea",
+            "row": 13,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 6": {
+            "tileId": "Tile 13, 6",
+            "biome": "Sea",
+            "row": 13,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 7": {
+            "tileId": "Tile 13, 7",
+            "biome": "Sea",
+            "row": 13,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 8": {
+            "tileId": "Tile 13, 8",
+            "biome": "Sea",
+            "row": 13,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 9": {
+            "tileId": "Tile 13, 9",
+            "biome": "Sea",
+            "row": 13,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 10": {
+            "tileId": "Tile 13, 10",
+            "biome": "Sea",
+            "row": 13,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 11": {
+            "tileId": "Tile 13, 11",
+            "biome": "Sea",
+            "row": 13,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 12": {
+            "tileId": "Tile 13, 12",
+            "biome": "Sea",
+            "row": 13,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 13": {
+            "tileId": "Tile 13, 13",
+            "biome": "Sea",
+            "row": 13,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 14": {
+            "tileId": "Tile 13, 14",
+            "biome": "Sea",
+            "row": 13,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 15": {
+            "tileId": "Tile 13, 15",
+            "biome": "Sea",
+            "row": 13,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 16": {
+            "tileId": "Tile 13, 16",
+            "biome": "Sea",
+            "row": 13,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 17": {
+            "tileId": "Tile 13, 17",
+            "biome": "Sea",
+            "row": 13,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 18": {
+            "tileId": "Tile 13, 18",
+            "biome": "Sea",
+            "row": 13,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 13, 19": {
+            "tileId": "Tile 13, 19",
+            "biome": "Sea",
+            "row": 13,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 0": {
+            "tileId": "Tile 14, 0",
+            "biome": "Sea",
+            "row": 14,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 1": {
+            "tileId": "Tile 14, 1",
+            "biome": "Sea",
+            "row": 14,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 2": {
+            "tileId": "Tile 14, 2",
+            "biome": "Sea",
+            "row": 14,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 3": {
+            "tileId": "Tile 14, 3",
+            "biome": "Sea",
+            "row": 14,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 4": {
+            "tileId": "Tile 14, 4",
+            "biome": "Sea",
+            "row": 14,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 5": {
+            "tileId": "Tile 14, 5",
+            "biome": "Sea",
+            "row": 14,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 6": {
+            "tileId": "Tile 14, 6",
+            "biome": "Sea",
+            "row": 14,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 7": {
+            "tileId": "Tile 14, 7",
+            "biome": "Sea",
+            "row": 14,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 8": {
+            "tileId": "Tile 14, 8",
+            "biome": "Sea",
+            "row": 14,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 9": {
+            "tileId": "Tile 14, 9",
+            "biome": "Sea",
+            "row": 14,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 10": {
+            "tileId": "Tile 14, 10",
+            "biome": "Sea",
+            "row": 14,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 11": {
+            "tileId": "Tile 14, 11",
+            "biome": "Sea",
+            "row": 14,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 12": {
+            "tileId": "Tile 14, 12",
+            "biome": "Sea",
+            "row": 14,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 13": {
+            "tileId": "Tile 14, 13",
+            "biome": "Sea",
+            "row": 14,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 14": {
+            "tileId": "Tile 14, 14",
+            "biome": "Sea",
+            "row": 14,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 15": {
+            "tileId": "Tile 14, 15",
+            "biome": "Sea",
+            "row": 14,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 16": {
+            "tileId": "Tile 14, 16",
+            "biome": "Sea",
+            "row": 14,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 17": {
+            "tileId": "Tile 14, 17",
+            "biome": "Sea",
+            "row": 14,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 18": {
+            "tileId": "Tile 14, 18",
+            "biome": "Sea",
+            "row": 14,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 14, 19": {
+            "tileId": "Tile 14, 19",
+            "biome": "Sea",
+            "row": 14,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 0": {
+            "tileId": "Tile 15, 0",
+            "biome": "Sea",
+            "row": 15,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 1": {
+            "tileId": "Tile 15, 1",
+            "biome": "Sea",
+            "row": 15,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 2": {
+            "tileId": "Tile 15, 2",
+            "biome": "Sea",
+            "row": 15,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 3": {
+            "tileId": "Tile 15, 3",
+            "biome": "Sea",
+            "row": 15,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 4": {
+            "tileId": "Tile 15, 4",
+            "biome": "Sea",
+            "row": 15,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 5": {
+            "tileId": "Tile 15, 5",
+            "biome": "Sea",
+            "row": 15,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 6": {
+            "tileId": "Tile 15, 6",
+            "biome": "Sea",
+            "row": 15,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 7": {
+            "tileId": "Tile 15, 7",
+            "biome": "Sea",
+            "row": 15,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 8": {
+            "tileId": "Tile 15, 8",
+            "biome": "Sea",
+            "row": 15,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 9": {
+            "tileId": "Tile 15, 9",
+            "biome": "Sea",
+            "row": 15,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 10": {
+            "tileId": "Tile 15, 10",
+            "biome": "Sea",
+            "row": 15,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 11": {
+            "tileId": "Tile 15, 11",
+            "biome": "Sea",
+            "row": 15,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 12": {
+            "tileId": "Tile 15, 12",
+            "biome": "Sea",
+            "row": 15,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 13": {
+            "tileId": "Tile 15, 13",
+            "biome": "Sea",
+            "row": 15,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 14": {
+            "tileId": "Tile 15, 14",
+            "biome": "Sea",
+            "row": 15,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 15": {
+            "tileId": "Tile 15, 15",
+            "biome": "Sea",
+            "row": 15,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 16": {
+            "tileId": "Tile 15, 16",
+            "biome": "Sea",
+            "row": 15,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 17": {
+            "tileId": "Tile 15, 17",
+            "biome": "Sea",
+            "row": 15,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 18": {
+            "tileId": "Tile 15, 18",
+            "biome": "Sea",
+            "row": 15,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 15, 19": {
+            "tileId": "Tile 15, 19",
+            "biome": "Sea",
+            "row": 15,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 0": {
+            "tileId": "Tile 16, 0",
+            "biome": "Sea",
+            "row": 16,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 1": {
+            "tileId": "Tile 16, 1",
+            "biome": "Sea",
+            "row": 16,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 2": {
+            "tileId": "Tile 16, 2",
+            "biome": "Sea",
+            "row": 16,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 3": {
+            "tileId": "Tile 16, 3",
+            "biome": "Sea",
+            "row": 16,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 4": {
+            "tileId": "Tile 16, 4",
+            "biome": "Sea",
+            "row": 16,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 5": {
+            "tileId": "Tile 16, 5",
+            "biome": "Sea",
+            "row": 16,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 6": {
+            "tileId": "Tile 16, 6",
+            "biome": "Sea",
+            "row": 16,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 7": {
+            "tileId": "Tile 16, 7",
+            "biome": "Sea",
+            "row": 16,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 8": {
+            "tileId": "Tile 16, 8",
+            "biome": "Sea",
+            "row": 16,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 9": {
+            "tileId": "Tile 16, 9",
+            "biome": "Sea",
+            "row": 16,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 10": {
+            "tileId": "Tile 16, 10",
+            "biome": "Sea",
+            "row": 16,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 11": {
+            "tileId": "Tile 16, 11",
+            "biome": "Sea",
+            "row": 16,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 12": {
+            "tileId": "Tile 16, 12",
+            "biome": "Sea",
+            "row": 16,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 13": {
+            "tileId": "Tile 16, 13",
+            "biome": "Sea",
+            "row": 16,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 14": {
+            "tileId": "Tile 16, 14",
+            "biome": "Sea",
+            "row": 16,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 15": {
+            "tileId": "Tile 16, 15",
+            "biome": "Sea",
+            "row": 16,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 16": {
+            "tileId": "Tile 16, 16",
+            "biome": "Sea",
+            "row": 16,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 17": {
+            "tileId": "Tile 16, 17",
+            "biome": "Sea",
+            "row": 16,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 18": {
+            "tileId": "Tile 16, 18",
+            "biome": "Sea",
+            "row": 16,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 16, 19": {
+            "tileId": "Tile 16, 19",
+            "biome": "Sea",
+            "row": 16,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 0": {
+            "tileId": "Tile 17, 0",
+            "biome": "Sea",
+            "row": 17,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 1": {
+            "tileId": "Tile 17, 1",
+            "biome": "Sea",
+            "row": 17,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 2": {
+            "tileId": "Tile 17, 2",
+            "biome": "Sea",
+            "row": 17,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 3": {
+            "tileId": "Tile 17, 3",
+            "biome": "Sea",
+            "row": 17,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 4": {
+            "tileId": "Tile 17, 4",
+            "biome": "Sea",
+            "row": 17,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 5": {
+            "tileId": "Tile 17, 5",
+            "biome": "Sea",
+            "row": 17,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 6": {
+            "tileId": "Tile 17, 6",
+            "biome": "Sea",
+            "row": 17,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 7": {
+            "tileId": "Tile 17, 7",
+            "biome": "Sea",
+            "row": 17,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 8": {
+            "tileId": "Tile 17, 8",
+            "biome": "Sea",
+            "row": 17,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 9": {
+            "tileId": "Tile 17, 9",
+            "biome": "Sea",
+            "row": 17,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 10": {
+            "tileId": "Tile 17, 10",
+            "biome": "Sea",
+            "row": 17,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 11": {
+            "tileId": "Tile 17, 11",
+            "biome": "Sea",
+            "row": 17,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 12": {
+            "tileId": "Tile 17, 12",
+            "biome": "Sea",
+            "row": 17,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 13": {
+            "tileId": "Tile 17, 13",
+            "biome": "Sea",
+            "row": 17,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 14": {
+            "tileId": "Tile 17, 14",
+            "biome": "Sea",
+            "row": 17,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 15": {
+            "tileId": "Tile 17, 15",
+            "biome": "Sea",
+            "row": 17,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 16": {
+            "tileId": "Tile 17, 16",
+            "biome": "Sea",
+            "row": 17,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 17": {
+            "tileId": "Tile 17, 17",
+            "biome": "Sea",
+            "row": 17,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 18": {
+            "tileId": "Tile 17, 18",
+            "biome": "Sea",
+            "row": 17,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 17, 19": {
+            "tileId": "Tile 17, 19",
+            "biome": "Sea",
+            "row": 17,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 0": {
+            "tileId": "Tile 18, 0",
+            "biome": "Sea",
+            "row": 18,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 1": {
+            "tileId": "Tile 18, 1",
+            "biome": "Sea",
+            "row": 18,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 2": {
+            "tileId": "Tile 18, 2",
+            "biome": "Sea",
+            "row": 18,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 3": {
+            "tileId": "Tile 18, 3",
+            "biome": "Sea",
+            "row": 18,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 4": {
+            "tileId": "Tile 18, 4",
+            "biome": "Sea",
+            "row": 18,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 5": {
+            "tileId": "Tile 18, 5",
+            "biome": "Sea",
+            "row": 18,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 6": {
+            "tileId": "Tile 18, 6",
+            "biome": "Sea",
+            "row": 18,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 7": {
+            "tileId": "Tile 18, 7",
+            "biome": "Sea",
+            "row": 18,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 8": {
+            "tileId": "Tile 18, 8",
+            "biome": "Sea",
+            "row": 18,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 9": {
+            "tileId": "Tile 18, 9",
+            "biome": "Sea",
+            "row": 18,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 10": {
+            "tileId": "Tile 18, 10",
+            "biome": "Sea",
+            "row": 18,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 11": {
+            "tileId": "Tile 18, 11",
+            "biome": "Sea",
+            "row": 18,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 12": {
+            "tileId": "Tile 18, 12",
+            "biome": "Sea",
+            "row": 18,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 13": {
+            "tileId": "Tile 18, 13",
+            "biome": "Sea",
+            "row": 18,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 14": {
+            "tileId": "Tile 18, 14",
+            "biome": "Sea",
+            "row": 18,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 15": {
+            "tileId": "Tile 18, 15",
+            "biome": "Sea",
+            "row": 18,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 16": {
+            "tileId": "Tile 18, 16",
+            "biome": "Sea",
+            "row": 18,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 17": {
+            "tileId": "Tile 18, 17",
+            "biome": "Sea",
+            "row": 18,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 18": {
+            "tileId": "Tile 18, 18",
+            "biome": "Sea",
+            "row": 18,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 18, 19": {
+            "tileId": "Tile 18, 19",
+            "biome": "Sea",
+            "row": 18,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 0": {
+            "tileId": "Tile 19, 0",
+            "biome": "Sea",
+            "row": 19,
+            "col": 0,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 1": {
+            "tileId": "Tile 19, 1",
+            "biome": "Sea",
+            "row": 19,
+            "col": 1,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 2": {
+            "tileId": "Tile 19, 2",
+            "biome": "Sea",
+            "row": 19,
+            "col": 2,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 3": {
+            "tileId": "Tile 19, 3",
+            "biome": "Sea",
+            "row": 19,
+            "col": 3,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 4": {
+            "tileId": "Tile 19, 4",
+            "biome": "Sea",
+            "row": 19,
+            "col": 4,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 5": {
+            "tileId": "Tile 19, 5",
+            "biome": "Sea",
+            "row": 19,
+            "col": 5,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 6": {
+            "tileId": "Tile 19, 6",
+            "biome": "Sea",
+            "row": 19,
+            "col": 6,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 7": {
+            "tileId": "Tile 19, 7",
+            "biome": "Sea",
+            "row": 19,
+            "col": 7,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 8": {
+            "tileId": "Tile 19, 8",
+            "biome": "Sea",
+            "row": 19,
+            "col": 8,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 9": {
+            "tileId": "Tile 19, 9",
+            "biome": "Sea",
+            "row": 19,
+            "col": 9,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 10": {
+            "tileId": "Tile 19, 10",
+            "biome": "Sea",
+            "row": 19,
+            "col": 10,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 11": {
+            "tileId": "Tile 19, 11",
+            "biome": "Sea",
+            "row": 19,
+            "col": 11,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 12": {
+            "tileId": "Tile 19, 12",
+            "biome": "Sea",
+            "row": 19,
+            "col": 12,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 13": {
+            "tileId": "Tile 19, 13",
+            "biome": "Sea",
+            "row": 19,
+            "col": 13,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 14": {
+            "tileId": "Tile 19, 14",
+            "biome": "Sea",
+            "row": 19,
+            "col": 14,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 15": {
+            "tileId": "Tile 19, 15",
+            "biome": "Sea",
+            "row": 19,
+            "col": 15,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 16": {
+            "tileId": "Tile 19, 16",
+            "biome": "Sea",
+            "row": 19,
+            "col": 16,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 17": {
+            "tileId": "Tile 19, 17",
+            "biome": "Sea",
+            "row": 19,
+            "col": 17,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 18": {
+            "tileId": "Tile 19, 18",
+            "biome": "Sea",
+            "row": 19,
+            "col": 18,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      },
+      "Tile 19, 19": {
+            "tileId": "Tile 19, 19",
+            "biome": "Sea",
+            "row": 19,
+            "col": 19,
+            "history": [
+                  {
+                        "period": 0,
+                        "densTot": 0,
+                        "tribes": {}
+                  }
+            ]
+      }
+}
