@@ -22,9 +22,9 @@ _STRES_WAR       = 0.8   # Koeficient stresu zo smrti vojakov
 _STRES_WAR_END   = 0.7   # Koeficient ako velmi zvacsuje stres sancu zrusit vojnu
 
 _DISP_MAX        = 10.0 # Maximum possible Disposition
-_DISP_TREND_MAX  = 0.1  # Maximalna a minimalana hodnota trendu
-_DISP_DIPL       = 1.7  # Koeficient zvysovania dispozicie pomocou diplomacie
-_DISP_STRESS     = 0.6  # Koeficient zvysovania dispozicie pomocou diplomacie
+_DISP_TREND_MAX  = 0.2  # Maximalna a minimalana hodnota trendu
+_DISP_DIPL       = 1.4  # Koeficient zvysovania dispozicie pomocou diplomacie
+_DISP_STRESS     = 0.6  # Koeficient znizovania dispozicie kvoli stresu
 
 _KNOW_GROWTH     = 1.05  # Koeficient zvysenia knowledge ak jej tribe venuje pozornostS
 _KNOW_GROWTH_SCI = 0.05  # How much does science help speed up research
@@ -453,6 +453,8 @@ class TTile:
         #----------------------------------------------------------------------
         dispositionPairs = []
         usedIDs = []
+        
+        tribeWarEffs = {}
 
         for tribeId, tribeObj in lastPeriod['tribes'].items():
             if tribeObj['density'] > 0:
@@ -464,16 +466,81 @@ class TTile:
         if dispositionPairs != []:
             for pair in dispositionPairs:
                 if pair[1] in lastPeriod['tribes'][pair[0]]['disp'] and lastPeriod['tribes'][pair[0]]['wars'][pair[1]] == True:
+
                     armySize = [lastPeriod['tribes'][pair[0]]['density'] * lastPeriod['tribes'][pair[0]]['preference']['war'], lastPeriod['tribes'][pair[1]]['density'] * lastPeriod['tribes'][pair[1]]['preference']['war']]
                     armyPower = [armySize[0] * (lastPeriod['tribes'][pair[0]]['knowledge']['war'] + 1), armySize[1] * (lastPeriod['tribes'][pair[1]]['knowledge']['war'] + 1)]
+
                     #print(armySize, armyPower)
                     if armyPower[0] > armyPower [1]:
-                        lastPeriod['tribes'][pair[0]]['resrs']['war'] += (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF
-                        lastPeriod['tribes'][pair[1]]['resrs']['war'] -= (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF
+                        ResrsGained = (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF
+                        lastPeriod['tribes'][pair[0]]['resrs']['war'] += ResrsGained
+                        lastPeriod['tribes'][pair[1]]['resrs']['war'] -= ResrsGained
+                        tribeWarEffs[pair[0]][0] += ResrsGained / (armySize[0] - armySize[1])
+                        tribeWarEffs[pair[1]][0] += 1 / (ResrsGained / (armySize[0] - armySize[1]))
+
                     elif armyPower[1] > armyPower [0]:
-                        lastPeriod['tribes'][pair[1]]['resrs']['war'] += (armyPower[1] - armyPower[0]) * _WAR_RSRS_EFF
-                        lastPeriod['tribes'][pair[0]]['resrs']['war'] -= (armyPower[1] - armyPower[0]) * _WAR_RSRS_EFF
+                        ResrsGained = (armyPower[1] - armyPower[0]) * _WAR_RSRS_EFF
+                        lastPeriod['tribes'][pair[1]]['resrs']['war'] += ResrsGained
+                        lastPeriod['tribes'][pair[0]]['resrs']['war'] -= ResrsGained
+                        tribeWarEffs[pair[1]][0] += ResrsGained / (armySize[1] - armySize[0])
+                        tribeWarEffs[pair[0]][0] += 1 / (ResrsGained / (armySize[1] - armySize[0]))
+
+                    tribeWarEffs[pair[0]][1] += 1
+                    tribeWarEffs[pair[1]][1] += 1
+                        
+        for tribeId, tribeEff in tribeWarEffs.items():
+            lastPeriod['tribes'][tribeId]['effs']['war'] = tribeEff[0] / tribeEff[1]
                     
+        #----------------------------------------------------------------------
+        self.journal.O()
+
+    #--------------------------------------------------------------------------
+    def getTradeResource(self, lastPeriod):
+        "Evaluates resources per Tribe based on war state"
+        #----------------------------------------------------------------------
+        # Vyhodnotim zmeny pre vsetky Tribes na Tile ktore maju nenulovu densitu
+        # disposition_between_two_populations_on_a_tile  = time * (diplomacy_pick_one_at_random + random_trend - stress)
+        #----------------------------------------------------------------------
+        dispositionPairs = []
+        usedIDs = []
+        
+        tribeWarEffs = {}
+
+        for tribeId, tribeObj in lastPeriod['tribes'].items():
+            if tribeObj['density'] > 0:
+                usedIDs.append(tribeId)
+                for recTribeId, recTribeObj in lastPeriod['tribes'].items():
+                    if recTribeId not in usedIDs and recTribeObj['density'] > 0:
+                        pairTuple = (tribeId, recTribeId)
+                        dispositionPairs.append(pairTuple)
+        if dispositionPairs != []:
+            for pair in dispositionPairs:
+                if pair[1] in lastPeriod['tribes'][pair[0]]['disp'] and lastPeriod['tribes'][pair[0]]['wars'][pair[1]] == True:
+
+                    armySize = [lastPeriod['tribes'][pair[0]]['density'] * lastPeriod['tribes'][pair[0]]['preference']['war'], lastPeriod['tribes'][pair[1]]['density'] * lastPeriod['tribes'][pair[1]]['preference']['war']]
+                    armyPower = [armySize[0] * (lastPeriod['tribes'][pair[0]]['knowledge']['war'] + 1), armySize[1] * (lastPeriod['tribes'][pair[1]]['knowledge']['war'] + 1)]
+
+                    #print(armySize, armyPower)
+                    if armyPower[0] > armyPower [1]:
+                        ResrsGained = (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF
+                        lastPeriod['tribes'][pair[0]]['resrs']['war'] += ResrsGained
+                        lastPeriod['tribes'][pair[1]]['resrs']['war'] -= ResrsGained
+                        tribeWarEffs[pair[0]][0] += ResrsGained / (armySize[0] - armySize[1])
+                        tribeWarEffs[pair[1]][0] += 1 / (ResrsGained / (armySize[0] - armySize[1]))
+
+                    elif armyPower[1] > armyPower [0]:
+                        ResrsGained = (armyPower[1] - armyPower[0]) * _WAR_RSRS_EFF
+                        lastPeriod['tribes'][pair[1]]['resrs']['war'] += ResrsGained
+                        lastPeriod['tribes'][pair[0]]['resrs']['war'] -= ResrsGained
+                        tribeWarEffs[pair[1]][0] += ResrsGained / (armySize[1] - armySize[0])
+                        tribeWarEffs[pair[0]][0] += 1 / (ResrsGained / (armySize[1] - armySize[0]))
+
+                    tribeWarEffs[pair[0]][1] += 1
+                    tribeWarEffs[pair[1]][1] += 1
+                        
+        for tribeId, tribeEff in tribeWarEffs.items():
+            lastPeriod['tribes'][tribeId]['effs']['war'] = tribeEff[0] / tribeEff[1]
+
         #----------------------------------------------------------------------
         self.journal.O()
     
