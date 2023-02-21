@@ -513,6 +513,8 @@ class TTile:
         dispositionPairs = []
         usedIDs = []
 
+        tribeWarEffs = {}
+        
         for tribeId, tribeObj in lastPeriod['tribes'].items():
             if tribeObj['density'] > 0:
                 usedIDs.append(tribeId)
