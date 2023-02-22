@@ -768,11 +768,15 @@ class TTile:
         elif lastWar == True:
             if disp > 0:
                 chance = lib.power(disp)
+                chance -= (lastPeriod['tribes'][pair[0]]['preference']['rlg'] + lastPeriod['tribes'][pair[1]]['preference']['rlg']) * _RLG_WAR
+                chance += (lastPeriod['tribes'][pair[0]]['preference']['trd'] + lastPeriod['tribes'][pair[1]]['preference']['trd']) * _TRD_WAR
                 randomVal = random.uniform(0, 1)
                 if chance > randomVal:
                     lastWar = False
             elif stres > 0.5:
                 chance = lib.power((stres - 0.5) * 33.333333 * _STRES_WAR_END)
+                chance -= (lastPeriod['tribes'][pair[0]]['preference']['rlg'] + lastPeriod['tribes'][pair[1]]['preference']['rlg']) * _RLG_WAR
+                chance += (lastPeriod['tribes'][pair[0]]['preference']['trd'] + lastPeriod['tribes'][pair[1]]['preference']['trd']) * _TRD_WAR
                 randomVal = random.uniform(0, 1)
                 if chance > randomVal:
                     lastWar = False
