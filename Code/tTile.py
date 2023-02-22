@@ -21,6 +21,8 @@ _STRES_EMIG      = 0.2   # Koeficient emigracie kvoli stresu
 
 _STRES_WAR       = 0.8   # Koeficient stresu zo smrti vojakov
 _STRES_WAR_END   = 0.7   # Koeficient ako velmi zvacsuje stres sancu zrusit vojnu
+_TRD_WAR         = 0.5   # Koeficient ako afektuje vojnu preferencia na obchod
+_RLG_WAR         = 0.5   # Koeficient ako afektuje vojnu preferencia na nabozenstvo
 
 _DISP_MAX        = 10.0 # Maximum possible Disposition
 _DISP_TREND_MAX  = 0.2  # Maximalna a minimalana hodnota trendu
@@ -729,7 +731,7 @@ class TTile:
                 simPeriod['tribes'][pair[0]]['disp'][pair[1]] = lastDisp
                 simPeriod['tribes'][pair[1]]['disp'][pair[0]] = lastDisp
 
-                lastWar = self.evaluateWarEvent(lastPeriod, simPeriod, lastDisp['disp'], lastWar, (lastPeriod['tribes'][pair[0]]['denses']['stres'] + lastPeriod['tribes'][pair[1]]['denses']['stres']) / 2)
+                lastWar = self.evaluateWarEvent(lastPeriod, simPeriod, lastDisp['disp'], lastWar, (lastPeriod['tribes'][pair[0]]['denses']['stres'] + lastPeriod['tribes'][pair[1]]['denses']['stres']) / 2, pair)
                 lastTrade = self.evaluateTradeEvent(lastPeriod, simPeriod, lastDisp['disp'], lastTrade)
 
                 simPeriod['tribes'][pair[0]]['wars'][pair[1]] = lastWar
@@ -753,10 +755,12 @@ class TTile:
         self.journal.O()
     
     #--------------------------------------------------------------------------
-    def evaluateWarEvent(self, lastPeriod, simPeriod, disp, lastWar, stres):
+    def evaluateWarEvent(self, lastPeriod, simPeriod, disp, lastWar, stres, pair):
         if lastWar == False:
             if disp < 0:
                 chance = lib.power(disp * -1)
+                chance += (lastPeriod['tribes'][pair[0]]['preference']['rlg'] + lastPeriod['tribes'][pair[1]]['preference']['rlg']) * _RLG_WAR
+                chance -= (lastPeriod['tribes'][pair[0]]['preference']['trd'] + lastPeriod['tribes'][pair[1]]['preference']['trd']) * _TRD_WAR
                 randomVal = random.uniform(0, 1)
                 if chance > randomVal:
                     lastWar = True
