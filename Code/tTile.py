@@ -514,7 +514,7 @@ class TTile:
         usedIDs = []
 
         tribeWarEffs = {}
-        
+
         for tribeId, tribeObj in lastPeriod['tribes'].items():
             if tribeObj['density'] > 0:
                 usedIDs.append(tribeId)
@@ -877,25 +877,8 @@ class TTile:
                 if unus['frg'] > _PREF_UNUS_LIMIT: prefs['frg'] -= _PREF_BY_UNUS
                 if unus['pstr']> _PREF_UNUS_LIMIT: prefs['pstr']-= _PREF_BY_UNUS
                 if unus['agr'] > _PREF_UNUS_LIMIT: prefs['agr'] -= _PREF_BY_UNUS
-                if unus['ind'] > _PREF_UNUS_LIMIT: prefs['ind'] -= _PREF_BY_UNUS
-                if unus['rlg'] > _PREF_UNUS_LIMIT: prefs['rlg'] -= _PREF_BY_UNUS  
-                if unus['war'] > _PREF_UNUS_LIMIT: prefs['war'] -= _PREF_BY_UNUS
-                if unus['trd'] > _PREF_UNUS_LIMIT: prefs['trd'] -= _PREF_BY_UNUS         
-                #--------------------------------------------------------------
-                # Zvysenie preferencii pre resource type s maximalnou efektivitou
-                #--------------------------------------------------------------
-                
-                effs = tribeObj['effs']
+                if unus['ind'] > _PREF_UNUS_LIMIT: prefs['ind'] -= _PREF_BY_UNUS     
 
-                # Zotriedim efektivitu zostupne
-                effs = lib.dSort(effs, reverse=True)
-                
-                # Zvysim preferencie maximalnej efektivity
-                rank = 1
-                for srcType, eff in effs.items():
-                    if rank == 1: prefs[srcType] += _PREF_BY_EFF
-                    rank += 1
-                
                 #--------------------------------------------------------------
                 # Zvysovanie produkcie jedla a znizovanie  kôli nedostatku
                 #--------------------------------------------------------------
@@ -913,6 +896,22 @@ class TTile:
                 # Zvysovanie vedy kvoli vyzkumu
                 #--------------------------------------------------------------
                 prefs['sci'] *= (knowBaseGain/(1 + prefs['rlg'])) + 1
+                tribeObj['effs']['sci'] = knowGain/knowBaseGain
+
+                #--------------------------------------------------------------
+                # Zvysenie preferencii pre resource type s maximalnou efektivitou
+                #--------------------------------------------------------------
+                
+                effs = tribeObj['effs']
+
+                # Zotriedim efektivitu zostupne
+                effs = lib.dSort(effs, reverse=True)
+                
+                # Zvysim preferencie maximalnej efektivity
+                rank = 1
+                for srcType, eff in effs.items():
+                    if rank == 1: prefs[srcType] += _PREF_BY_EFF
+                    rank += 1
 
                 #--------------------------------------------------------------
                 # Normujem preferencie tak aby ich sucet bol 1 a zapisem do simulovanej periody
