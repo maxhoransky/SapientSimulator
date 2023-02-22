@@ -478,7 +478,6 @@ class TTile:
                     armySize = [lastPeriod['tribes'][pair[0]]['density'] * lastPeriod['tribes'][pair[0]]['preference']['war'], lastPeriod['tribes'][pair[1]]['density'] * lastPeriod['tribes'][pair[1]]['preference']['war']]
                     armyPower = [armySize[0] * (lastPeriod['tribes'][pair[0]]['knowledge']['war'] + 1), armySize[1] * (lastPeriod['tribes'][pair[1]]['knowledge']['war'] + 1)]
 
-                    #print(armySize, armyPower)
                     if armyPower[0] > armyPower [1]:
                         ResrsGained = (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF
                         lastPeriod['tribes'][pair[0]]['resrs']['war'] += ResrsGained
@@ -522,6 +521,8 @@ class TTile:
         usedIDs = []
 
         tribeWarEffs = {}
+        for tribeId in lastPeriod['tribes'].keys():
+            tribeWarEffs[tribeId] = [0, 0]
 
         for tribeId, tribeObj in lastPeriod['tribes'].items():
             if tribeObj['density'] > 0:
@@ -535,7 +536,6 @@ class TTile:
                 if pair[1] in lastPeriod['tribes'][pair[0]]['disp'] and lastPeriod['tribes'][pair[0]]['wars'][pair[1]] == True:
                     armySize = [lastPeriod['tribes'][pair[0]]['density'] * lastPeriod['tribes'][pair[0]]['preference']['war'], lastPeriod['tribes'][pair[1]]['density'] * lastPeriod['tribes'][pair[1]]['preference']['war']]
                     armyPower = [armySize[0] * (lastPeriod['tribes'][pair[0]]['knowledge']['war'] + 1), armySize[1] * (lastPeriod['tribes'][pair[1]]['knowledge']['war'] + 1)]
-                    #print(armySize, armyPower)
                     if armyPower[0] > armyPower [1]:
                         # Vyhercovia vojny zoberu zdroje porazenim
                         ResrsGained = (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF
@@ -559,13 +559,9 @@ class TTile:
                     tribeWarEffs[pair[0]][1] += 1
                     tribeWarEffs[pair[1]][1] += 1
 
-            #print(tribeWarDeaths)
-
-
         for tribeId, tribeEff in tribeWarEffs.items():
-            lastPeriod['tribes'][tribeId]['effs']['war'] = tribeEff[0] / tribeEff[1]
-            
-        #----------------------------------------------------------------------
+            if tribeEff[1] > 0:
+                lastPeriod['tribes'][tribeId]['effs']['war'] = tribeEff[0] / tribeEff[1]
 
         #----------------------------------------------------------------------
         # Vyhodnotim zmeny populacie pre vsetky Tribes na Tile
@@ -679,7 +675,7 @@ class TTile:
                 simPeriodTribe = self.getPeriodTribe(period, tribeId, tribeObj)
                 simPeriodTribe['density'] += densSim
 
-            print(tribeObj['denses']['stres'])
+            #print(tribeObj['denses']['stres'])
 
         #------------------------------------------------------------------
         self.journal.O()
