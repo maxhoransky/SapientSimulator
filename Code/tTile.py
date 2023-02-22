@@ -24,6 +24,10 @@ _STRES_WAR_END   = 0.7   # Koeficient ako velmi zvacsuje stres sancu zrusit vojn
 _TRD_WAR         = 0.5   # Koeficient ako afektuje vojnu preferencia na obchod
 _RLG_WAR         = 0.5   # Koeficient ako afektuje vojnu preferencia na nabozenstvo
 
+_FOD_TRD         = 0.5   # Koeficient ako afektuje vojnu preferencia na nabozenstvo
+_IND_TRD         = 0.5   # Koeficient ako afektuje vojnu preferencia na industry
+_RLG_TRD         = 0.5   # Koeficient ako afektuje vojnu preferencia na nabozenstvo
+
 _DISP_MAX        = 10.0 # Maximum possible Disposition
 _DISP_TREND_MAX  = 0.2  # Maximalna a minimalana hodnota trendu
 _DISP_DIPL       = 1.4  # Koeficient zvysovania dispozicie pomocou diplomacie
@@ -732,7 +736,7 @@ class TTile:
                 simPeriod['tribes'][pair[1]]['disp'][pair[0]] = lastDisp
 
                 lastWar = self.evaluateWarEvent(lastPeriod, simPeriod, lastDisp['disp'], lastWar, (lastPeriod['tribes'][pair[0]]['denses']['stres'] + lastPeriod['tribes'][pair[1]]['denses']['stres']) / 2, pair)
-                lastTrade = self.evaluateTradeEvent(lastPeriod, simPeriod, lastDisp['disp'], lastTrade)
+                lastTrade = self.evaluateTradeEvent(lastPeriod, simPeriod, lastDisp['disp'], lastTrade, pair)
 
                 simPeriod['tribes'][pair[0]]['wars'][pair[1]] = lastWar
                 simPeriod['tribes'][pair[1]]['wars'][pair[0]] = lastWar
@@ -784,10 +788,16 @@ class TTile:
         return lastWar
         
     #--------------------------------------------------------------------------
-    def evaluateTradeEvent(self, lastPeriod, simPeriod ,disp, lastTrade):
+    def evaluateTradeEvent(self, lastPeriod, simPeriod ,disp, lastTrade, pair):
         if lastTrade == False:
             if disp > 0:
                 chance = lib.power(disp)
+                chance -= (lastPeriod['tribes'][pair[0]]['preference']['rlg'] + lastPeriod['tribes'][pair[1]]['preference']['rlg']) * _RLG_TRD
+                chance += (lastPeriod['tribes'][pair[0]]['preference']['ind'] + lastPeriod['tribes'][pair[1]]['preference']['ind']) * _IND_TRD
+                food    = (lastPeriod['tribes'][pair[0]]['preference']['agr'] + lastPeriod['tribes'][pair[1]]['preference']['agr'])
+                food   += (lastPeriod['tribes'][pair[0]]['preference']['frg'] + lastPeriod['tribes'][pair[1]]['preference']['frg'])
+                food   += (lastPeriod['tribes'][pair[0]]['preference']['pstr'] + lastPeriod['tribes'][pair[1]]['preference']['pstr'])
+                chance += food/3 * _FOD_TRD
                 randomVal = random.uniform(0, 1)
                 if chance > randomVal:
                     lastTrade = True
@@ -795,6 +805,12 @@ class TTile:
         elif lastTrade == True:
             if disp < 0:
                 chance = lib.power(disp * -1)
+                chance -= (lastPeriod['tribes'][pair[0]]['preference']['rlg'] + lastPeriod['tribes'][pair[1]]['preference']['rlg']) * _RLG_TRD
+                chance += (lastPeriod['tribes'][pair[0]]['preference']['ind'] + lastPeriod['tribes'][pair[1]]['preference']['ind']) * _IND_TRD
+                food    = (lastPeriod['tribes'][pair[0]]['preference']['agr'] + lastPeriod['tribes'][pair[1]]['preference']['agr'])
+                food   += (lastPeriod['tribes'][pair[0]]['preference']['frg'] + lastPeriod['tribes'][pair[1]]['preference']['frg'])
+                food   += (lastPeriod['tribes'][pair[0]]['preference']['pstr'] + lastPeriod['tribes'][pair[1]]['preference']['pstr'])
+                chance += food/3 * _FOD_TRD
                 randomVal = random.uniform(0, 1)
                 if chance > randomVal:
                     lastTrade = False
