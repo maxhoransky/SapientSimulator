@@ -16,6 +16,7 @@ _DENS_GROWTH     = 0.2   # Koeficient prirodzeneho prirastku populacie
 
 _STRES_MIN       = 0.1   # Zakladna miera stresu populacie
 _STRES_MAX       = 0.8   # Maximalna miera stresu populacie
+_RLG_STRESS_AVERT= 0.2   # Koeficient znizovania stresu kvoli nabozenstvu
 _STRES_EMIG      = 0.2   # Koeficient emigracie kvoli stresu
 
 _STRES_WAR       = 0.8   # Koeficient stresu zo smrti vojakov
@@ -565,7 +566,7 @@ class TTile:
         for tribeId, tribeObj in lastPeriod['tribes'].items():
             
             # Vstupne hodnoty
-            resrTot = tribeObj['resrs']['frg'] + tribeObj['resrs']['agr'] + tribeObj['resrs']['pstr'] + tribeObj['resrs']['trd'] + tribeObj['resrs']['war']
+            resrTot = tribeObj['resrs']['frg'] + tribeObj['resrs']['agr'] + tribeObj['resrs']['pstr'] +  tribeObj['resrs']['ind'] + tribeObj['resrs']['trd'] + tribeObj['resrs']['war']
 
             # Zacinam simulaciu s povodnym obyvatelstvom z predchadzajucej periody
             densSim = tribeObj['density']
@@ -593,7 +594,7 @@ class TTile:
                 densHunger = densSim - resrTot
                 
                 # Miera stresu je pomer zomretej populacie voci povodnej populacii
-                strsTot = _STRES_MIN + ((densWar+densHunger) / densSim)
+                strsTot = (_STRES_MIN + ((densWar+densHunger) / densSim))  / ((1 + (tribeObj['prefs']['rlg'] * tribeObj['know']['rlg'])) * _RLG_STRESS_AVERT)
 
                 if strsTot > _STRES_MAX: strsTot = _STRES_MAX
                 
