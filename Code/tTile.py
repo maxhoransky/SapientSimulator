@@ -594,7 +594,7 @@ class TTile:
                 densHunger = densSim - resrTot
                 
                 # Miera stresu je pomer zomretej populacie voci povodnej populacii
-                strsTot = (_STRES_MIN + ((densWar+densHunger) / densSim))  / ((1 + (tribeObj['prefs']['rlg'] * tribeObj['know']['rlg'])) * _RLG_STRESS_AVERT)
+                strsTot = (_STRES_MIN + ((densWar+densHunger) / densSim))  / ((1 + (tribeObj['preference']['rlg'] * tribeObj['knowledge']['rlg'])) * _RLG_STRESS_AVERT)
 
                 if strsTot > _STRES_MAX: strsTot = _STRES_MAX
                 
