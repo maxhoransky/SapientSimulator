@@ -43,6 +43,7 @@ _PREF_UNUS_LIMIT =   5   # Ak je unused workforce vyssia ako tato hranica, zapri
 _PREF_BY_UNUS    = 0.1   # Zmena preferncie podla unused workforce pre biome
 _PREF_BY_EFF     = 0.1   # Zmena preferencie podla efektivity vyuzitia pracovnej sily (preferencie)
 _PREF_MIN        = 0.05  # Minimalna hodnota preferencie pre resType
+_STRES_RLG       = 0.7   # Koeficient zvysovania preferencie na religion podla stresu
 
 _WAR_RSRS_EFF    = 0.6   # Efektivita kolko zdrojov ziska vyherna armada
 _WAR_KILL_EFF    = 0.4   # Efektivita  o kolko sa znizi densita po vojne
@@ -915,7 +916,7 @@ class TTile:
                 #--------------------------------------------------------------
                 # Zvysovanie nabozenstva kvoli stresu
                 #--------------------------------------------------------------
-                prefs['rlg'] *= tribeObj['denses']['stres'] + 1
+                prefs['rlg'] *= (tribeObj['denses']['stres'] + 0.9) * _STRES_RLG
                 
                 #--------------------------------------------------------------
                 # Zvysovanie vedy kvoli vyzkumu
