@@ -749,10 +749,6 @@ class TTile:
                 lastPeriod['tribes'][pair[0]]['effs']['dpl'] *= (baseDisp/(1 + lastPeriod['tribes'][pair[0]]['preference']['war'])) + 1
                 lastPeriod['tribes'][pair[1]]['effs']['dpl'] *= (baseDisp/(1 + lastPeriod['tribes'][pair[1]]['preference']['war'])) + 1
 
-                #effs['sci'] = knowGain / (tribeObj['denses']['densSim'] * prefs['sci'])
-                #prefs['sci'] *= (knowBaseGain/(1 + prefs['rlg'])) + 1
-
-                
         #------------------------------------------------------------------     
         self.journal.O()
     
@@ -930,7 +926,7 @@ class TTile:
                 # Zotriedim efektivitu zostupne
                 effs = lib.dSort(effs, reverse=True)
                 
-                # Zvysim preferencie maximalnej efektivityprefs['dpl']
+                # Zvysim preferencie maximalnej efektivity
                 rank = 1
                 for srcType, eff in effs.items():
                     if rank == 1: prefs[srcType] += _PREF_BY_EFF
