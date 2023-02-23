@@ -1962,7 +1962,7 @@
                         "densTot": 0,
                         "tribes": {
                               "Hunters": {
-                                    "density": 5.0,
+                                    "density": 1.0,
                                     "color": {
                                           "red": 0,
                                           "green": 0,
@@ -1997,7 +1997,7 @@
                                     "trades": {}
                               },
                               "Fishermen": {
-                                    "density": 5.0,
+                                    "density": 1.0,
                                     "color": {
                                           "red": 0,
                                           "green": 1,
@@ -2032,7 +2032,7 @@
                                     "trades": {}
                               },
                               "Nomads": {
-                                    "density": 5.0,
+                                    "density": 1.0,
                                     "color": {
                                           "red": 1,
                                           "green": 0,

@@ -369,6 +369,7 @@ class TTile:
         # Vyriesim zber resurces vratane trades a war podla stavu v lastPeriod
         #----------------------------------------------------------------------
         self.getResource(lastPeriod)
+        self.getTradeResource(lastPeriod)
 
         #----------------------------------------------------------------------
         # Vyriesim ubytok/prirastok populacie na zaklade ziskanych resources a emigracie
@@ -473,30 +474,36 @@ class TTile:
                         dispositionPairs.append(pairTuple)
         if dispositionPairs != []:
             for pair in dispositionPairs:
-                if pair[1] in lastPeriod['tribes'][pair[0]]['disp'] and lastPeriod['tribes'][pair[0]]['wars'][pair[1]] == True:
+                if pair[1] in lastPeriod['tribes'][pair[0]]['disp'] and lastPeriod['tribes'][pair[0]]['trades'][pair[1]] == True:
+                    resrsTot = [0, 0]
+                    #resrTot[0] = lastPeriod['tribes'][pair[0]]['resrs']['frg'] + lastPeriod['tribes'][pair[0]]['resrs']['agr'] + lastPeriod['tribes'][pair[0]]['resrs']['pstr'] +  lastPeriod['tribes'][pair[0]]['resrs']['ind']
+                    #resrTot[1] = lastPeriod['tribes'][pair[1]]['resrs']['frg'] + lastPeriod['tribes'][pair[1]]['resrs']['agr'] + lastPeriod['tribes'][pair[1]]['resrs']['pstr'] +  lastPeriod['tribes'][pair[1]]['resrs']['ind']
+                    #resourcePool = (resrTot[0] * lastPeriod['tribes'][pair[0]]['preference']['trd']) + (resrTot[1] * lastPeriod['tribes'][pair[1]]['preference']['trd'])
+                    #resourcePool *= (2 + lastPeriod['tribes'][pair[0]]['knowledge']['trd'] + lastPeriod['tribes'][pair[1]]['knowledge']['trd']) / 2
+                    #print(resourcePool)
 
-                    armySize = [lastPeriod['tribes'][pair[0]]['density'] * lastPeriod['tribes'][pair[0]]['preference']['war'], lastPeriod['tribes'][pair[1]]['density'] * lastPeriod['tribes'][pair[1]]['preference']['war']]
-                    armyPower = [armySize[0] * (lastPeriod['tribes'][pair[0]]['knowledge']['war'] + 1), armySize[1] * (lastPeriod['tribes'][pair[1]]['knowledge']['war'] + 1)]
+                    #armySize = [lastPeriod['tribes'][pair[0]]['density'] * lastPeriod['tribes'][pair[0]]['preference']['war'], lastPeriod['tribes'][pair[1]]['density'] * lastPeriod['tribes'][pair[1]]['preference']['war']]
+                    #armyPower = [armySize[0] * (lastPeriod['tribes'][pair[0]]['knowledge']['war'] + 1), armySize[1] * (lastPeriod['tribes'][pair[1]]['knowledge']['war'] + 1)]
 
-                    if armyPower[0] > armyPower [1]:
-                        ResrsGained = (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF
-                        lastPeriod['tribes'][pair[0]]['resrs']['war'] += ResrsGained
-                        lastPeriod['tribes'][pair[1]]['resrs']['war'] -= ResrsGained
-                        tribeWarEffs[pair[0]][0] += ResrsGained / (armySize[0] - armySize[1])
-                        tribeWarEffs[pair[1]][0] += 1 / (ResrsGained / (armySize[0] - armySize[1]))
+                    #if armyPower[0] > armyPower [1]:
+                        #ResrsGained = (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF
+                        #lastPeriod['tribes'][pair[0]]['resrs']['war'] += ResrsGained
+                        #lastPeriod['tribes'][pair[1]]['resrs']['war'] -= ResrsGained
+                        #tribeWarEffs[pair[0]][0] += ResrsGained / (armySize[0] - armySize[1])
+                        #tribeWarEffs[pair[1]][0] += 1 / (ResrsGained / (armySize[0] - armySize[1]))
 
-                    elif armyPower[1] > armyPower [0]:
-                        ResrsGained = (armyPower[1] - armyPower[0]) * _WAR_RSRS_EFF
-                        lastPeriod['tribes'][pair[1]]['resrs']['war'] += ResrsGained
-                        lastPeriod['tribes'][pair[0]]['resrs']['war'] -= ResrsGained
-                        tribeWarEffs[pair[1]][0] += ResrsGained / (armySize[1] - armySize[0])
-                        tribeWarEffs[pair[0]][0] += 1 / (ResrsGained / (armySize[1] - armySize[0]))
+                    #elif armyPower[1] > armyPower [0]:
+                        #ResrsGained = (armyPower[1] - armyPower[0]) * _WAR_RSRS_EFF
+                        #lastPeriod['tribes'][pair[1]]['resrs']['war'] += ResrsGained
+                        #lastPeriod['tribes'][pair[0]]['resrs']['war'] -= ResrsGained
+                        #tribeWarEffs[pair[1]][0] += ResrsGained / (armySize[1] - armySize[0])
+                        #tribeWarEffs[pair[0]][0] += 1 / (ResrsGained / (armySize[1] - armySize[0]))
 
-                    tribeWarEffs[pair[0]][1] += 1
-                    tribeWarEffs[pair[1]][1] += 1
+                    #tribeWarEffs[pair[0]][1] += 1
+                    #tribeWarEffs[pair[1]][1] += 1
                         
-        for tribeId, tribeEff in tribeWarEffs.items():
-            lastPeriod['tribes'][tribeId]['effs']['war'] = tribeEff[0] / tribeEff[1]
+        #for tribeId, tribeEff in tribeWarEffs.items():
+            #lastPeriod['tribes'][tribeId]['effs']['war'] = tribeEff[0] / tribeEff[1]
 
         #----------------------------------------------------------------------
         self.journal.O()
