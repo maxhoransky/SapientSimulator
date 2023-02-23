@@ -48,6 +48,9 @@ _STRES_RLG       = 0.7   # Koeficient zvysovania preferencie na religion podla s
 _WAR_RSRS_EFF    = 0.6   # Efektivita kolko zdrojov ziska vyherna armada
 _WAR_KILL_EFF    = 0.4   # Efektivita  o kolko sa znizi densita po vojne
 
+_TRD_BONUS       = 0.1   # Resource pool sa vynasobi * (1+TrdBonus) po vynasobeni knowledgemi, ako extra bonus nezaleziaci na know
+_TRD_NORM        = 0.5   # Aka cast resource poolu je rozdelena podla knowledgu
+
 #==============================================================================
 # TTile
 #------------------------------------------------------------------------------
@@ -475,35 +478,26 @@ class TTile:
         if dispositionPairs != []:
             for pair in dispositionPairs:
                 if pair[1] in lastPeriod['tribes'][pair[0]]['disp'] and lastPeriod['tribes'][pair[0]]['trades'][pair[1]] == True:
-                    resrsTot = [0, 0]
-                    #resrTot[0] = lastPeriod['tribes'][pair[0]]['resrs']['frg'] + lastPeriod['tribes'][pair[0]]['resrs']['agr'] + lastPeriod['tribes'][pair[0]]['resrs']['pstr'] +  lastPeriod['tribes'][pair[0]]['resrs']['ind']
-                    #resrTot[1] = lastPeriod['tribes'][pair[1]]['resrs']['frg'] + lastPeriod['tribes'][pair[1]]['resrs']['agr'] + lastPeriod['tribes'][pair[1]]['resrs']['pstr'] +  lastPeriod['tribes'][pair[1]]['resrs']['ind']
-                    #resourcePool = (resrTot[0] * lastPeriod['tribes'][pair[0]]['preference']['trd']) + (resrTot[1] * lastPeriod['tribes'][pair[1]]['preference']['trd'])
-                    #resourcePool *= (2 + lastPeriod['tribes'][pair[0]]['knowledge']['trd'] + lastPeriod['tribes'][pair[1]]['knowledge']['trd']) / 2
-                    #print(resourcePool)
+                    resrTot = [0, 0]
+                    resrTot[0] = lastPeriod['tribes'][pair[0]]['resrs']['frg'] + lastPeriod['tribes'][pair[0]]['resrs']['agr'] + lastPeriod['tribes'][pair[0]]['resrs']['pstr'] +  lastPeriod['tribes'][pair[0]]['resrs']['ind']
+                    resrTot[1] = lastPeriod['tribes'][pair[1]]['resrs']['frg'] + lastPeriod['tribes'][pair[1]]['resrs']['agr'] + lastPeriod['tribes'][pair[1]]['resrs']['pstr'] +  lastPeriod['tribes'][pair[1]]['resrs']['ind']
+                    resourcePool = (resrTot[0] * lastPeriod['tribes'][pair[0]]['preference']['trd']) + (resrTot[1] * lastPeriod['tribes'][pair[1]]['preference']['trd'])
+                    resourcePool *= (2 + lastPeriod['tribes'][pair[0]]['knowledge']['trd'] + lastPeriod['tribes'][pair[1]]['knowledge']['trd']) / 2
+                    resourcePool *= _TRD_BONUS + 1
 
-                    #armySize = [lastPeriod['tribes'][pair[0]]['density'] * lastPeriod['tribes'][pair[0]]['preference']['war'], lastPeriod['tribes'][pair[1]]['density'] * lastPeriod['tribes'][pair[1]]['preference']['war']]
-                    #armyPower = [armySize[0] * (lastPeriod['tribes'][pair[0]]['knowledge']['war'] + 1), armySize[1] * (lastPeriod['tribes'][pair[1]]['knowledge']['war'] + 1)]
+                    tradingKnows = {pair[0] : lastPeriod['tribes'][pair[0]]['preference']['trd'], pair[1] : lastPeriod['tribes'][pair[1]]['preference']['trd']}
+                    knowGains = lib.normSumDic(tradingKnows, _TRD_NORM)
 
-                    #if armyPower[0] > armyPower [1]:
-                        #ResrsGained = (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF
-                        #lastPeriod['tribes'][pair[0]]['resrs']['war'] += ResrsGained
-                        #lastPeriod['tribes'][pair[1]]['resrs']['war'] -= ResrsGained
-                        #tribeWarEffs[pair[0]][0] += ResrsGained / (armySize[0] - armySize[1])
-                        #tribeWarEffs[pair[1]][0] += 1 / (ResrsGained / (armySize[0] - armySize[1]))
+                    resourcePoolDivision = {pair[0] : ((1 - _TRD_NORM)/2) + knowGains[pair[0]], pair[1] : ((1 - _TRD_NORM)/2) + knowGains[pair[1]]}
+                    #print(resourcePoolDivision)
 
-                    #elif armyPower[1] > armyPower [0]:
-                        #ResrsGained = (armyPower[1] - armyPower[0]) * _WAR_RSRS_EFF
-                        #lastPeriod['tribes'][pair[1]]['resrs']['war'] += ResrsGained
-                        #lastPeriod['tribes'][pair[0]]['resrs']['war'] -= ResrsGained
-                        #tribeWarEffs[pair[1]][0] += ResrsGained / (armySize[1] - armySize[0])
-                        #tribeWarEffs[pair[0]][0] += 1 / (ResrsGained / (armySize[1] - armySize[0]))
+                    lastPeriod['tribes'][pair[0]]['resrs']['trd'] = resourcePool * resourcePoolDivision[pair[0]]
+                    lastPeriod['tribes'][pair[1]]['resrs']['trd'] = resourcePool * resourcePoolDivision[pair[1]]
 
-                    #tribeWarEffs[pair[0]][1] += 1
-                    #tribeWarEffs[pair[1]][1] += 1
-                        
-        #for tribeId, tribeEff in tribeWarEffs.items():
-            #lastPeriod['tribes'][tribeId]['effs']['war'] = tribeEff[0] / tribeEff[1]
+                    lastPeriod['tribes'][pair[0]]['effs']['trd'] = resrTot[0] / lastPeriod['tribes'][pair[0]]['resrs']['trd']
+                    lastPeriod['tribes'][pair[1]]['effs']['trd'] = resrTot[1] / lastPeriod['tribes'][pair[1]]['resrs']['trd']
+
+                    #print(lastPeriod['tribes'][pair[0]]['resrs']['trd'], lastPeriod['tribes'][pair[1]]['resrs']['trd'])
 
         #----------------------------------------------------------------------
         self.journal.O()
@@ -752,8 +746,8 @@ class TTile:
                 lastPeriod['tribes'][pair[1]]['effs']['dpl'] = lastDisp['disp'] / (lastPeriod['tribes'][pair[1]]['denses']['densSim'] * lastPeriod['tribes'][pair[1]]['preference']['dpl'])
                 #print(lastPeriod['tribes'][pair[0]]['effs'])
 
-                lastPeriod['tribes'][pair[0]]['preference']['dpl'] *= (baseDisp/(1 + lastPeriod['tribes'][pair[0]]['preference']['war'])) + 1
-                lastPeriod['tribes'][pair[1]]['preference']['dpl'] *= (baseDisp/(1 + lastPeriod['tribes'][pair[1]]['preference']['war'])) + 1
+                lastPeriod['tribes'][pair[0]]['effs']['dpl'] *= (baseDisp/(1 + lastPeriod['tribes'][pair[0]]['preference']['war'])) + 1
+                lastPeriod['tribes'][pair[1]]['effs']['dpl'] *= (baseDisp/(1 + lastPeriod['tribes'][pair[1]]['preference']['war'])) + 1
 
                 #effs['sci'] = knowGain / (tribeObj['denses']['densSim'] * prefs['sci'])
                 #prefs['sci'] *= (knowBaseGain/(1 + prefs['rlg'])) + 1
@@ -936,7 +930,7 @@ class TTile:
                 # Zotriedim efektivitu zostupne
                 effs = lib.dSort(effs, reverse=True)
                 
-                # Zvysim preferencie maximalnej efektivity
+                # Zvysim preferencie maximalnej efektivityprefs['dpl']
                 rank = 1
                 for srcType, eff in effs.items():
                     if rank == 1: prefs[srcType] += _PREF_BY_EFF
@@ -948,7 +942,7 @@ class TTile:
                 for resType, pref in prefs.items():
                    if pref < _PREF_MIN: prefs[resType] = _PREF_MIN
                 
-                prefs = lib.normSumDic(prefs)
+                prefs = lib.normSumDic(prefs, 1)
                 
                 simPeriodTribe['preference']['frg'] = prefs['frg']
                 simPeriodTribe['preference']['agr'] = prefs['agr']
