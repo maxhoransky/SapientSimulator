@@ -48,6 +48,13 @@ _STRES_RLG       = 0.7   # Koeficient zvysovania preferencie na religion podla s
 _WAR_RSRS_EFF    = 0.6   # Efektivita kolko zdrojov ziska vyherna armada
 _WAR_KILL_EFF    = 0.4   # Efektivita  o kolko sa znizi densita po vojne
 
+_WAR_WIN_WAR     = 0.2   # O kolko sa zvysi preferncia na vojnu po vyhre s presilou
+_WAR_WIN_DIPL    = 0.1   # O kolko sa znizi preferncia na diplomaciu po vyhre s presilou
+_WAR_LOSS_WAR    = 0.1   # O kolko sa znizi preferncia na vojnu po prehre s presilou
+_WAR_LOSS_DIPL   = 0.2   # O kolko sa zvysi preferncia na diplomaciu po prehre s presilou
+_WAR_DEF_WAR     = 0.2   # O kolko sa zvysi preferncia na vojnu po prehre proti presile
+_WAR_DEF_DIPL    = 0.2   # O kolko sa zvysi preferncia na diplomaciu po prehre proti presile
+
 _TRD_BONUS       = 0.1   # Resource pool sa vynasobi * (1+TrdBonus) po vynasobeni knowledgemi, ako extra bonus nezaleziaci na know
 _TRD_NORM        = 0.5   # Aka cast resource poolu je rozdelena podla knowledgu
 
@@ -547,6 +554,17 @@ class TTile:
                         # Vyhercovia vojny zabiju porazenych
                         tribeWarDeaths[pair[1]] = (armyPower[1] - armyPower[0]) / (lastPeriod['tribes'][pair[1]]['knowledge']['war'] + 1) * _WAR_KILL_EFF * -1
 
+                        if armySize[0] > armySize[1]:
+                            lastPeriod['tribes'][pair[0]]['preference']['war'] *= 1 + _WAR_WIN_WAR
+                            lastPeriod['tribes'][pair[0]]['preference']['dpl'] *= 1 - _WAR_WIN_DIPL
+                            lastPeriod['tribes'][pair[1]]['preference']['war'] *= 1 + _WAR_DEF_WAR
+                            lastPeriod['tribes'][pair[1]]['preference']['dpl'] *= 1 + _WAR_DEF_DIPL
+                        
+                        else:
+                            lastPeriod['tribes'][pair[1]]['preference']['war'] *= 1 - _WAR_LOSS_WAR
+                            lastPeriod['tribes'][pair[1]]['preference']['dpl'] *= 1 + _WAR_LOSS_DIPL
+                            
+
                     elif armyPower[1] > armyPower [0]:
                         # Vyhercovia vojny zoberu zdroje porazenim
                         ResrsGained = (armyPower[1] - armyPower[0]) * _WAR_RSRS_EFF
@@ -556,6 +574,17 @@ class TTile:
                         tribeWarEffs[pair[0]][0] += 1 / (ResrsGained / (armySize[1] - armySize[0]))
                         # Vyhercovia vojny zabiju porazenych
                         tribeWarDeaths[pair[0]] = (armyPower[0] - armyPower[1]) / (lastPeriod['tribes'][pair[0]]['knowledge']['war'] + 1) * _WAR_KILL_EFF * -1
+
+                        if armySize[1] > armySize[0]:
+                            lastPeriod['tribes'][pair[1]]['preference']['war'] *= 1 + _WAR_WIN_WAR
+                            lastPeriod['tribes'][pair[1]]['preference']['dpl'] *= 1 - _WAR_WIN_DIPL
+                            lastPeriod['tribes'][pair[0]]['preference']['war'] *= 1 + _WAR_DEF_WAR
+                            lastPeriod['tribes'][pair[0]]['preference']['dpl'] *= 1 + _WAR_DEF_DIPL
+                        
+                        else:
+                            lastPeriod['tribes'][pair[0]]['preference']['war'] *= 1 - _WAR_LOSS_WAR
+                            lastPeriod['tribes'][pair[0]]['preference']['dpl'] *= 1 + _WAR_LOSS_DIPL
+
                     
                     tribeWarEffs[pair[0]][1] += 1
                     tribeWarEffs[pair[1]][1] += 1
@@ -918,6 +947,11 @@ class TTile:
                 tribeObj['effs']['sci'] = knowGain/knowBaseGain
 
                 #--------------------------------------------------------------
+                # Zvysovanie trade kvoli ziskom z tradu
+                #--------------------------------------------------------------
+
+
+                #--------------------------------------------------------------
                 # Zvysenie preferencii pre resource type s maximalnou efektivitou
                 #--------------------------------------------------------------
                 
@@ -949,7 +983,7 @@ class TTile:
                 simPeriodTribe['preference']['war'] = prefs['war']
                 simPeriodTribe['preference']['trd'] = prefs['trd']
                 simPeriodTribe['preference']['dpl'] = prefs['dpl']
-            
+                
             #------------------------------------------------------------------
             # Koniec podmienky na nenulovu densitu
             #------------------------------------------------------------------
