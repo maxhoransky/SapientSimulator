@@ -12,52 +12,55 @@ _SEP   = 50*''
 #==============================================================================
 # package's variables
 #------------------------------------------------------------------------------
-_DENS_GROWTH     = 0.2   # Koeficient prirodzeneho prirastku populacie
+_DENS_GROWTH      = 0.2   # Koeficient prirodzeneho prirastku populacie
 
-_STRES_MIN       = 0.1   # Zakladna miera stresu populacie
-_STRES_MAX       = 0.8   # Maximalna miera stresu populacie
-_RLG_STRESS_AVERT= 0.2   # Koeficient znizovania stresu kvoli nabozenstvu
-_STRES_EMIG      = 0.2   # Koeficient emigracie kvoli stresu
+_STRES_MIN        = 0.1   # Zakladna miera stresu populacie
+_STRES_MAX        = 0.8   # Maximalna miera stresu populacie
+_RLG_STRESS_AVERT = 0.2   # Koeficient znizovania stresu kvoli nabozenstvu
+_STRES_EMIG       = 0.2   # Koeficient emigracie kvoli stresu
 
-_STRES_WAR       = 0.8   # Koeficient stresu zo smrti vojakov
-_STRES_WAR_END   = 0.7   # Koeficient ako velmi zvacsuje stres sancu zrusit vojnu
-_TRD_WAR         = 0.5   # Koeficient ako afektuje vojnu preferencia na obchod
-_RLG_WAR         = 0.5   # Koeficient ako afektuje vojnu preferencia na nabozenstvo
+_STRES_WAR        = 0.8   # Koeficient stresu zo smrti vojakov
+_STRES_WAR_END    = 0.7   # Koeficient ako velmi zvacsuje stres sancu zrusit vojnu
+_TRD_WAR          = 0.5   # Koeficient ako afektuje vojnu preferencia na obchod
+_RLG_WAR          = 0.5   # Koeficient ako afektuje vojnu preferencia na nabozenstvo
 
-_FOD_TRD         = 0.5   # Koeficient ako afektuje vojnu preferencia na nabozenstvo
-_IND_TRD         = 0.5   # Koeficient ako afektuje vojnu preferencia na industry
-_RLG_TRD         = 0.5   # Koeficient ako afektuje vojnu preferencia na nabozenstvo
+_FOD_TRD          = 0.5   # Koeficient ako afektuje vojnu preferencia na nabozenstvo
+_IND_TRD          = 0.5   # Koeficient ako afektuje vojnu preferencia na industry
+_RLG_TRD          = 0.5   # Koeficient ako afektuje vojnu preferencia na nabozenstvo
 
-_DISP_MAX        = 10.0 # Maximum possible Disposition
-_DISP_TREND_MAX  = 0.2  # Maximalna a minimalana hodnota trendu
-_DISP_DIPL       = 1.4  # Koeficient zvysovania dispozicie pomocou diplomacie
-_DISP_STRESS     = 0.6  # Koeficient znizovania dispozicie kvoli stresu
+_DISP_MAX         = 10.0 # Maximum possible Disposition
+_DISP_TREND_MAX   = 0.2  # Maximalna a minimalana hodnota trendu
+_DISP_DIPL        = 1.4  # Koeficient zvysovania dispozicie pomocou diplomacie
+_DISP_STRESS      = 0.6  # Koeficient znizovania dispozicie kvoli stresu
 
-_KNOW_GROWTH     = 1.05  # Koeficient zvysenia knowledge ak jej tribe venuje pozornostS
-_KNOW_GROWTH_SCI = 0.05  # How much does science help speed up research
-_KNOW_LIMIT      = 0.3   # Hranica pozornosti, pri ktorej sa knowledge zvysuje
-_KNOW_DECAY      = 0.95  # Koeficient zabudania knowledge ak jej tribe nevenuje pozornost
-_KNOW_MIN        = 0.1   # Minimalna hodnota znalosti uplnych divochov
+_KNOW_GROWTH      = 1.05  # Koeficient zvysenia knowledge ak jej tribe venuje pozornostS
+_KNOW_GROWTH_SCI  = 0.05  # How much does science help speed up research
+_KNOW_LIMIT       = 0.3   # Hranica pozornosti, pri ktorej sa knowledge zvysuje
+_KNOW_DECAY       = 0.95  # Koeficient zabudania knowledge ak jej tribe nevenuje pozornost
+_KNOW_MIN         = 0.1   # Minimalna hodnota znalosti uplnych divochov
 
-_PREF_UNUS_LIMIT =   5   # Ak je unused workforce vyssia ako tato hranica, zapricini zmenu preferencii
-_PREF_BY_UNUS    = 0.1   # Zmena preferncie podla unused workforce pre biome
-_PREF_BY_EFF     = 0.1   # Zmena preferencie podla efektivity vyuzitia pracovnej sily (preferencie)
-_PREF_MIN        = 0.05  # Minimalna hodnota preferencie pre resType
-_STRES_RLG       = 0.7   # Koeficient zvysovania preferencie na religion podla stresu
+_PREF_UNUS_LIMIT  =   5   # Ak je unused workforce vyssia ako tato hranica, zapricini zmenu preferencii
+_PREF_BY_UNUS     = 0.1   # Zmena preferncie podla unused workforce pre biome
+_PREF_BY_EFF      = 0.1   # Zmena preferencie podla efektivity vyuzitia pracovnej sily (preferencie)
+_PREF_MIN         = 0.05  # Minimalna hodnota preferencie pre resType
+_STRES_RLG        = 0.7   # Koeficient zvysovania preferencie na religion podla stresu
 
-_WAR_RSRS_EFF    = 0.6   # Efektivita kolko zdrojov ziska vyherna armada
-_WAR_KILL_EFF    = 0.4   # Efektivita  o kolko sa znizi densita po vojne
+_WAR_RSRS_EFF     = 0.6   # Efektivita kolko zdrojov ziska vyherna armada
+_WAR_KILL_EFF     = 0.4   # Efektivita  o kolko sa znizi densita po vojne
 
-_WAR_WIN_WAR     = 0.2   # O kolko sa zvysi preferncia na vojnu po vyhre s presilou
-_WAR_WIN_DIPL    = 0.1   # O kolko sa znizi preferncia na diplomaciu po vyhre s presilou
-_WAR_LOSS_WAR    = 0.1   # O kolko sa znizi preferncia na vojnu po prehre s presilou
-_WAR_LOSS_DIPL   = 0.2   # O kolko sa zvysi preferncia na diplomaciu po prehre s presilou
-_WAR_DEF_WAR     = 0.2   # O kolko sa zvysi preferncia na vojnu po prehre proti presile
-_WAR_DEF_DIPL    = 0.2   # O kolko sa zvysi preferncia na diplomaciu po prehre proti presile
+_WAR_WIN_WAR      = 0.2   # O kolko sa zvysi preferncia na vojnu po vyhre s presilou
+_WAR_WIN_DIPL     = 0.1   # O kolko sa znizi preferncia na diplomaciu po vyhre s presilou
+_WAR_LOSS_WAR     = 0.1   # O kolko sa znizi preferncia na vojnu po prehre s presilou
+_WAR_LOSS_DIPL    = 0.2   # O kolko sa zvysi preferncia na diplomaciu po prehre s presilou
+_WAR_DEF_WAR      = 0.2   # O kolko sa zvysi preferncia na vojnu po prehre proti presile
+_WAR_DEF_DIPL     = 0.2   # O kolko sa zvysi preferncia na diplomaciu po prehre proti presile
+_WAR_KNOW_GAIN    = 0.1  # O kolko sa zvysi knowledge o vojne po kazdej vojne tribu
+_WAR_KNOW_ENEMY   = 0.5   # Koeficient zvysovania knowledgu o vojne podla knowledgu nepriatela
 
-_TRD_BONUS       = 0.1   # Resource pool sa vynasobi * (1+TrdBonus) po vynasobeni knowledgemi, ako extra bonus nezaleziaci na know
-_TRD_NORM        = 0.5   # Aka cast resource poolu je rozdelena podla knowledgu
-
+_TRD_BONUS        = 0.1   # Resource pool sa vynasobi * (1+TrdBonus) po vynasobeni knowledgemi, ako extra bonus nezaleziaci na know
+_TRD_NORM         = 0.5   # Aka cast resource poolu je rozdelena podla knowledgu
+_TRADE_KNOW_GAIN  = 0.1  # O kolko sa zvysi knowledge o trade po kazdom trade tribu
+_TRADE_KNOW_ENEMY = 0.3   # Koeficient zvysovania knowledgu o trade podla knowledgu nepriatela
 #==============================================================================
 # TTile
 #------------------------------------------------------------------------------
@@ -473,7 +476,11 @@ class TTile:
         dispositionPairs = []
         usedIDs = []
         
-        tribeWarEffs = {}
+        tribeTradeKnow = {}
+        tribeTradedKnow = {}
+        for tribeId in lastPeriod['tribes'].keys():
+            tribeTradeKnow[tribeId] = 0
+            tribeTradedKnow[tribeId] = {'frg':0, 'agr':0, 'pstr':0, 'ind':0, 'sci':0, 'rlg':0, 'war':0, 'dpl':0}
 
         for tribeId, tribeObj in lastPeriod['tribes'].items():
             if tribeObj['density'] > 0:
@@ -504,7 +511,15 @@ class TTile:
                     lastPeriod['tribes'][pair[0]]['effs']['trd'] = resrTot[0] / lastPeriod['tribes'][pair[0]]['resrs']['trd']
                     lastPeriod['tribes'][pair[1]]['effs']['trd'] = resrTot[1] / lastPeriod['tribes'][pair[1]]['resrs']['trd']
 
-                    #print(lastPeriod['tribes'][pair[0]]['resrs']['trd'], lastPeriod['tribes'][pair[1]]['resrs']['trd'])
+                    tribeTradeKnow[pair[0]] += _TRADE_KNOW_GAIN + (_TRADE_KNOW_ENEMY * lastPeriod['tribes'][pair[1]]['knowledge']['trd'])
+                    tribeTradeKnow[pair[1]] += _TRADE_KNOW_GAIN + (_TRADE_KNOW_ENEMY * lastPeriod['tribes'][pair[0]]['knowledge']['trd'])
+
+                    #for knowType in tribeTradedKnow[pair[0]]:
+
+
+        for tribeId, tribeKnow in tribeTradeKnow.items():
+            print(tribeTradeKnow[tribeId])
+            lastPeriod['tribes'][tribeId]['knowledge']['trd'] *= 1 + tribeTradeKnow[tribeId]
 
         #----------------------------------------------------------------------
         self.journal.O()
@@ -529,8 +544,10 @@ class TTile:
         usedIDs = []
 
         tribeWarEffs = {}
+        tribeWarKnow = {}
         for tribeId in lastPeriod['tribes'].keys():
             tribeWarEffs[tribeId] = [0, 0]
+            tribeWarKnow[tribeId] = 0
 
         for tribeId, tribeObj in lastPeriod['tribes'].items():
             if tribeObj['density'] > 0:
@@ -585,13 +602,18 @@ class TTile:
                             lastPeriod['tribes'][pair[0]]['preference']['war'] *= 1 - _WAR_LOSS_WAR
                             lastPeriod['tribes'][pair[0]]['preference']['dpl'] *= 1 + _WAR_LOSS_DIPL
 
-                    
                     tribeWarEffs[pair[0]][1] += 1
-                    tribeWarEffs[pair[1]][1] += 1
+                    tribeWarEffs[pair[1]][1] += 1 
+
+                    tribeWarKnow[pair[0]] += _WAR_KNOW_GAIN + (_WAR_KNOW_ENEMY * lastPeriod['tribes'][pair[1]]['knowledge']['war'])
+                    tribeWarKnow[pair[1]] += _WAR_KNOW_GAIN + (_WAR_KNOW_ENEMY * lastPeriod['tribes'][pair[0]]['knowledge']['war'])
 
         for tribeId, tribeEff in tribeWarEffs.items():
             if tribeEff[1] > 0:
                 lastPeriod['tribes'][tribeId]['effs']['war'] = tribeEff[0] / tribeEff[1]
+        
+        for tribeId, tribeKnow in tribeWarKnow.items():
+            lastPeriod['tribes'][tribeId]['knowledge']['war'] *= 1 + tribeWarKnow[tribeId]
 
         #----------------------------------------------------------------------
         # Vyhodnotim zmeny populacie pre vsetky Tribes na Tile
@@ -910,7 +932,7 @@ class TTile:
                 #--------------------------------------------------------------
                 # Preberanie knowledge od vyspelejsich tribe
                 #--------------------------------------------------------------
-                
+
                 #--------------------------------------------------------------
                 # Zmena preferencii tribe
                 #--------------------------------------------------------------
