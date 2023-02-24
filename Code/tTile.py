@@ -48,19 +48,20 @@ _STRES_RLG        = 0.7   # Koeficient zvysovania preferencie na religion podla 
 _WAR_RSRS_EFF     = 0.6   # Efektivita kolko zdrojov ziska vyherna armada
 _WAR_KILL_EFF     = 0.4   # Efektivita  o kolko sa znizi densita po vojne
 
-_WAR_WIN_WAR      = 0.2   # O kolko sa zvysi preferncia na vojnu po vyhre s presilou
-_WAR_WIN_DIPL     = 0.1   # O kolko sa znizi preferncia na diplomaciu po vyhre s presilou
-_WAR_LOSS_WAR     = 0.1   # O kolko sa znizi preferncia na vojnu po prehre s presilou
-_WAR_LOSS_DIPL    = 0.2   # O kolko sa zvysi preferncia na diplomaciu po prehre s presilou
-_WAR_DEF_WAR      = 0.2   # O kolko sa zvysi preferncia na vojnu po prehre proti presile
-_WAR_DEF_DIPL     = 0.2   # O kolko sa zvysi preferncia na diplomaciu po prehre proti presile
-_WAR_KNOW_GAIN    = 0.1  # O kolko sa zvysi knowledge o vojne po kazdej vojne tribu
+_WAR_WIN_WAR      = 0.05  # O kolko sa zvysi preferncia na vojnu po vyhre s presilou
+_WAR_WIN_DIPL     = 0.025 # O kolko sa znizi preferncia na diplomaciu po vyhre s presilou
+_WAR_LOSS_WAR     = 0.025 # O kolko sa znizi preferncia na vojnu po prehre s presilou
+_WAR_LOSS_DIPL    = 0.05  # O kolko sa zvysi preferncia na diplomaciu po prehre s presilou
+_WAR_DEF_WAR      = 0.05  # O kolko sa zvysi preferncia na vojnu po prehre proti presile
+_WAR_DEF_DIPL     = 0.05  # O kolko sa zvysi preferncia na diplomaciu po prehre proti presile
+_WAR_KNOW_GAIN    = 0.1   # O kolko sa zvysi knowledge o vojne po kazdej vojne tribu
 _WAR_KNOW_ENEMY   = 0.5   # Koeficient zvysovania knowledgu o vojne podla knowledgu nepriatela
 
 _TRD_BONUS        = 0.1   # Resource pool sa vynasobi * (1+TrdBonus) po vynasobeni knowledgemi, ako extra bonus nezaleziaci na know
 _TRD_NORM         = 0.5   # Aka cast resource poolu je rozdelena podla knowledgu
-_TRADE_KNOW_GAIN  = 0.1  # O kolko sa zvysi knowledge o trade po kazdom trade tribu
+_TRADE_KNOW_GAIN  = 0.1   # O kolko sa zvysi knowledge o trade po kazdom trade tribu
 _TRADE_KNOW_ENEMY = 0.3   # Koeficient zvysovania knowledgu o trade podla knowledgu nepriatela
+_TRADE_KNOW_TRADE = 0.3   # Koeficient kolko z rozdilu know ziska tribe ktoremu je tradenuty know
 #==============================================================================
 # TTile
 #------------------------------------------------------------------------------
@@ -478,6 +479,7 @@ class TTile:
         
         tribeTradeKnow = {}
         tribeTradedKnow = {}
+        tradeableKnowTypes = ['frg', 'agr', 'pstr', 'ind', 'sci', 'rlg', 'war', 'dpl']
         for tribeId in lastPeriod['tribes'].keys():
             tribeTradeKnow[tribeId] = 0
             tribeTradedKnow[tribeId] = {'frg':0, 'agr':0, 'pstr':0, 'ind':0, 'sci':0, 'rlg':0, 'war':0, 'dpl':0}
@@ -492,6 +494,7 @@ class TTile:
         if dispositionPairs != []:
             for pair in dispositionPairs:
                 if pair[1] in lastPeriod['tribes'][pair[0]]['disp'] and lastPeriod['tribes'][pair[0]]['trades'][pair[1]] == True:
+                    disp = lastPeriod['tribes'][pair[0]]['disp'][pair[1]]['disp']
                     resrTot = [0, 0]
                     resrTot[0] = lastPeriod['tribes'][pair[0]]['resrs']['frg'] + lastPeriod['tribes'][pair[0]]['resrs']['agr'] + lastPeriod['tribes'][pair[0]]['resrs']['pstr'] +  lastPeriod['tribes'][pair[0]]['resrs']['ind']
                     resrTot[1] = lastPeriod['tribes'][pair[1]]['resrs']['frg'] + lastPeriod['tribes'][pair[1]]['resrs']['agr'] + lastPeriod['tribes'][pair[1]]['resrs']['pstr'] +  lastPeriod['tribes'][pair[1]]['resrs']['ind']
@@ -514,11 +517,28 @@ class TTile:
                     tribeTradeKnow[pair[0]] += _TRADE_KNOW_GAIN + (_TRADE_KNOW_ENEMY * lastPeriod['tribes'][pair[1]]['knowledge']['trd'])
                     tribeTradeKnow[pair[1]] += _TRADE_KNOW_GAIN + (_TRADE_KNOW_ENEMY * lastPeriod['tribes'][pair[0]]['knowledge']['trd'])
 
-                    #for knowType in tribeTradedKnow[pair[0]]:
-
+                    if disp > 5:
+                        chance = lib.power((disp-5)*2)
+                        randomVal = random.uniform(0, 1)
+                        if chance > randomVal:
+                            tradeableTypes = [[],[]]
+                            for knowType in tradeableKnowTypes:
+                                if lastPeriod['tribes'][pair[0]]['knowledge'][knowType] < lastPeriod['tribes'][pair[1]]['knowledge'][knowType]:
+                                    tradeableTypes[0].append(knowType)
+                                elif lastPeriod['tribes'][pair[1]]['knowledge'][knowType] < lastPeriod['tribes'][pair[0]]['knowledge'][knowType]:
+                                    tradeableTypes[1].append(knowType)
+                            
+                            if len(tradeableTypes[0]) > 0:
+                                tradedType = random.choice(tradeableTypes[0])
+                                tradedAmount = (lastPeriod['tribes'][pair[1]]['knowledge'][tradedType] - lastPeriod['tribes'][pair[0]]['knowledge'][tradedType]) * _TRADE_KNOW_TRADE
+                                lastPeriod['tribes'][pair[0]]['knowledge'][tradedType] += tradedAmount
+                            
+                            if len(tradeableTypes[1]) > 0:
+                                tradedType = random.choice(tradeableTypes[1])
+                                tradedAmount = (lastPeriod['tribes'][pair[0]]['knowledge'][tradedType] - lastPeriod['tribes'][pair[1]]['knowledge'][tradedType]) * _TRADE_KNOW_TRADE
+                                lastPeriod['tribes'][pair[1]]['knowledge'][tradedType] += tradedAmount
 
         for tribeId, tribeKnow in tribeTradeKnow.items():
-            print(tribeTradeKnow[tribeId])
             lastPeriod['tribes'][tribeId]['knowledge']['trd'] *= 1 + tribeTradeKnow[tribeId]
 
         #----------------------------------------------------------------------
@@ -793,13 +813,9 @@ class TTile:
                 simPeriod['tribes'][pair[1]]['trades'][pair[0]] = lastTrade
                 
                 #print("-----------------------------------------------------------\n", lastPeriod['tribes'][pair[0]]['effs'])
-                lastPeriod['tribes'][pair[0]]['effs']['dpl'] = lastDisp['disp'] / (lastPeriod['tribes'][pair[0]]['denses']['densSim'] * lastPeriod['tribes'][pair[0]]['preference']['dpl'])
-                lastPeriod['tribes'][pair[1]]['effs']['dpl'] = lastDisp['disp'] / (lastPeriod['tribes'][pair[1]]['denses']['densSim'] * lastPeriod['tribes'][pair[1]]['preference']['dpl'])
+                lastPeriod['tribes'][pair[0]]['effs']['dpl'] = lastDisp['disp'] / lastPeriod['tribes'][pair[0]]['preference']['dpl']
+                lastPeriod['tribes'][pair[1]]['effs']['dpl'] = lastDisp['disp'] / lastPeriod['tribes'][pair[1]]['preference']['dpl']
                 #print(lastPeriod['tribes'][pair[0]]['effs'])
-
-                lastPeriod['tribes'][pair[0]]['effs']['dpl'] *= (baseDisp/(1 + lastPeriod['tribes'][pair[0]]['preference']['war'])) + 1
-                lastPeriod['tribes'][pair[1]]['effs']['dpl'] *= (baseDisp/(1 + lastPeriod['tribes'][pair[1]]['preference']['war'])) + 1
-
         #------------------------------------------------------------------     
         self.journal.O()
     
@@ -873,6 +889,8 @@ class TTile:
 
             if tribeObj['denses']['densSim'] > 0:
                 
+                print(tribeObj['effs'])
+
                 #--------------------------------------------------------------
                 # Zizkam cielovu periodu pre tribId kam budem zapisovat vysledky
                 #--------------------------------------------------------------
@@ -967,6 +985,7 @@ class TTile:
                 #--------------------------------------------------------------
                 prefs['sci'] *= (knowBaseGain/(1 + prefs['rlg'])) + 1
                 tribeObj['effs']['sci'] = knowGain/knowBaseGain
+                print(tribeObj['effs']['sci'])
 
                 #--------------------------------------------------------------
                 # Zvysovanie trade kvoli ziskom z tradu
