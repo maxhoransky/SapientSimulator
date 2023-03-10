@@ -813,8 +813,8 @@ class TTile:
                 simPeriod['tribes'][pair[1]]['trades'][pair[0]] = lastTrade
                 
                 #print("-----------------------------------------------------------\n", lastPeriod['tribes'][pair[0]]['effs'])
-                lastPeriod['tribes'][pair[0]]['effs']['dpl'] = lastDisp['disp'] / lastPeriod['tribes'][pair[0]]['preference']['dpl']
-                lastPeriod['tribes'][pair[1]]['effs']['dpl'] = lastDisp['disp'] / lastPeriod['tribes'][pair[1]]['preference']['dpl']
+                lastPeriod['tribes'][pair[0]]['effs']['dpl'] = (lastDisp['disp'] - baseDisp) / lastPeriod['tribes'][pair[0]]['preference']['dpl']
+                lastPeriod['tribes'][pair[1]]['effs']['dpl'] = (lastDisp['disp'] - baseDisp) / lastPeriod['tribes'][pair[1]]['preference']['dpl']
                 #print(lastPeriod['tribes'][pair[0]]['effs'])
         #------------------------------------------------------------------     
         self.journal.O()
@@ -985,7 +985,6 @@ class TTile:
                 #--------------------------------------------------------------
                 prefs['sci'] *= (knowBaseGain/(1 + prefs['rlg'])) + 1
                 tribeObj['effs']['sci'] = knowGain/knowBaseGain
-                print(tribeObj['effs']['sci'])
 
                 #--------------------------------------------------------------
                 # Zvysovanie trade kvoli ziskom z tradu
@@ -1099,7 +1098,7 @@ class TTile:
         
     #==========================================================================
     # Work with the knowledge
-    #--------------------------------------------------------------------------
+    #-------------------------------------------------------------------------- 
     def knowledgeChange(self, tribeObj, resType):
         "Evaluates changes in the knowledge and preference for respective tribe and resource type"
         
