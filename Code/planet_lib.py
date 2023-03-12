@@ -11,19 +11,19 @@ import math
 # typeSource - The amount of resources a biome cna produce - resorurces/km2
 #------------------------------------------------------------------------------
 biomes = { 
-    "Sea":              {'color':'#2b53ff', 'prmst':    0, 'frgWork':    0, 'frgSource':    0, 'agrWork':    0, 'agrSource':    4, 'pstrWork':    0, 'pstrSource':    0,'indWork':    0, 'indSource':    0},
-    "Rainforest":       {'color':'#005f11', 'prmst':    1, 'frgWork': 0.35, 'frgSource':    1, 'agrWork': 6.25, 'agrSource':    4, 'pstrWork': 0.01, 'pstrSource':    1,'indWork':   30, 'indSource':   60},
-    "Monsoon":          {'color':'#008511', 'prmst':    1, 'frgWork': 0.10, 'frgSource':    2, 'agrWork': 1.13, 'agrSource':    4, 'pstrWork': 0.01, 'pstrSource':    1,'indWork':  100, 'indSource':  450},
-    "Savannah":         {'color':'#8e852c', 'prmst':    1, 'frgWork': 0.95, 'frgSource':    2, 'agrWork':23.63, 'agrSource':    4, 'pstrWork':  2.2, 'pstrSource':    4,'indWork':  150, 'indSource':  450},
-    "Desert":           {'color':'#fefc01', 'prmst':    1, 'frgWork': 0.35, 'frgSource':    3, 'agrWork': 0.01, 'agrSource':    1, 'pstrWork': 0.45, 'pstrSource':    3,'indWork':  160, 'indSource':  500},
-    "Cold desert":      {'color':'#C3D3EC', 'prmst':    1, 'frgWork': 0.05, 'frgSource':    1, 'agrWork': 0.01, 'agrSource':    1, 'pstrWork':  1.6, 'pstrSource':    4,'indWork':   70, 'indSource':   90},
-    "Steppe":           {'color':'#c4a53b', 'prmst':    1, 'frgWork': 0.10, 'frgSource':    3, 'agrWork': 9.05, 'agrSource':    4, 'pstrWork':  1.9, 'pstrSource':    3,'indWork':  150, 'indSource':  450},
-    "Subtropical":      {'color':'#BA6120', 'prmst':    1, 'frgWork': 0.45, 'frgSource':    3, 'agrWork': 9.41, 'agrSource':    4, 'pstrWork':  2.2, 'pstrSource':    4,'indWork':    1, 'indSource':    1},
-    "Mediterranean":    {'color':'#D13A0F', 'prmst':    1, 'frgWork': 0.20, 'frgSource':    4, 'agrWork': 5.01, 'agrSource':    3, 'pstrWork': 1.35, 'pstrSource':    3,'indWork':  150, 'indSource':  450},
-    "Marine":           {'color':'#86f4a2', 'prmst':    1, 'frgWork': 0.80, 'frgSource':    4, 'agrWork':16.58, 'agrSource':    3, 'pstrWork':  0.8, 'pstrSource':    2,'indWork':  250, 'indSource': 3000},
-    "Humid":            {'color':'#25AB92', 'prmst':    1, 'frgWork': 0.25, 'frgSource':    3, 'agrWork':11.15, 'agrSource':    4, 'pstrWork':  0.8, 'pstrSource':    2,'indWork':  300, 'indSource': 4000},
-    "Taiga":            {'color':'#9AB3AD', 'prmst':    1, 'frgWork': 0.10, 'frgSource':    2, 'agrWork': 1.47, 'agrSource':    3, 'pstrWork':  0.2, 'pstrSource':    2,'indWork':  200, 'indSource': 1250},
-    "Tundra":           {'color':'#B1C4C0', 'prmst':    1, 'frgWork': 0.05, 'frgSource':    3, 'agrWork':  0.5, 'agrSource':    3, 'pstrWork':  0.2, 'pstrSource':    2,'indWork':  250, 'indSource': 2500},
+    "Sea":              {'color':'#2b53ff', 'prmst':    0, 'frgWork':    0, 'frgSource':    0, 'agrWork':    0, 'agrSource': 0, 'pstrWork':    0, 'pstrSource': 0},
+    "Rainforest":       {'color':'#005f11', 'prmst':    1, 'frgWork': 0.35, 'frgSource':    1, 'agrWork': 6.25, 'agrSource': 4, 'pstrWork': 0.01, 'pstrSource': 1},
+    "Monsoon":          {'color':'#008511', 'prmst':    1, 'frgWork': 0.10, 'frgSource':    2, 'agrWork': 1.13, 'agrSource': 4, 'pstrWork': 0.01, 'pstrSource': 1},
+    "Savannah":         {'color':'#8e852c', 'prmst':    1, 'frgWork': 0.95, 'frgSource':    2, 'agrWork':23.63, 'agrSource': 4, 'pstrWork':  2.2, 'pstrSource': 4},
+    "Desert":           {'color':'#fefc01', 'prmst':    1, 'frgWork': 0.35, 'frgSource':    3, 'agrWork': 0.01, 'agrSource': 1, 'pstrWork': 0.45, 'pstrSource': 3},
+    "Cold desert":      {'color':'#C3D3EC', 'prmst':    1, 'frgWork': 0.05, 'frgSource':    1, 'agrWork': 0.01, 'agrSource': 1, 'pstrWork':  1.6, 'pstrSource': 4},
+    "Steppe":           {'color':'#c4a53b', 'prmst':    1, 'frgWork': 0.10, 'frgSource':    3, 'agrWork': 9.05, 'agrSource': 4, 'pstrWork':  1.9, 'pstrSource': 3},
+    "Subtropical":      {'color':'#BA6120', 'prmst':    1, 'frgWork': 0.45, 'frgSource':    3, 'agrWork': 9.41, 'agrSource': 4, 'pstrWork':  2.2, 'pstrSource': 4},
+    "Mediterranean":    {'color':'#D13A0F', 'prmst':    1, 'frgWork': 0.20, 'frgSource':    4, 'agrWork': 5.01, 'agrSource': 3, 'pstrWork': 1.35, 'pstrSource': 3},
+    "Marine":           {'color':'#86f4a2', 'prmst':    1, 'frgWork': 0.80, 'frgSource':    4, 'agrWork':16.58, 'agrSource': 3, 'pstrWork':  0.8, 'pstrSource': 2},
+    "Humid":            {'color':'#25AB92', 'prmst':    1, 'frgWork': 0.25, 'frgSource':    3, 'agrWork':11.15, 'agrSource': 4, 'pstrWork':  0.8, 'pstrSource': 2},
+    "Taiga":            {'color':'#9AB3AD', 'prmst':    1, 'frgWork': 0.10, 'frgSource':    2, 'agrWork': 1.47, 'agrSource': 3, 'pstrWork':  0.2, 'pstrSource': 2},
+    "Tundra":           {'color':'#B1C4C0', 'prmst':    1, 'frgWork': 0.05, 'frgSource':    3, 'agrWork':  0.5, 'agrSource': 3, 'pstrWork':  0.2, 'pstrSource': 2},
 }
 
 #------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ tribes = {
 #==============================================================================
 # Resource harvesting Functions
 #------------------------------------------------------------------------------
-def getResource(biome, resType, workForce, knowledge):
+def getResource(biome, resType, workForce, knowledge, indWorkForce, indKnow):
     "Returns produced resource of <resType> for respective <biome> and <workforce> density and <knowledge>"
     
     # Ak som neposlal ziadnu workforce, vysledok je 0 resources pri 0 efektivite a 0 unused workforce
@@ -72,6 +72,9 @@ def getResource(biome, resType, workForce, knowledge):
     #--------------------------------------------------------------------------
     eff = res / workForce
     
+    if resType == 'agr':
+        res * ((indWorkForce * indKnow)+1)
+
     return (res, eff, unUsedForce)
 
 #------------------------------------------------------------------------------

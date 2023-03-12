@@ -201,7 +201,7 @@ class TTile:
         
         self.journal.O(f'{self.tileId}.clear: done')
         
-    #--------------------------------------------------------------------------
+    #----------------------------------------------------------------w----------
     def reset(self):
         "Resets history of this Tile into state in period 0"
     
@@ -434,11 +434,12 @@ class TTile:
             #------------------------------------------------------------------
             # Zber AGR resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
             #------------------------------------------------------------------
-            (res, eff, unu) = lib.getResource( self.biome, resType='agr', workForce=dens*prefs['agr'], knowledge=knows['agr'] )
+            (res, eff, unu, indEff) = lib.getResource( self.biome, resType='agr', workForce=dens*prefs['agr'], knowledge=knows['agr'], indWorkForce=dens*prefs['ind'], indKnow=knows['ind'])
             
             resrs['agr'] = res
             effs ['agr'] = eff
             unus ['agr'] = unu
+            effs ['ind'] = indEff
 
             #------------------------------------------------------------------
             # Zber PSTR resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
@@ -449,14 +450,6 @@ class TTile:
             effs ['pstr'] = eff
             unus ['pstr'] = unu
             
-            #------------------------------------------------------------------
-            # Zber IND resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
-            #------------------------------------------------------------------
-            (res, eff, unu) = lib.getResource( self.biome, resType='ind', workForce=dens*prefs['ind'], knowledge=knows['ind'] )
-            resrs['ind'] = res
-            effs ['ind'] = eff
-            unus ['ind'] = unu
-
             #------------------------------------------------------------------
             # Zapisem priebezne vypocty o ziskanych resources a efektivite do lastPeriod Tile
             #------------------------------------------------------------------
@@ -506,7 +499,6 @@ class TTile:
                     knowGains = lib.normSumDic(tradingKnows, _TRD_NORM)
 
                     resourcePoolDivision = {pair[0] : ((1 - _TRD_NORM)/2) + knowGains[pair[0]], pair[1] : ((1 - _TRD_NORM)/2) + knowGains[pair[1]]}
-                    #print(resourcePoolDivision)
 
                     lastPeriod['tribes'][pair[0]]['resrs']['trd'] = resourcePool * resourcePoolDivision[pair[0]]
                     lastPeriod['tribes'][pair[1]]['resrs']['trd'] = resourcePool * resourcePoolDivision[pair[1]]
@@ -543,6 +535,19 @@ class TTile:
 
         #----------------------------------------------------------------------
         self.journal.O()
+    
+    #--------------------------------------------------------------------------
+    def findNeighTiles(self, lastPeriod, oceanDistance):
+        totalNeighs = []
+        for neighTile in self.neighs:
+            if neighTile.biome != "Sea":
+                totalNeighs.append(neighTile)
+            else:
+                newNeighs = findNeighTiles(self, lastPeriod, oceanDistance-1)
+                for neighTile in newNeighs:
+                    totalNeighs.append(neighTile)
+
+        return totalNeighs
     
     #--------------------------------------------------------------------------
     def evaluateDensity(self, lastPeriod, simPeriod):
@@ -641,7 +646,7 @@ class TTile:
         for tribeId, tribeObj in lastPeriod['tribes'].items():
             
             # Vstupne hodnoty
-            resrTot = tribeObj['resrs']['frg'] + tribeObj['resrs']['agr'] + tribeObj['resrs']['pstr'] +  tribeObj['resrs']['ind'] + tribeObj['resrs']['trd'] + tribeObj['resrs']['war']
+            resrTot = tribeObj['resrs']['frg'] + tribeObj['resrs']['agr'] + tribeObj['resrs']['pstr'] + tribeObj['resrs']['trd'] + tribeObj['resrs']['war']
 
             # Zacinam simulaciu s povodnym obyvatelstvom z predchadzajucej periody
             densSim = tribeObj['density']
@@ -688,6 +693,11 @@ class TTile:
             #------------------------------------------------------------------
             # Emigracia do vsetkych susednych Tiles
             #------------------------------------------------------------------
+            oceanDistance = (tribeObj['preference']['ind'] + tribeObj['preference']['sci']) * densSim * (1 + tribeObj['knowledge']['ind'] + tribeObj['knowledge']['sci'])
+            #print(oceanDistance)
+            #totalNeighs = findNeighTiles(self, lastPeriod, oceanDistance)
+
+
             densEmig = 0
             for neighTile in self.neighs:
                 
@@ -746,12 +756,10 @@ class TTile:
                 
                 simPeriodTribe = self.getPeriodTribe(period, tribeId, tribeObj)
                 simPeriodTribe['density'] += densSim
-
-            #print(tribeObj['denses']['stres'])
-
+                
         #------------------------------------------------------------------
         self.journal.O()
-
+    
     #--------------------------------------------------------------------------
     def evaluateDisposition(self, lastPeriod, simPeriod):
         #----------------------------------------------------------------------
@@ -811,11 +819,9 @@ class TTile:
                 simPeriod['tribes'][pair[1]]['wars'][pair[0]] = lastWar
                 simPeriod['tribes'][pair[0]]['trades'][pair[1]] = lastTrade
                 simPeriod['tribes'][pair[1]]['trades'][pair[0]] = lastTrade
-                
-                #print("-----------------------------------------------------------\n", lastPeriod['tribes'][pair[0]]['effs'])
+
                 lastPeriod['tribes'][pair[0]]['effs']['dpl'] = (lastDisp['disp'] - baseDisp) / lastPeriod['tribes'][pair[0]]['preference']['dpl']
                 lastPeriod['tribes'][pair[1]]['effs']['dpl'] = (lastDisp['disp'] - baseDisp) / lastPeriod['tribes'][pair[1]]['preference']['dpl']
-                #print(lastPeriod['tribes'][pair[0]]['effs'])
         #------------------------------------------------------------------     
         self.journal.O()
     
@@ -965,7 +971,6 @@ class TTile:
                 if unus['frg'] > _PREF_UNUS_LIMIT: prefs['frg'] -= _PREF_BY_UNUS
                 if unus['pstr']> _PREF_UNUS_LIMIT: prefs['pstr']-= _PREF_BY_UNUS
                 if unus['agr'] > _PREF_UNUS_LIMIT: prefs['agr'] -= _PREF_BY_UNUS
-                if unus['ind'] > _PREF_UNUS_LIMIT: prefs['ind'] -= _PREF_BY_UNUS     
 
                 #--------------------------------------------------------------
                 # Zvysovanie produkcie jedla a znizovanie  kôli nedostatku
@@ -1167,4 +1172,4 @@ print('TTile ver 1.01')
 
 #==============================================================================
 #                              END OF FILE
-#------------------------------------------------------------------------------
+#------------------------------------------------------------------------------self.history
