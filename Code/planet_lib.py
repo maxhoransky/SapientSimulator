@@ -47,11 +47,11 @@ tribes = {
 #==============================================================================
 # Resource harvesting Functions
 #------------------------------------------------------------------------------
-def getResource(biome, resType, workForce, knowledge, indWorkForce, indKnow):
+def getResource(biome, resType, workForce, knowledge, indWorkForce=0, indKnow=0):
     "Returns produced resource of <resType> for respective <biome> and <workforce> density and <knowledge>"
     
     # Ak som neposlal ziadnu workforce, vysledok je 0 resources pri 0 efektivite a 0 unused workforce
-    if workForce == 0: return (0, 0, 0)
+    if workForce == 0: return (0, 0, 0, 0)
     
     #--------------------------------------------------------------------------
     # Urcim skutocne vyuzitu pracovnu silu - je to maximalne vyuzitelna workoforce na biome
@@ -73,9 +73,16 @@ def getResource(biome, resType, workForce, knowledge, indWorkForce, indKnow):
     eff = res / workForce
     
     if resType == 'agr':
-        res * ((indWorkForce * indKnow)+1)
+        baseRes = res
+        res *= (indWorkForce * indKnow)+1
 
-    return (res, eff, unUsedForce)
+        indEff = res/baseRes
+        retTuple = (res, eff, unUsedForce, indEff)
+
+    else:
+        retTuple = (res, eff, unUsedForce)
+    
+    return (retTuple)
 
 #------------------------------------------------------------------------------
 def getMaxResource(biome, resType):

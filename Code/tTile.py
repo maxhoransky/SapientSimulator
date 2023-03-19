@@ -425,30 +425,29 @@ class TTile:
             #------------------------------------------------------------------
             # Zber FRG resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
             #------------------------------------------------------------------
-            (res, eff, unu) = lib.getResource( self.biome, resType='frg', workForce=dens*prefs['frg'], knowledge=knows['frg'] )
+            retTuple = lib.getResource( self.biome, resType='frg', workForce=dens*prefs['frg'], knowledge=knows['frg'] )
             
-            resrs['frg'] = res
-            effs ['frg'] = eff
-            unus ['frg'] = unu
+            resrs['frg'] = retTuple[0]
+            effs ['frg'] = retTuple[1]
+            unus ['frg'] = retTuple[2]
             
             #------------------------------------------------------------------
             # Zber AGR resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
             #------------------------------------------------------------------
-            (res, eff, unu, indEff) = lib.getResource( self.biome, resType='agr', workForce=dens*prefs['agr'], knowledge=knows['agr'], indWorkForce=dens*prefs['ind'], indKnow=knows['ind'])
-            
-            resrs['agr'] = res
-            effs ['agr'] = eff
-            unus ['agr'] = unu
-            effs ['ind'] = indEff
+            retTuple = lib.getResource( self.biome, resType='agr', workForce=dens*prefs['agr'], knowledge=knows['agr'], indWorkForce=dens*prefs['ind'], indKnow=knows['ind'])
+            resrs['agr'] = retTuple[0]
+            effs ['agr'] = retTuple[1]
+            unus ['agr'] = retTuple[2]
+            effs ['ind'] = retTuple[3]
 
             #------------------------------------------------------------------
             # Zber PSTR resources - zlomok podla pomeru density Tribe voci celkovej densite na Tile
             #------------------------------------------------------------------
-            (res, eff, unu) = lib.getResource( self.biome, resType='pstr', workForce=dens*prefs['pstr'], knowledge=knows['pstr'] )
+            retTuple = lib.getResource( self.biome, resType='pstr', workForce=dens*prefs['pstr'], knowledge=knows['pstr'] )
             
-            resrs['pstr'] = res
-            effs ['pstr'] = eff
-            unus ['pstr'] = unu
+            resrs['pstr'] = retTuple[0]
+            effs ['pstr'] = retTuple[1]
+            unus ['pstr'] = retTuple[2]
             
             #------------------------------------------------------------------
             # Zapisem priebezne vypocty o ziskanych resources a efektivite do lastPeriod Tile
@@ -586,6 +585,13 @@ class TTile:
                 if pair[1] in lastPeriod['tribes'][pair[0]]['disp'] and lastPeriod['tribes'][pair[0]]['wars'][pair[1]] == True:
                     armySize = [lastPeriod['tribes'][pair[0]]['density'] * lastPeriod['tribes'][pair[0]]['preference']['war'], lastPeriod['tribes'][pair[1]]['density'] * lastPeriod['tribes'][pair[1]]['preference']['war']]
                     armyPower = [armySize[0] * (lastPeriod['tribes'][pair[0]]['knowledge']['war'] + 1), armySize[1] * (lastPeriod['tribes'][pair[1]]['knowledge']['war'] + 1)]
+                    preIndPower = armyPower
+                    armyPower[0] *= ((lastPeriod['tribes'][pair[0]]['density'] * lastPeriod['tribes'][pair[0]]['preference']['ind']) * (lastPeriod['tribes'][pair[1]]['knowledge']['ind'])) + 1
+                    armyPower[1] *= ((lastPeriod['tribes'][pair[1]]['density'] * lastPeriod['tribes'][pair[1]]['preference']['ind']) * (lastPeriod['tribes'][pair[1]]['knowledge']['ind'])) + 1
+                    lastPeriod['tribes'][pair[0]]['effs']['ind'] += armyPower[0]/preIndPower[0]
+                    lastPeriod['tribes'][pair[1]]['effs']['ind'] += armyPower[1]/preIndPower[1]
+
+                    
                     if armyPower[0] > armyPower [1]:
                         # Vyhercovia vojny zoberu zdroje porazenim
                         ResrsGained = (armyPower[0] - armyPower[1]) * _WAR_RSRS_EFF
@@ -694,7 +700,8 @@ class TTile:
             # Emigracia do vsetkych susednych Tiles
             #------------------------------------------------------------------
             oceanDistance = (tribeObj['preference']['ind'] + tribeObj['preference']['sci']) * densSim * (1 + tribeObj['knowledge']['ind'] + tribeObj['knowledge']['sci'])
-            #print(oceanDistance)
+            print(oceanDistance)
+            
             #totalNeighs = findNeighTiles(self, lastPeriod, oceanDistance)
 
 
@@ -895,7 +902,7 @@ class TTile:
 
             if tribeObj['denses']['densSim'] > 0:
                 
-                print(tribeObj['effs'])
+                #print(tribeObj['effs'])
 
                 #--------------------------------------------------------------
                 # Zizkam cielovu periodu pre tribId kam budem zapisovat vysledky
