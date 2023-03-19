@@ -541,11 +541,11 @@ class TTile:
         for neighTile in self.neighs:
             if neighTile.biome != "Sea":
                 totalNeighs.append(neighTile)
-            else:
-                newNeighs = findNeighTiles(self, lastPeriod, oceanDistance-1)
+            elif oceanDistance > 0:
+                newNeighs = self.findNeighTiles(lastPeriod, oceanDistance-1)
                 for neighTile in newNeighs:
                     totalNeighs.append(neighTile)
-
+        
         return totalNeighs
     
     #--------------------------------------------------------------------------
@@ -700,10 +700,10 @@ class TTile:
             # Emigracia do vsetkych susednych Tiles
             #------------------------------------------------------------------
             oceanDistance = (tribeObj['preference']['ind'] + tribeObj['preference']['sci']) * densSim * (1 + tribeObj['knowledge']['ind'] + tribeObj['knowledge']['sci'])
-            #print(oceanDistance)
+            print(oceanDistance)
             
-            totalNeighs = findNeighTiles(self, lastPeriod, oceanDistance)
-
+            totalNeighs = self.findNeighTiles(lastPeriod, oceanDistance)
+            print(totalNeighs)
 
             densEmig = 0
             for neighTile in self.neighs:
