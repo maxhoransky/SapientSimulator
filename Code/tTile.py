@@ -35,7 +35,7 @@ _DISP_STRESS      = 0.6  # Koeficient znizovania dispozicie kvoli stresu
 
 _KNOW_GROWTH      = 1.05  # Koeficient zvysenia knowledge ak jej tribe venuje pozornostS
 _KNOW_GROWTH_SCI  = 0.05  # How much does science help speed up research
-_KNOW_LIMIT       = 0.3   # Hranica pozornosti, pri ktorej sa knowledge zvysuje
+_KNOW_LIMIT       = 0.2   # Hranica pozornosti, pri ktorej sa knowledge zvysuje
 _KNOW_DECAY       = 0.95  # Koeficient zabudania knowledge ak jej tribe nevenuje pozornost
 _KNOW_MIN         = 0.1   # Minimalna hodnota znalosti uplnych divochov
 
@@ -700,9 +700,9 @@ class TTile:
             # Emigracia do vsetkych susednych Tiles
             #------------------------------------------------------------------
             oceanDistance = (tribeObj['preference']['ind'] + tribeObj['preference']['sci']) * densSim * (1 + tribeObj['knowledge']['ind'] + tribeObj['knowledge']['sci'])
-            print(oceanDistance)
+            #print(oceanDistance)
             
-            #totalNeighs = findNeighTiles(self, lastPeriod, oceanDistance)
+            totalNeighs = findNeighTiles(self, lastPeriod, oceanDistance)
 
 
             densEmig = 0
@@ -912,53 +912,62 @@ class TTile:
                 #--------------------------------------------------------------
                 # Zmena knowledge podla miery preferencii = pozornosti, ktory tribe venoval oblasti
                 #--------------------------------------------------------------
-                knowBaseGain = 0
-                knowGain = 0
+                knowBaseGain = 1
+                knowGain = 1
 
                 know = self.knowledgeChange(tribeObj, 'frg')          
                 simPeriodTribe['knowledge']['frg'] = know[0]
-                knowBaseGain += know[1]
-                knowGain += know[2]
+                if know[1] > 0:
+                    knowBaseGain += know[1]
+                    knowGain += know[2]
 
                 know = self.knowledgeChange(tribeObj, 'agr')
                 simPeriodTribe['knowledge']['agr'] = know[0]
-                knowBaseGain += know[1]
-                knowGain += know[2]
+                if know[1] > 0:
+                    knowBaseGain += know[1]
+                    knowGain += know[2]
 
                 know = self.knowledgeChange(tribeObj, 'pstr')
                 simPeriodTribe['knowledge']['pstr'] = know[0]
-                knowBaseGain += know[1]
-                knowGain += know[2]
+                if know[1] > 0:
+                    knowBaseGain += know[1]
+                    knowGain += know[2]
 
                 know = self.knowledgeChange(tribeObj, 'ind')
                 simPeriodTribe['knowledge']['ind'] = know[0]
-                knowBaseGain += know[1]
-                knowGain += know[2]
+                if know[1] > 0:
+                    knowBaseGain += know[1]
+                    knowGain += know[2]
 
                 know = self.knowledgeChange(tribeObj, 'sci')
                 simPeriodTribe['knowledge']['sci'] = know[0]
-                knowBaseGain += know[1]
-                knowGain += know[2]
+                if know[1] > 0:
+                    knowBaseGain += know[1]
+                    knowGain += know[2]
 
                 know = self.knowledgeChange(tribeObj, 'rlg')
                 simPeriodTribe['knowledge']['rlg'] = know[0]
-                knowBaseGain += know[1]
-                knowGain += know[2]
+                if know[1] > 0:
+                    knowBaseGain += know[1]
+                    knowGain += know[2]
 
                 know = self.knowledgeChange(tribeObj, 'war')
                 simPeriodTribe['knowledge']['war'] = know[0]
-                knowBaseGain += know[1]
-                knowGain += know[2]
+                if know[1] > 0:
+                    knowBaseGain += know[1]
+                    knowGain += know[2]
                 
                 know = self.knowledgeChange(tribeObj, 'trd')
                 simPeriodTribe['knowledge']['trd'] = know[0]
-                knowBaseGain += know[1]
-                knowGain += know[2]
+                if know[1] > 0:
+                    knowBaseGain += know[1]
+                    knowGain += know[2]
 
                 know = self.knowledgeChange(tribeObj, 'dpl')
                 simPeriodTribe['knowledge']['dpl'] = know[0]
-                knowBaseGain += know[1]
-                knowGain += know[2]
+                if know[1] > 0:
+                    knowBaseGain += know[1]
+                    knowGain += know[2]
                 
                 #--------------------------------------------------------------
                 # Preberanie knowledge od vyspelejsich tribe
@@ -995,7 +1004,7 @@ class TTile:
                 #--------------------------------------------------------------
                 # Zvysovanie vedy kvoli vyzkumu
                 #--------------------------------------------------------------
-                prefs['sci'] *= (knowBaseGain/(1 + prefs['rlg'])) + 1
+                prefs['sci'] *= ((knowBaseGain/(1 + prefs['rlg'])))/4 + 1
                 tribeObj['effs']['sci'] = knowGain/knowBaseGain
 
                 #--------------------------------------------------------------
@@ -1035,7 +1044,6 @@ class TTile:
                 simPeriodTribe['preference']['war'] = prefs['war']
                 simPeriodTribe['preference']['trd'] = prefs['trd']
                 simPeriodTribe['preference']['dpl'] = prefs['dpl']
-                
             #------------------------------------------------------------------
             # Koniec podmienky na nenulovu densitu
             #------------------------------------------------------------------
