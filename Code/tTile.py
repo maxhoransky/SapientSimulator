@@ -539,12 +539,14 @@ class TTile:
     def findNeighTiles(self, lastPeriod, oceanDistance):
         totalNeighs = []
         for neighTile in self.neighs:
-            if neighTile.biome != "Sea":
-                totalNeighs.append(neighTile)
-            elif oceanDistance > 0:
-                newNeighs = self.findNeighTiles(lastPeriod, oceanDistance-1)
-                for neighTile in newNeighs:
+            if neighTile not in totalNeighs:
+                if neighTile.biome != "Sea":
                     totalNeighs.append(neighTile)
+                elif oceanDistance > 0:
+                    newNeighs = self.findNeighTiles(lastPeriod, oceanDistance-1)
+                    for neighTile in newNeighs:
+                        if neighTile not in totalNeighs:
+                            totalNeighs.append(neighTile)
         
         return totalNeighs
     

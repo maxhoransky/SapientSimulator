@@ -97,6 +97,23 @@ def getMaxWork(biome, resType):
     return biomes[biome][f'{resType}Work']
     
 #==============================================================================
+# Ocean Travel Functions
+#------------------------------------------------------------------------------
+def scoreToTravelDist(score):
+    if score < 0:
+        travelDistance = 0
+    elif score < 1:
+        travelDistance = 1
+    elif score < 0:
+        travelDistance = 0
+    elif score < 0:
+        travelDistance = 0
+    elif score < 0:
+        travelDistance = 0
+
+    return travelDistance
+
+#==============================================================================
 # Color Functions
 #------------------------------------------------------------------------------
 def getBiomeColor(targetBiome):
