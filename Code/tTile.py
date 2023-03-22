@@ -536,21 +536,6 @@ class TTile:
         self.journal.O()
     
     #--------------------------------------------------------------------------
-    def findNeighTiles(self, lastPeriod, oceanDistance):
-        totalNeighs = []
-        for neighTile in self.neighs:
-            if neighTile not in totalNeighs:
-                if neighTile.biome != "Sea":
-                    totalNeighs.append(neighTile)
-                elif oceanDistance > 0:
-                    newNeighs = self.findNeighTiles(lastPeriod, oceanDistance-1)
-                    for neighTile in newNeighs:
-                        if neighTile not in totalNeighs:
-                            totalNeighs.append(neighTile)
-        
-        return totalNeighs
-    
-    #--------------------------------------------------------------------------
     def evaluateDensity(self, lastPeriod, simPeriod):
         "Evaluates population density per Tribe based on earned resources and emigration"
 
@@ -701,8 +686,10 @@ class TTile:
             #------------------------------------------------------------------
             # Emigracia do vsetkych susednych Tiles
             #------------------------------------------------------------------
-            oceanDistance = (tribeObj['preference']['ind'] + tribeObj['preference']['sci']) * densSim * (1 + tribeObj['knowledge']['ind'] + tribeObj['knowledge']['sci'])
-            print(oceanDistance)
+            oceanScore = (tribeObj['preference']['ind'] + tribeObj['preference']['sci']) * densSim * (1 + tribeObj['knowledge']['ind'] + tribeObj['knowledge']['sci'])
+            oceanScore *= 100
+            oceanDistance = lib.scoreToTravelDist(oceanScore)
+            print(oceanScore, oceanDistance)
             
             totalNeighs = self.findNeighTiles(lastPeriod, oceanDistance)
             print(totalNeighs)
@@ -768,6 +755,21 @@ class TTile:
                 
         #------------------------------------------------------------------
         self.journal.O()
+    
+    #--------------------------------------------------------------------------
+    def findNeighTiles(self, lastPeriod, oceanDistance):
+        totalNeighs = []
+        for neighTile in self.neighs:
+            if neighTile not in totalNeighs:
+                if neighTile.biome != "Sea":
+                    totalNeighs.append(neighTile)
+                elif oceanDistance > 0:
+                    newNeighs = self.findNeighTiles(lastPeriod, oceanDistance-1)
+                    for neighTile in newNeighs:
+                        if neighTile not in totalNeighs:
+                            totalNeighs.append(neighTile)
+        
+        return totalNeighs
     
     #--------------------------------------------------------------------------
     def evaluateDisposition(self, lastPeriod, simPeriod):

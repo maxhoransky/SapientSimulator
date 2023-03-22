@@ -104,12 +104,14 @@ def scoreToTravelDist(score):
         travelDistance = 0
     elif score < 1:
         travelDistance = 1
-    elif score < 0:
-        travelDistance = 0
-    elif score < 0:
-        travelDistance = 0
-    elif score < 0:
-        travelDistance = 0
+    elif score < 3:
+        travelDistance = 3
+    elif score < 7:
+        travelDistance = 10
+    elif score < 15:
+        travelDistance = 50
+    else:
+        travelDistance = 1000
 
     return travelDistance
 
