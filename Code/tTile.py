@@ -691,8 +691,13 @@ class TTile:
             oceanDistance = lib.scoreToTravelDist(oceanScore)
             print(oceanScore, oceanDistance)
             
-            totalNeighs = self.findNeighTiles(lastPeriod, oceanDistance)
+            totalNeighs = [self]
+            self.findNeighTiles(lastPeriod, self, 5, totalNeighs)
+            totalNeighs.remove(self)
             print(totalNeighs)
+
+            #for nieghTile in totalNeighs:
+
 
             densEmig = 0
             for neighTile in self.neighs:
@@ -757,20 +762,15 @@ class TTile:
         self.journal.O()
     
     #--------------------------------------------------------------------------
-    def findNeighTiles(self, lastPeriod, oceanDistance):
-        totalNeighs = []
-        for neighTile in self.neighs:
-            if neighTile not in totalNeighs:
+    def findNeighTiles(self, lastPeriod, startTile, oceanDistance, tilesList):
+        for neighTile in startTile.neighs:
+            if neighTile not in tilesList:      
                 if neighTile.biome != "Sea":
-                    totalNeighs.append(neighTile)
+                    tilesList.append(neighTile)
                 elif oceanDistance > 0:
-                    newNeighs = self.findNeighTiles(lastPeriod, oceanDistance-1)
-                    for neighTile in newNeighs:
-                        if neighTile not in totalNeighs:
-                            totalNeighs.append(neighTile)
-        
-        return totalNeighs
-    
+                    self.findNeighTiles(lastPeriod, neighTile, oceanDistance-1, tilesList)
+        return
+           
     #--------------------------------------------------------------------------
     def evaluateDisposition(self, lastPeriod, simPeriod):
         #----------------------------------------------------------------------
