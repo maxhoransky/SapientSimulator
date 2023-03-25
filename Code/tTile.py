@@ -691,52 +691,58 @@ class TTile:
             oceanDistance = lib.scoreToTravelDist(oceanScore)
             print(oceanScore, oceanDistance)
             
-            totalNeighs = [self]
-            self.findNeighTiles(lastPeriod, self, 5, totalNeighs)
-            totalNeighs.remove(self)
-            print(totalNeighs)
+            totalNeighs = self.findNeighTiles(lastPeriod, oceanDistance)
 
-            #for nieghTile in totalNeighs:
+            
+            toDel = []
+            for tileName in totalNeighs.keys():
+                if random.randint(1, 10) != 1:
+                    toDel.append(tileName)
+            
+            for tileName in toDel:
+                totalNeighs.pop(tileName)
 
+            emigDivision = lib.normSumDic(totalNeighs, 1)
+
+            print(emigDivision)
 
             densEmig = 0
-            for neighTile in self.neighs:
-                
-                #--------------------------------------------------------------
-                # Ak susedna Tile nie je more
-                #--------------------------------------------------------------
-                if neighTile.biome != "Sea":
-                
-                    #----------------------------------------------------------
-                    #Hustota tohto Tribeu u susedov v last period
-                    #----------------------------------------------------------
-                    densNeigh = neighTile.getPeriodDens(period-1, tribeId)
-                
-                    #----------------------------------------------------------
-                    # Ak je u nas vacsia densita naseho Tribe ako u susedov
-                    #----------------------------------------------------------
-                    if densSim > densNeigh: 
-                    
-                        #------------------------------------------------------
-                        # Emigracia do susedneho tribe
-                        #------------------------------------------------------
-                        emig      = _STRES_EMIG * strsTot * (densSim-densNeigh)
-                        densEmig += emig
-                    
-                        #------------------------------------------------------
-                        # Ziskam vlastnosti svojho tribe v susednej Tile
-                        #------------------------------------------------------
-                        neighTribe = neighTile.getPeriodTribe(period, tribeId, tribeObj)
 
-                        #------------------------------------------------------
-                        # Pridam emigrovanych do susednej Tile v sim period
-                        #------------------------------------------------------
-                        neighTribe['density'] += emig
+
+
+            for neighTile in emigDivision:
+                
+                #----------------------------------------------------------
+                #Hustota tohto Tribeu u susedov v last period
+                #----------------------------------------------------------
+                densNeigh = neighTile.getPeriodDens(period-1, tribeId)
+            
+                #----------------------------------------------------------
+                # Ak je u nas vacsia densita naseho Tribe ako u susedov
+                #----------------------------------------------------------
+                if densSim > densNeigh: 
+                
+                    #------------------------------------------------------
+                    # Emigracia do susedneho tribe
+                    #------------------------------------------------------
+                    emig      = _STRES_EMIG * strsTot * (densSim-densNeigh)
+                    densEmig += emig
+                    
+                    #------------------------------------------------------
+                    # Ziskam vlastnosti svojho tribe v susednej Tile
+                    #------------------------------------------------------
+                    neighTribe = neighTile.getPeriodTribe(period, tribeId, tribeObj)
+
+                    #------------------------------------------------------
+                    # Pridam emigrovanych do susednej Tile v sim period
+                    #------------------------------------------------------
+                    neighTribe['density'] += emig
 
             #------------------------------------------------------------------
             # Ubytok populacie nasledkom celkove emigracie
             #------------------------------------------------------------------
             densSim -= densEmig
+            print(densEmig)
 
             #------------------------------------------------------------------
             # Zapisem priebezne vypocty do lastPeriod
@@ -762,14 +768,27 @@ class TTile:
         self.journal.O()
     
     #--------------------------------------------------------------------------
-    def findNeighTiles(self, lastPeriod, startTile, oceanDistance, tilesList):
-        for neighTile in startTile.neighs:
-            if neighTile not in tilesList:      
-                if neighTile.biome != "Sea":
-                    tilesList.append(neighTile)
-                elif oceanDistance > 0:
-                    self.findNeighTiles(lastPeriod, neighTile, oceanDistance-1, tilesList)
-        return
+    def findNeighTiles(self, lastPeriod, oceanDistance):
+        maxDistance = oceanDistance + 1
+
+        tilesList = [self]
+        edgeTiles = [self]
+        neighTiles = {}
+
+        while oceanDistance > 0:
+            newEdges = []
+            for edgeTile in edgeTiles:
+                for neighTile in edgeTile.neighs:
+                    if neighTile not in tilesList: 
+                        tilesList.append(neighTile)
+                        if neighTile.biome != "Sea":
+                            neighTiles[neighTile] = maxDistance - oceanDistance
+                        elif oceanDistance > 0:
+                            newEdges.append(neighTile)
+            edgeTiles = newEdges
+            oceanDistance -= 1
+       
+        return neighTiles
            
     #--------------------------------------------------------------------------
     def evaluateDisposition(self, lastPeriod, simPeriod):
