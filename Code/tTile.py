@@ -17,7 +17,8 @@ _DENS_GROWTH      = 0.2   # Koeficient prirodzeneho prirastku populacie
 _STRES_MIN        = 0.1   # Zakladna miera stresu populacie
 _STRES_MAX        = 0.8   # Maximalna miera stresu populacie
 _RLG_STRESS_AVERT = 0.2   # Koeficient znizovania stresu kvoli nabozenstvu
-_STRES_EMIG       = 0.2   # Koeficient emigracie kvoli stresu
+_STRES_EMIG       = 0.4   # Koeficient emigracie kvoli stresu
+_AVAILIBLE_EMIG   = 0.15   # Koeficient emigraci kvoli poctu policok kam idu emigrovat
 
 _STRES_WAR        = 0.8   # Koeficient stresu zo smrti vojakov
 _STRES_WAR_END    = 0.7   # Koeficient ako velmi zvacsuje stres sancu zrusit vojnu
@@ -688,8 +689,11 @@ class TTile:
             #------------------------------------------------------------------
             oceanScore = (tribeObj['preference']['ind'] + tribeObj['preference']['sci']) * densSim * (1 + tribeObj['knowledge']['ind'] + tribeObj['knowledge']['sci'])
             oceanScore *= 100
+            oceanScore *= oceanScore
+            oceanScore /= 100
+
             oceanDistance = lib.scoreToTravelDist(oceanScore)
-            print(oceanScore, oceanDistance)
+            #print(oceanScore, oceanDistance)
             
             totalNeighs = self.findNeighTiles(lastPeriod, oceanDistance)
 
@@ -704,11 +708,9 @@ class TTile:
 
             emigDivision = lib.normSumDic(totalNeighs, 1)
 
-            print(emigDivision)
+            densEmig = (_STRES_EMIG * strsTot) * (1 + (_AVAILIBLE_EMIG * len(emigDivision)))
 
-            densEmig = 0
-
-
+            tempEmigDivision = {}
 
             for neighTile in emigDivision:
                 
@@ -725,18 +727,21 @@ class TTile:
                     #------------------------------------------------------
                     # Emigracia do susedneho tribe
                     #------------------------------------------------------
-                    emig      = _STRES_EMIG * strsTot * (densSim-densNeigh)
-                    densEmig += emig
+                    tempEmigDivision[neighTile] = emigDivision[neighTile] * (densSim-densNeigh)
                     
-                    #------------------------------------------------------
-                    # Ziskam vlastnosti svojho tribe v susednej Tile
-                    #------------------------------------------------------
-                    neighTribe = neighTile.getPeriodTribe(period, tribeId, tribeObj)
+            densEmigDivision = lib.normSumDic(tempEmigDivision, 1)
 
-                    #------------------------------------------------------
-                    # Pridam emigrovanych do susednej Tile v sim period
-                    #------------------------------------------------------
-                    neighTribe['density'] += emig
+            for neighTile in densEmigDivision:
+            
+                #------------------------------------------------------
+                # Ziskam vlastnosti svojho tribe v susednej Tile
+                #------------------------------------------------------
+                neighTribe = neighTile.getPeriodTribe(period, tribeId, tribeObj)
+
+                #------------------------------------------------------
+                # Pridam emigrovanych do susednej Tile v sim period
+                #------------------------------------------------------
+                neighTribe['density'] += densEmigDivision[neighTile] * densEmig
 
             #------------------------------------------------------------------
             # Ubytok populacie nasledkom celkove emigracie
