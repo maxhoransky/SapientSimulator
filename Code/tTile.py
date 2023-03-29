@@ -489,8 +489,8 @@ class TTile:
                 if pair[1] in lastPeriod['tribes'][pair[0]]['disp'] and lastPeriod['tribes'][pair[0]]['trades'][pair[1]] == True:
                     disp = lastPeriod['tribes'][pair[0]]['disp'][pair[1]]['disp']
                     resrTot = [0, 0]
-                    resrTot[0] = lastPeriod['tribes'][pair[0]]['resrs']['frg'] + lastPeriod['tribes'][pair[0]]['resrs']['agr'] + lastPeriod['tribes'][pair[0]]['resrs']['pstr'] +  lastPeriod['tribes'][pair[0]]['resrs']['ind']
-                    resrTot[1] = lastPeriod['tribes'][pair[1]]['resrs']['frg'] + lastPeriod['tribes'][pair[1]]['resrs']['agr'] + lastPeriod['tribes'][pair[1]]['resrs']['pstr'] +  lastPeriod['tribes'][pair[1]]['resrs']['ind']
+                    resrTot[0] = lastPeriod['tribes'][pair[0]]['resrs']['frg'] + lastPeriod['tribes'][pair[0]]['resrs']['agr'] + lastPeriod['tribes'][pair[0]]['resrs']['pstr']
+                    resrTot[1] = lastPeriod['tribes'][pair[1]]['resrs']['frg'] + lastPeriod['tribes'][pair[1]]['resrs']['agr'] + lastPeriod['tribes'][pair[1]]['resrs']['pstr']
                     resourcePool = (resrTot[0] * lastPeriod['tribes'][pair[0]]['preference']['trd']) + (resrTot[1] * lastPeriod['tribes'][pair[1]]['preference']['trd'])
                     resourcePool *= (2 + lastPeriod['tribes'][pair[0]]['knowledge']['trd'] + lastPeriod['tribes'][pair[1]]['knowledge']['trd']) / 2
                     resourcePool *= _TRD_BONUS + 1
